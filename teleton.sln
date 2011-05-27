@@ -17,7 +17,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "teleton", "teleton\", "{DCA72243-B99F-488F-AF6E-28CED004330E}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{2F435D67-818E-40F9-A887-9D703B01CA67}|BL.dll;"
+		ProjectReferences = "{2F435D67-818E-40F9-A887-9D703B01CA67}|BL.dll;{4DCB29C4-B661-4BC7-BC44-BF8BBF3A809A}|DataAccess.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/teleton(1)"
 		Debug.AspNetCompiler.PhysicalPath = "teleton\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\teleton(1)\"
