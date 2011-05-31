@@ -77,7 +77,7 @@ namespace BL
             }
         }
 
-        public void editarRol(int identity, string description, List<string> grants, List<string> revokes)
+        public void editarRol(long identity, string description, List<string> grants, List<string> revokes)
         {
             try
             {

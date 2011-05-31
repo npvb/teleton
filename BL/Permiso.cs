@@ -12,23 +12,10 @@ namespace BL
     public class Permiso
     {
         #region variables
-        DataAccess.teletonEntities entidad;
-        private String nombre;
-        private String descripcion;
+        DataAccess.teletonEntities entidad;        
         #endregion
 
-        #region gets y sets
-        public String nombrePermiso
-        {
-            get { return nombre;}
-            set { nombre = value; }
-        }
-
-        public String descripcionPermiso
-        {
-            get { return descripcion;}
-            set { descripcion = value; }
-        }
+        #region gets y sets        
         #endregion
 
         #region constructores
@@ -36,28 +23,7 @@ namespace BL
         {
             try
             {
-                entidad = new teletonEntities();
-                nombre = descripcion = "";                
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.ToString() + " --PERMISO!!!");
-            }
-        }
-
-        public Permiso(string name)
-        {
-            try
-            {     
-                entidad = new teletonEntities();
-
-                var query = from per in entidad.permisos        // alias de tabla
-                            where per.id == name    //filtro
-                            select per;                         //proyeccion
-
-                DataAccess.permiso permisoTMP = query.First();
-                nombre = permisoTMP.id;
-                descripcion = permisoTMP.descripcion;
+                entidad = new teletonEntities();               
             }
             catch (Exception e)
             {
@@ -66,17 +32,67 @@ namespace BL
         }        
         #endregion
 
-        public List<string> getPermisos()
+        public List<string> getPermisosID()
         {
             try
             {
-                List<string> pers; //= new List<string>();
+                List<string> persID;
 
-                var allpers = from p in entidad.permisos
+                var allpersID = from p in entidad.permisos
                               select p.id;
 
-                pers = allpers.ToList();
-                return pers;
+                persID = allpersID.ToList();
+                return persID;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --PERMISO!!!");
+            }
+        }
+
+        public List<string> getPermisosDescripciones()
+        {
+            try
+            {
+                List<string> persDescripcion;
+
+                var allPersDescripcion = from p in entidad.permisos
+                                         select p.descripcion;
+
+                persDescripcion = allPersDescripcion.ToList();
+                return persDescripcion;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --PERMISO!!!");
+            }
+        }
+
+        public string getPermisoID(string description)
+        {
+            try
+            {
+                var perID = from p in entidad.permisos
+                            where p.descripcion == description
+                            select p.id;
+
+                return perID.First();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --PERMISO!!!");
+            }
+        }
+
+        public string getPermisoDescripcion(string identity)
+        {
+            try
+            {
+                var perDescripcion = from p in entidad.permisos
+                                     where p.id == identity
+                                     select p.descripcion;
+
+                return perDescripcion.First();
             }
             catch (Exception ex)
             {

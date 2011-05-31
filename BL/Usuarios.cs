@@ -20,7 +20,6 @@ namespace BL
         #region Constructor
         public Usuarios() {
             entities = new teletonEntities();
-        
         }
 
         #endregion

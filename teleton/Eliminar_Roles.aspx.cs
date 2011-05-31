@@ -14,9 +14,7 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         {
             if (!this.IsPostBack)
             {
-                BL.Rol rl = new Rol();
-                roles_CBList.DataSource = rl.getRoles();
-                roles_CBList.DataBind();
+                setCheckBoxes();
             }
         }
         catch (Exception ex)
@@ -30,13 +28,14 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         {
             AdministradordeSistema admin = new AdministradordeSistema();//tmp
             int count = 0;
+            BL.Rol rl = new Rol();
 
             foreach (ListItem it in roles_CBList.Items)
             {
                 if (it.Selected)
                 {
-                    admin.eliminarRol(long.Parse(it.Text));
-                    it.Enabled = it.Selected = false;
+                    long rolId = rl.getRolID((it.Text));
+                    admin.eliminarRol(rolId);
                     count++;
                 }
             }
@@ -49,6 +48,21 @@ public partial class Eliminar_Roles : System.Web.UI.Page
             {
                 Response.Write("<script>alert('Rol Eliminado')</script>");
             }
+            setCheckBoxes();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.ToString() + " --Eliminar Roles!");
+        }
+    }
+
+    private void setCheckBoxes()
+    {
+        try
+        {
+            BL.Rol rl = new Rol();
+            roles_CBList.DataSource = rl.getRolesDescripcion();
+            roles_CBList.DataBind();
         }
         catch (Exception ex)
         {

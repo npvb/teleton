@@ -10,14 +10,12 @@ public partial class Crear_Usuarios : System.Web.UI.Page
 {
     private BL.Usuarios USER = new BL.Usuarios();
 
-
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!this.IsPostBack) {
-
+        if (!this.IsPostBack) 
+        {
             CargarEmpleados();
-            CargarRoles();
-              
+            CargarRoles();              
         }
     }
     protected void btn_leftuserrol_Click(object sender, EventArgs e)

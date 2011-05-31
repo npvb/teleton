@@ -11,67 +11,18 @@ namespace BL
     public class Rol
     {
         #region variables
-        DataAccess.teletonEntities entidad;
-        private long id;
-        private string descripcion;
-        private List<string> permisos;
+        DataAccess.teletonEntities entidad;        
         #endregion
 
-        #region gets y sets
-        public long Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public string descripcionRol
-        {
-            get { return descripcion; }
-            set { descripcion = value; }
-        }
-
-        public List<string> permisosRol
-        {
-            get { return permisos; }
-            set { permisos = value; }
-        }
+        #region gets y sets        
         #endregion
 
-        #region constructores
-        public Rol(int identity)
-        {
-            try
-            {
-                entidad = new teletonEntities();
-                permisos = new List<string>();
-
-                var rolQuery = from rl in entidad.roles         // alias de tabla
-                            where rl.id == identity         //filtro
-                            select rl;                          //proyeccion
-                
-                DataAccess.role rolTMP = rolQuery.First();//el primer elemento del query
-                id = rolTMP.id;
-                descripcion = rolTMP.descripcion;
-
-                foreach (DataAccess.permiso per in rolTMP.permisos)
-                {
-                    permisos.Add(per.id);
-                }
-            } 
-            catch(Exception e)
-            {
-                throw new Exception(e.ToString() + " --ROL!!!");
-            }
-        }
-
+        #region constructores        
         public Rol()
         {
             try
             {
                 entidad = new teletonEntities();
-                permisos = new List<string>();
-                id = -1;
-                descripcion = "";
             }
             catch (Exception e)
             {
@@ -80,16 +31,14 @@ namespace BL
         }
         #endregion
 
-        public List<long> getRoles()
+        public List<long> getRolesID()
         {
             try
             {
-                List<long> rols;
-
-                var allRols = from r in entidad.roles
+                var allRolsID = from r in entidad.roles
                               select r.id;
-                rols = allRols.ToList();
-                return rols;
+
+                return allRolsID.ToList();
             }
             catch (Exception ex)
             {
@@ -97,15 +46,99 @@ namespace BL
             }
         }
 
-        /*List<string> otrosPermisos()
+        public List<string> getRolesDescripcion()
         {
             try
             {
-                //List<string> elsePers = new List<string>();                
+                var allRolsDesc = from r in entidad.roles
+                                  select r.descripcion;
+                return allRolsDesc.ToList();
             }
             catch (Exception ex)
             {
+                throw new Exception(ex.ToString() + " --ROL!!!");
             }
-        }*/
+        }
+
+        public long getRolID(string descripcion)
+        {
+            try
+            {
+                var rolID = from r in entidad.roles
+                            where r.descripcion == descripcion
+                            select r.id;
+                
+                return rolID.First();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --ROL!!!");
+            }
+        }
+
+        public string getRolDescripcion(long identity)
+        {
+            try
+            {
+                var rolDesc = from r in entidad.roles
+                              where r.id == identity
+                              select r.descripcion;
+                return rolDesc.First();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --ROL!!!");
+            }
+        }
+
+        public List<string> getRolPermisos(long identity)
+        {
+            try
+            {
+                List<string> pers = new List<string>();
+
+                var rolsPers = from r in entidad.roles
+                               where r.id == identity
+                               select r;
+
+                DataAccess.role rl = rolsPers.First();                
+
+                foreach (DataAccess.permiso p in rl.permisos)
+                {
+                    pers.Add(p.id);
+                }
+                
+                return pers;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --ROL!!!");
+            }
+        }
+
+        public List<string> getRolPermisos(string description)
+        {
+            try
+            {
+                List<string> pers = new List<string>();
+
+                var rolsPers = from r in entidad.roles
+                               where r.descripcion == description
+                               select r;
+
+                DataAccess.role rl = rolsPers.First();
+
+                foreach (DataAccess.permiso p in rl.permisos)
+                {
+                    pers.Add(p.id);
+                }
+
+                return pers;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --ROL!!!");
+            }
+        }
     }
 }

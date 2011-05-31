@@ -14,9 +14,7 @@ public partial class Eliminar_Permisos : System.Web.UI.Page
         {
             if (!this.IsPostBack)
             {
-                BL.Permiso per = new Permiso();
-                permisos_CBList.DataSource = per.getPermisos();
-                permisos_CBList.DataBind();
+                setCheckBoxes();
             }
         }
         catch (Exception ex)
@@ -37,36 +35,30 @@ public partial class Eliminar_Permisos : System.Web.UI.Page
                 if (it.Selected == true)
                 {
                     admin.eliminarPermiso(it.Text);
-                    it.Selected = it.Enabled = false;
                     count++;
                 }
             }            
             
             if (count > 1)
-            {
+            {                
                 Response.Write("<script>alert('Permisos Eliminados')</script>");
             }
             else
             {
                 Response.Write("<script>alert('Permiso Eliminado')</script>");
             }
+            setCheckBoxes();
         }
         catch (Exception ex)
         {
             throw new Exception(ex.ToString() + " --Eliminar Permisos!");
         }
     }
-    protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+
+    private void setCheckBoxes()
     {
-        /*foreach (ListItem it in permisos_CBList.Items)
-        {
-            bool flag = false;
-            if (it.Selected)
-            {
-                flag = true;
-                break;
-            }
-            args.IsValid = flag;
-        }*/
+        BL.Permiso per = new Permiso();
+        permisos_CBList.DataSource = per.getPermisosID();
+        permisos_CBList.DataBind();
     }
 }

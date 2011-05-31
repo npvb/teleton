@@ -15,7 +15,7 @@ public partial class Crear_Roles : System.Web.UI.Page
             if (!this.IsPostBack)
             {
                 BL.Permiso per = new Permiso();
-                permisos_CBList.DataSource = per.getPermisos();
+                permisos_CBList.DataSource = per.getPermisosID();
                 permisos_CBList.DataBind();
             }
         }
