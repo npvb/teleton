@@ -39,7 +39,7 @@
 	                        <div id="tab1"><ul><li><a href="#">Ingresar Nuevo Expediente</a></li><li><a href="#">Editar Expediente</a></li><li><a href="#">Eliminar Expediente</a></li></ul></div> 
 	                        <div id="tab2"><ul><li><a href="#">Ingresar Nueva Cita</a></li><li><a href="#">Editar Cita</a></li><li><a href="#">Eliminar Cita</a></li></ul></div> 
                             <div id="tab3"><ul><li><a href="#">Ingresar Nuevo Permiso</a></li><li><a href="#">Editar Permisos</a></li><li><a href="#">Eliminar Permisos</a></li></ul></div> 
-	                        <div id="tab4"><ul><li><a href="#">Ingresar Nuevo Usuario</a></li></ul></div>   
+	                        <div id="tab4"><ul><li><a href="Crear_Usuarios.aspx">Ingresar Nuevo Usuario</a></li><li><a href="Empleados.aspx">Agregar Nuevo Empleado</a></li></ul></div>   
                             <div id="tab5"><ul><li><a href="#">Consultar Expedientes</a></li></ul></div>
                             <div id="tab6"><ul><li><a href="#">Generar Reportes</a></li></ul></div>
                         </div>
