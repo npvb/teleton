@@ -12,3 +12,10 @@ C:\Users\Daniel\Desktop\teleton\BL\bin\Debug\DataAccess.pdb
 C:\Users\Daniel\Desktop\teleton\BL\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Daniel\Desktop\teleton\BL\obj\Debug\BL.dll
 C:\Users\Daniel\Desktop\teleton\BL\obj\Debug\BL.pdb
+C:\Users\Archangel\Navy\teleton\BL\bin\Debug\BL.dll
+C:\Users\Archangel\Navy\teleton\BL\bin\Debug\BL.pdb
+C:\Users\Archangel\Navy\teleton\BL\bin\Debug\DataAccess.dll
+C:\Users\Archangel\Navy\teleton\BL\bin\Debug\DataAccess.pdb
+C:\Users\Archangel\Navy\teleton\BL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Archangel\Navy\teleton\BL\obj\Debug\BL.dll
+C:\Users\Archangel\Navy\teleton\BL\obj\Debug\BL.pdb
