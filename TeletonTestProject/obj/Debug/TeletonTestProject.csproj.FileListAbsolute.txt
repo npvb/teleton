@@ -8,3 +8,12 @@ C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\TeletonTestPro
 C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\TeletonTestProject\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\TeletonTestProject\obj\Debug\TeletonTestProject.dll
 C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\TeletonTestProject\obj\Debug\TeletonTestProject.pdb
+C:\Users\David\TELETON\teleton\TeletonTestProject\bin\Debug\TeletonTestProject.dll
+C:\Users\David\TELETON\teleton\TeletonTestProject\bin\Debug\TeletonTestProject.pdb
+C:\Users\David\TELETON\teleton\TeletonTestProject\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\David\TELETON\teleton\TeletonTestProject\obj\Debug\TeletonTestProject.dll
+C:\Users\David\TELETON\teleton\TeletonTestProject\obj\Debug\TeletonTestProject.pdb
+C:\Users\David\TELETON\teleton\TeletonTestProject\bin\Debug\BL.dll
+C:\Users\David\TELETON\teleton\TeletonTestProject\bin\Debug\DataAccess.dll
+C:\Users\David\TELETON\teleton\TeletonTestProject\bin\Debug\BL.pdb
+C:\Users\David\TELETON\teleton\TeletonTestProject\bin\Debug\DataAccess.pdb

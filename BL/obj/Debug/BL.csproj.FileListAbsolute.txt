@@ -19,3 +19,10 @@ C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\bin\Debug\D
 C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\obj\Debug\BL.dll
 C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\obj\Debug\BL.pdb
+C:\Users\David\TELETON\teleton\BL\bin\Debug\BL.dll
+C:\Users\David\TELETON\teleton\BL\bin\Debug\BL.pdb
+C:\Users\David\TELETON\teleton\BL\bin\Debug\DataAccess.dll
+C:\Users\David\TELETON\teleton\BL\bin\Debug\DataAccess.pdb
+C:\Users\David\TELETON\teleton\BL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\David\TELETON\teleton\BL\obj\Debug\BL.dll
+C:\Users\David\TELETON\teleton\BL\obj\Debug\BL.pdb

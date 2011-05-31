@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{2F43
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{4DCB29C4-B661-4BC7-BC44-BF8BBF3A809A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeletonTestProject", "TeletonTestProject\TeletonTestProject.csproj", "{0E80E155-B97D-430A-B78D-A7A46751F81C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95E2C70C-8B1B-4F21-B77C-F0E8F987339F}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
@@ -14,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "teleton", "teleton\", "{DCA72243-B99F-488F-AF6E-28CED004330E}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "teleton", "teleton", "{DCA72243-B99F-488F-AF6E-28CED004330E}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		ProjectReferences = "{2F435D67-818E-40F9-A887-9D703B01CA67}|BL.dll;{4DCB29C4-B661-4BC7-BC44-BF8BBF3A809A}|DataAccess.dll;"
@@ -35,6 +33,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "teleton", "teleton\", "{DCA
 		VWDPort = "1057"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjectTeleton", "TestProjectTeleton\TestProjectTeleton.csproj", "{76BC6DB4-8B37-480A-AC55-549034E01262}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = teleton.vsmdi
@@ -52,14 +52,14 @@ Global
 		{4DCB29C4-B661-4BC7-BC44-BF8BBF3A809A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DCB29C4-B661-4BC7-BC44-BF8BBF3A809A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DCB29C4-B661-4BC7-BC44-BF8BBF3A809A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E80E155-B97D-430A-B78D-A7A46751F81C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E80E155-B97D-430A-B78D-A7A46751F81C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E80E155-B97D-430A-B78D-A7A46751F81C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E80E155-B97D-430A-B78D-A7A46751F81C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DCA72243-B99F-488F-AF6E-28CED004330E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DCA72243-B99F-488F-AF6E-28CED004330E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCA72243-B99F-488F-AF6E-28CED004330E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{DCA72243-B99F-488F-AF6E-28CED004330E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{76BC6DB4-8B37-480A-AC55-549034E01262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76BC6DB4-8B37-480A-AC55-549034E01262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76BC6DB4-8B37-480A-AC55-549034E01262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76BC6DB4-8B37-480A-AC55-549034E01262}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
