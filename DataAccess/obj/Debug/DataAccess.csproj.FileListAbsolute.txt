@@ -10,3 +10,9 @@ C:\Users\Daniel\Desktop\teleton\DataAccess\bin\Debug\DataAccess.pdb
 C:\Users\Daniel\Desktop\teleton\DataAccess\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Daniel\Desktop\teleton\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\Daniel\Desktop\teleton\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\DataAccess\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\DataAccess\obj\Debug\DataAccess.pdb

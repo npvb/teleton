@@ -99,7 +99,8 @@
                 <td align="right">
                     &nbsp;</td>
                 <td align="left">
-                    <asp:Button ID="btIngresar" runat="server" Text="Ingresar Paciente" />
+                    <asp:Button ID="btIngresar" runat="server" Text="Ingresar Paciente" 
+                        onclick="btIngresar_Click" />
                 </td>
             </tr>
         </table>
