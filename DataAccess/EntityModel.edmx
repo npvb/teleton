@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="teletonModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="teletonModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="teletonModelStoreContainer">
           <EntitySet Name="actividades_enfermeria" EntityType="teletonModel.Store.actividades_enfermeria" store:Type="Tables" Schema="mysql_14667_teletonback" />
           <EntitySet Name="atenciones_enfermeria" EntityType="teletonModel.Store.atenciones_enfermeria" store:Type="Tables" Schema="mysql_14667_teletonback" />
@@ -394,7 +394,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="permisos_fk">
-          <End Role="permisos" Type="teletonModel.Store.permisos" Multiplicity="1" />
+          <End Role="permisos" Type="teletonModel.Store.permisos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="permisos_x_roles" Type="teletonModel.Store.permisos_x_roles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="permisos">
@@ -406,7 +408,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="roles_fk">
-          <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1" />
+          <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="permisos_x_roles" Type="teletonModel.Store.permisos_x_roles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="roles">
@@ -418,7 +422,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="rol_fk">
-          <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1" />
+          <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="usuarios_x_rol" Type="teletonModel.Store.usuarios_x_rol" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="roles">
@@ -453,8 +459,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="teletonModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">

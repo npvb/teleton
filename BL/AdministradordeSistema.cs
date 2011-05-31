@@ -65,7 +65,7 @@ namespace BL
             }
         }
 
-        public void eliminarRol(int identity)
+        public void eliminarRol(long identity)
         {
             try
             {

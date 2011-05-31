@@ -389,7 +389,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="permisos_fk">
-    <End Role="permisos" Type="teletonModel.Store.permisos" Multiplicity="1" />
+    <End Role="permisos" Type="teletonModel.Store.permisos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="permisos_x_roles" Type="teletonModel.Store.permisos_x_roles" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="permisos">
@@ -401,7 +403,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="roles_fk">
-    <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1" />
+    <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="permisos_x_roles" Type="teletonModel.Store.permisos_x_roles" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="roles">
@@ -413,7 +417,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="rol_fk">
-    <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1" />
+    <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="usuarios_x_rol" Type="teletonModel.Store.usuarios_x_rol" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="roles">

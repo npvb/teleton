@@ -12,9 +12,12 @@ public partial class Crear_Roles : System.Web.UI.Page
     {
         try
         {
-            BL.Permiso per = new Permiso();
-            permisos_CBList.DataSource = per.getPermisos();
-            permisos_CBList.DataBind();
+            if (!this.IsPostBack)
+            {
+                BL.Permiso per = new Permiso();
+                permisos_CBList.DataSource = per.getPermisos();
+                permisos_CBList.DataBind();
+            }
         }
         catch (Exception ex)
         {
@@ -29,8 +32,11 @@ public partial class Crear_Roles : System.Web.UI.Page
 
             foreach (ListItem it in permisos_CBList.Items)
             {
-                if (it.Selected)
+                if (it.Selected == true)
+                {
                     persAdded.Add(it.Text);
+                    it.Selected = false;
+                }   
             }
 
             AdministradordeSistema admin = new AdministradordeSistema();//tmp-> deberia ser quien este logeado!

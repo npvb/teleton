@@ -48,8 +48,10 @@ namespace BL
         {
             try
             {
-                DataAccess.role rolNuevo = new role();//creacion de rol, de esta manera ya q hay q modificar la bd para utilizar las referencias
+                DataAccess.role rolNuevo = new role();//creacion de rol
                 rolNuevo.descripcion = descripcion;
+                entidad.roles.AddObject(rolNuevo);//agregar el rol nuevo al contexto
+                entidad.SaveChanges();//commit1
                 
                 foreach (string permisoCod in licences)
                 {                                       
@@ -60,8 +62,7 @@ namespace BL
                     DataAccess.permiso permisoTMP = permisoQuery.First();
                     rolNuevo.permisos.Add(permisoTMP);//ya que el permisos en roles es un collection, agregamos cada permiso utilizando el id que viene en la lista
                 }
-                entidad.roles.AddObject(rolNuevo);//agregar el rol nuevo al contexto
-                entidad.SaveChanges();//commit
+                entidad.SaveChanges();//commit2 --> 2 commits por el autoincrement del rol.id!!
             }
             catch (Exception e)
             {
@@ -76,17 +77,18 @@ namespace BL
                 var permisoQuery = from per in entidad.permisos
                                    where per.id == permisoCod
                                    select per;
+
                 DataAccess.permiso permisoTMP = permisoQuery.First();
                 entidad.DeleteObject(permisoTMP);
                 entidad.SaveChanges();
-
-            }catch(Exception e)
+            }
+            catch(Exception e)
             {
                 throw new Exception(e.ToString() + " --SECURITY!!!");
             }
         }
 
-        public void eliminar_rol(int identity)
+        public void eliminar_rol(long identity)
         {
             try
             {

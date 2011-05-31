@@ -6,29 +6,22 @@ using DataAccess; //para el ADO Entity
 using System.Data;// ^^
 using System.Data.Objects;// ^^ y haber agregado la referencia a System.Data.Entity -->
 
-namespace BusinessLogic
+namespace BL
 {
     public class Rol
     {
         #region variables
-        DataAccess.TeletonEntities entidad;
-        private string id;
-        private string nombre;
+        DataAccess.teletonEntities entidad;
+        private long id;
         private string descripcion;
         private List<string> permisos;
         #endregion
 
         #region gets y sets
-        public string Id
+        public long Id
         {
             get { return id; }
             set { id = value; }
-        }
-
-        public string nombreRol
-        {
-            get { return nombre; }
-            set { nombre = value; }
         }
 
         public string descripcionRol
@@ -45,27 +38,27 @@ namespace BusinessLogic
         #endregion
 
         #region constructores
-        public Rol(string identity)
+        public Rol(int identity)
         {
             try
             {
-                entidad = new TeletonEntities();
+                entidad = new teletonEntities();
                 permisos = new List<string>();
 
                 var rolQuery = from rl in entidad.roles         // alias de tabla
-                            where rl.Rol_Codigo == identity     //filtro
+                            where rl.id == identity         //filtro
                             select rl;                          //proyeccion
                 
                 DataAccess.role rolTMP = rolQuery.First();//el primer elemento del query
-                id = rolTMP.Rol_Codigo;
-                nombre = rolTMP.Rol_Nombre;
-                descripcion = rolTMP.Rol_Descripcion;
+                id = rolTMP.id;
+                descripcion = rolTMP.descripcion;
 
                 foreach (DataAccess.permiso per in rolTMP.permisos)
                 {
-                    permisos.Add(per.Permiso_Codigo);
+                    permisos.Add(per.id);
                 }
-            } catch(Exception e)
+            } 
+            catch(Exception e)
             {
                 throw new Exception(e.ToString() + " --ROL!!!");
             }
@@ -75,9 +68,10 @@ namespace BusinessLogic
         {
             try
             {
-                entidad = new TeletonEntities();
+                entidad = new teletonEntities();
                 permisos = new List<string>();
-                id = nombre = descripcion = "";
+                id = -1;
+                descripcion = "";
             }
             catch (Exception e)
             {
@@ -86,14 +80,14 @@ namespace BusinessLogic
         }
         #endregion
 
-        public List<string> getRoles()
+        public List<long> getRoles()
         {
             try
             {
-                List<string> rols;
+                List<long> rols;
 
                 var allRols = from r in entidad.roles
-                              select r.Rol_Codigo;
+                              select r.id;
                 rols = allRols.ToList();
                 return rols;
             }
