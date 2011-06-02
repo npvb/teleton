@@ -203,7 +203,7 @@
           <Property Name="centro_actual" Type="usmallint" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="255" />
           <Property Name="estado_civil" Type="varchar" MaxLength="15" />
-          <Property Name="expediente" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="expediente" Type="uint" Nullable="false" />
           <Property Name="fecha_ingreso" Type="date" Nullable="false" />
           <Property Name="fecha_nac" Type="date" Nullable="false" />
           <Property Name="lugar_nac" Type="varchar" MaxLength="45" />

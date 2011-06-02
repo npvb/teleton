@@ -186,6 +186,7 @@ namespace BL
                 }
                 catch (Exception e)
                 {
+                    throw e;
                 }
             }
             return false;
