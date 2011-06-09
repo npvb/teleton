@@ -1,66 +1,73 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="~/Styles/screen.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Form1" runat="server">
+        <div id="content">
+		     <p id="top">Proyecto Teleton 2011</p>
+		      <div id="logo">
+			      <h1><a href="Default.aspx">Logo</a></h1>
+		      </div>            
+              <a href="Default.aspx">
+              </a>            
+              <asp:ScriptManager ID="ScriptManager1" runat="server">
+             </asp:ScriptManager>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head id="Head1" runat="server">
-        <title>Proyecto Teleton</title>
-        <asp:ContentPlaceHolder id="head" runat="server">
-        </asp:ContentPlaceHolder>
-        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/tabview/assets/skins/sam/tabview.css"/>
-        <link href="http://yui.yahooapis.com/2.9.0/build/fonts/fonts-min.css" type="text/css" rel="stylesheet"/>
- 
-        <!-- JavaScript Dependencies for Tabview: -->
-        <script src="http://yui.yahooapis.com/2.9.0/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
-        <script src="http://yui.yahooapis.com/2.9.0/build/element/element-min.js" type="text/javascript"></script>
- 
-        <!-- OPTIONAL: Connection (required for dynamic loading of data) -->
-        <script src="http://yui.yahooapis.com/2.9.0/build/connection/connection-min.js" type="text/javascript"></script>
- 
-        <!-- Source file for TabView -->
-        <script src="http://yui.yahooapis.com/2.9.0/build/tabview/tabview-min.js" type="text/javascript"></script>
-        <link href="StyleSheet.css" rel="stylesheet" type="text/css" media="screen"/>
-    </head>
-    <body>
-        <body class="yui-skin-sam">
-            <form id="form1" runat="server">
-                <div>
-                    <div id="tabteleton" class="yui-navset">
-                        <ul class="yui-nav"> 
-	                        <!--<li class="selected"><a href="#tab1"><em>Administrar Expedientes</em></a></li>--> 
-	                        <li><a href="#tab1"><em>Administrar Expedientes</em></a></li>
-                            <li><a href="#tab2"><em>Administrar Citas</em></a></li> 
-	                        <li><a href="#tab3"><em>Administrar Roles</em></a></li> 
-                            <li><a href="#tab4"><em>Mantenimiento de Usuarios</em></a></li>
-                            <li><a href="#tab5"><em>Consultar Expediente</em></a></li>
-                            <li><a href="#tab6"><em>Generar Reportes</em></a></li>
-                        </ul>             
-	                    <div class="yui-content"> 
-	                        <div id="tab1"><ul><li><a href="#">Ingresar Nuevo Expediente</a></li><li><a href="#">Editar Expediente</a></li><li><a href="#">Eliminar Expediente</a></li></ul></div> 
-	                        <div id="tab2"><ul><li><a href="#">Ingresar Nueva Cita</a></li><li><a href="#">Editar Cita</a></li><li><a href="#">Eliminar Cita</a></li></ul></div> 
-                            <div id="tab3"><ul><li><a href="#">Ingresar Nuevo Permiso</a></li><li><a href="#">Editar Permisos</a></li><li><a href="#">Eliminar Permisos</a></li></ul></div> 
-	                        <div id="tab4"><ul><li><a href="Crear_Usuarios.aspx">Ingresar Nuevo Usuario</a></li><li><a href="Empleados.aspx">Agregar Nuevo Empleado</a></li></ul></div>   
-                            <div id="tab5"><ul><li><a href="#">Consultar Expedientes</a></li></ul></div>
-                            <div id="tab6"><ul><li><a href="#">Generar Reportes</a></li></ul></div>
-                        </div>
-                    </div>
-                    <script type="text/javascript">
-                        var tabView = new YAHOO.widget.TabView('tabteleton') 
-	                </script>
-                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-                        <asp:ScriptManager ID="ScriptManager1" runat="server">
-                        </asp:ScriptManager>
-                    </asp:ContentPlaceHolder>
-                </div>
-            </form>
-            <!-- footer-->
-            <div id="footer-wrapper">
-	            <div id="footer">
-                    <p class="style1">
-                        <p>Proyecto Teleton 2011</p>
-                    </p>
-                </div>
-            </div>
-        </body>
-    </body>
+             
+              <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" 
+                 CssClass="sidemenu" StaticSubMenuIndent="8px" >
+                    <Items> 
+                       <asp:MenuItem Text="Expedientes" Value="Administrar Paciente">
+                            <asp:MenuItem Text="Crear Expediente" Value="New Item" 
+                                NavigateUrl="~/Crear_Paciente.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Citas" Value="Administrar Expedientes">
+                            <asp:MenuItem Text="Crear Citas" Value="New Item"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Roles" Value="Roles">
+                            <asp:MenuItem Text="Crear Roles" Value="New Item" 
+                                NavigateUrl="~/Crear_Roles.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Editar Roles" Value="New Item" 
+                                NavigateUrl="~/Editar_Roles.aspx"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Eliminar_Roles.aspx" Text="Eliminar Roles" 
+                                Value="Eliminar Roles"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Permisos" Value="Permisos">
+                            <asp:MenuItem NavigateUrl="~/Crear_Permisos.aspx" Text="Crear Permisos" 
+                                Value="Crear Permisos"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Eliminar_Permisos.aspx" Text="Eliminar Permisos" 
+                                Value="Eliminar Permisos"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Usuarios" Value="Usuarios">
+                            <asp:MenuItem Text="Agregar Empleados" Value="New Item" 
+                                NavigateUrl="~/Empleados.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Agregar Usuarios" Value="New Item" 
+                                NavigateUrl="~/Crear_Usuarios.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Generar Reportes" Value="Generar Reportes">
+                            <asp:MenuItem Text="New Item" Value="New Item"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Consultar Exp." Value="Consultar Exp.">
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>		        
+	         
+           </div>
+          <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+          </div>
+        </form>
+      <!--<div style="clear: both;">&nbsp;</div>-->
+     <div id="footer">
+       <p>&copy; Copyright 2011 Proyecto Teleton&minus; Derechos Reservados <a href="http://www.unitec.edu/" title="Unitec">Unitec</a></p>    
+     </div>  
+    <!--</form>-->
+</body>
 </html>
