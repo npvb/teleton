@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Editar_Roles.aspx.cs" Inherits="Editar_Roles" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">    
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">    
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table class="style1">
         <tr>
             <td colspan="7" style="text-align: center; font-weight: 700">
