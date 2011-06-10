@@ -26,29 +26,32 @@ public partial class Eliminar_Roles : System.Web.UI.Page
     {
         try
         {
-            AdministradordeSistema admin = new AdministradordeSistema();//tmp
-            int count = 0;
-            BL.Rol rl = new Rol();
-
-            foreach (ListItem it in roles_CBList.Items)
+            if (this.IsValid)
             {
-                if (it.Selected)
+                AdministradordeSistema admin = new AdministradordeSistema();//tmp
+                int count = 0;
+                BL.Rol rl = new Rol();
+
+                foreach (ListItem it in roles_CBList.Items)
                 {
-                    long rolId = rl.getRolID((it.Text));
-                    admin.eliminarRol(rolId);
-                    count++;
+                    if (it.Selected)
+                    {
+                        long rolId = rl.getRolID((it.Text));
+                        admin.eliminarRol(rolId);
+                        count++;
+                    }
                 }
-            }
 
-            if (count > 1)
-            {
-                Response.Write("<script>alert('Roles Eliminados')</script>");
+                if (count > 1)
+                {
+                    Response.Write("<script>alert('Roles Eliminados')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Rol Eliminado')</script>");
+                }
+                setCheckBoxes();
             }
-            else
-            {
-                Response.Write("<script>alert('Rol Eliminado')</script>");
-            }
-            setCheckBoxes();
         }
         catch (Exception ex)
         {
@@ -68,5 +71,18 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         {
             throw new Exception(ex.ToString() + " --Eliminar Roles!");
         }
+    }
+    protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        bool flag = false;
+        foreach (ListItem it in roles_CBList.Items)
+        {
+            if (it.Selected)
+            {
+                flag = true;
+                break;
+            }
+        }
+        args.IsValid = flag;
     }
 }

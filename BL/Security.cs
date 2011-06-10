@@ -16,13 +16,19 @@ namespace BL
         #endregion
 
         #region gets y sets
-
         #endregion
 
         #region constructores
         public Security()
         {
-            entidad = new teletonEntities();
+            try
+            {
+                entidad = new teletonEntities();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --Security.cs / Security()");
+            }
         }
         #endregion
 
@@ -40,7 +46,7 @@ namespace BL
             } 
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --SECURITY!!!");
+                throw new Exception(e.ToString() + " --Security.cs / crear_permiso()");
             }
         }
 
@@ -66,7 +72,7 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --SECURITY!!!");
+                throw new Exception(e.ToString() + " --Security.cs / crear_rol()");
             }
         }
 
@@ -84,7 +90,7 @@ namespace BL
             }
             catch(Exception e)
             {
-                throw new Exception(e.ToString() + " --SECURITY!!!");
+                throw new Exception(e.ToString() + " --Security.cs / eliminar_permiso()");
             }
         }
 
@@ -102,9 +108,8 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --SECURITY!!!");
+                throw new Exception(e.ToString() + " --Security.cs / eliminar_rol()");
             }
-
         }
 
         public void editar_rol(long identity, string description, List<string> grants, List<string> revokes)
@@ -137,7 +142,7 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --SECURITY!!!");
+                throw new Exception(e.ToString() + " --Security.cs / editar_rol()");
             }
         }
     }

@@ -20,10 +20,13 @@ public partial class Crear_Permisos : System.Web.UI.Page
     {
         try
         {
-            AdministradordeSistema admin = new AdministradordeSistema();
-            admin.crearPermiso(nombrePermiso_TB.Text, descripcion_TB.Text);
-            Response.Write("<script>alert('Permiso Guardado')</script>");
-            LimpiarPage();
+            if (this.IsValid)
+            {
+                AdministradordeSistema admin = new AdministradordeSistema();
+                admin.crearPermiso(nombrePermiso_TB.Text, descripcion_TB.Text);
+                Response.Write("<script>alert('Permiso Guardado')</script>");
+                LimpiarPage();
+            }
         }
         catch (Exception ex)
         {

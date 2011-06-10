@@ -118,7 +118,7 @@ public partial class Editar_Roles : System.Web.UI.Page
             else
             {
                 Response.Write("<script>alert('Rol No Editado!')</script>");
-            }            
+            }
         }
         catch (Exception ex)
         {

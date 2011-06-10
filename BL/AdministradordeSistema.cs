@@ -24,7 +24,14 @@ namespace BL
         #region constructores
         public AdministradordeSistema()
         {
-            security = new Security();
+            try
+            {
+                security = new Security();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --AdministradordeSistema.cs / AdministradordeSistema()");
+            }
         }        
         #endregion
 
@@ -37,7 +44,7 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --ADMIN!!!");
+                throw new Exception(e.ToString() + " --AdministradordeSistema.cs / crearPermiso()");
             }
         }
 
@@ -49,7 +56,7 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --ADMIN!!!");
+                throw new Exception(e.ToString() + " --AdministradordeSistema.cs / crearRol()");
             }
         }
 
@@ -61,7 +68,7 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --ADMIN!!!");
+                throw new Exception(e.ToString() + " --AdministradordeSistema.cs / eliminarPermiso()");
             }
         }
 
@@ -73,7 +80,7 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --ADMIN!!!");
+                throw new Exception(e.ToString() + " --AdministradordeSistema.cs / eliminarRol()");
             }
         }
 
@@ -85,7 +92,7 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --ADMIN!!!");
+                throw new Exception(e.ToString() + " --AdministradordeSistema.cs / editarRol()");
             }
         }
     }

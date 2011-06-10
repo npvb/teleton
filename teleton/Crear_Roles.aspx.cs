@@ -21,33 +21,37 @@ public partial class Crear_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Crear_Roles.aspx!!!");
+            throw new Exception(ex.ToString() + " --Crear_Roles.aspx.cs");
         }
     }
+
     protected void acceptButton_Click(object sender, EventArgs e)
     {
         try
         {
-            List<string> persAdded = new List<string>();
-
-            foreach (ListItem it in permisos_CBList.Items)
+            if (this.IsValid)
             {
-                if (it.Selected == true)
+                List<string> persAdded = new List<string>();
+                
+                foreach (ListItem it in permisos_CBList.Items)
                 {
-                    persAdded.Add(it.Text);
-                    it.Selected = false;
-                }   
+                    if (it.Selected == true)
+                    {
+                        persAdded.Add(it.Text);
+                        it.Selected = false;
+                    }
+                }
+
+                AdministradordeSistema admin = new AdministradordeSistema();//tmp-> deberia ser quien este logeado!
+                admin.crearRol(descripcion_TB.Text, persAdded);
+
+                Response.Write("<script>alert('Rol Guardado')</script>");
+                LimpiarPage();
             }
-
-            AdministradordeSistema admin = new AdministradordeSistema();//tmp-> deberia ser quien este logeado!
-            admin.crearRol(descripcion_TB.Text, persAdded);
-
-            Response.Write("<script>alert('Rol Guardado')</script>");
-            LimpiarPage();
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Crear_Roles.aspx");
+            throw new Exception(ex.ToString() + " --Crear_Roles.aspx.cs / acceptButton_Click()");
         }
     }
 

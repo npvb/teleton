@@ -41,7 +41,10 @@
                 </asp:CheckBoxList>
             </td>
             <td class="style6">
-                &nbsp;</td>
+                <asp:CustomValidator ID="CustomValidator1" runat="server" 
+                    ErrorMessage="Seleccione al menos un permiso." 
+                    onservervalidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
+            </td>
         </tr>
         <tr>
             <td class="style4">

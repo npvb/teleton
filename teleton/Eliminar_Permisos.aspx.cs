@@ -27,27 +27,30 @@ public partial class Eliminar_Permisos : System.Web.UI.Page
     {
         try
         {
-            AdministradordeSistema admin = new AdministradordeSistema();
-            int count = 0;
-
-            foreach (ListItem it in permisos_CBList.Items)
-            {     
-                if (it.Selected == true)
-                {
-                    admin.eliminarPermiso(it.Text);
-                    count++;
-                }
-            }            
-            
-            if (count > 1)
-            {                
-                Response.Write("<script>alert('Permisos Eliminados')</script>");
-            }
-            else
+            if (this.IsValid)
             {
-                Response.Write("<script>alert('Permiso Eliminado')</script>");
+                AdministradordeSistema admin = new AdministradordeSistema();
+                int count = 0;
+
+                foreach (ListItem it in permisos_CBList.Items)
+                {
+                    if (it.Selected == true)
+                    {
+                        admin.eliminarPermiso(it.Text);
+                        count++;
+                    }
+                }
+
+                if (count > 1)
+                {
+                    Response.Write("<script>alert('Permisos Eliminados')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Permiso Eliminado')</script>");
+                }
+                setCheckBoxes();
             }
-            setCheckBoxes();
         }
         catch (Exception ex)
         {
@@ -60,5 +63,19 @@ public partial class Eliminar_Permisos : System.Web.UI.Page
         BL.Permiso per = new Permiso();
         permisos_CBList.DataSource = per.getPermisosID();
         permisos_CBList.DataBind();
+    }
+
+    protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        bool flag = false;
+        foreach (ListItem it in permisos_CBList.Items)
+        {
+            if (it.Selected)
+            {
+                flag = true;
+                break;
+            }
+        }
+        args.IsValid = flag;
     }
 }
