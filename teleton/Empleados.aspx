@@ -20,11 +20,7 @@
         }
         .style5
         {
-            font-size: x-large;
-        }
-        .style6
-        {
-            width: 61px;
+            font-size: large;
         }
         .style7
         {
@@ -49,15 +45,33 @@
             width: 170px;
             height: 31px;
         }
-        .style12
+        .style14
         {
-            width: 61px;
-            height: 31px;
+            width: 106px;
         }
-        .style13
+        .style15
         {
-            width: 82px;
             height: 31px;
+            width: 106px;
+        }
+        .style16
+        {
+            color: #FFFFFF;
+            width: 9px;
+        }
+        .style17
+        {
+            width: 5px;
+        }
+        .style18
+        {
+            height: 31px;
+            width: 5px;
+        }
+        .style19
+        {
+            height: 31px;
+            width: 9px;
         }
     </style>
 </asp:Content>
@@ -72,7 +86,7 @@
                     <tr>
                         <td>
                             &nbsp;</td>
-                        <td>
+                        <td class="style14">
                             &nbsp;</td>
                         <td class="style4">
                             &nbsp;</td>
@@ -82,9 +96,9 @@
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
-                        <td class="style6">
+                        <td class="style17">
                             &nbsp;</td>
-                        <td class="style7">
+                        <td class="style16">
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
@@ -94,7 +108,7 @@
                     <tr>
                         <td>
                             &nbsp;</td>
-                        <td>
+                        <td class="style14">
                             &nbsp;</td>
                         <td class="style4">
                             &nbsp;</td>
@@ -102,14 +116,14 @@
                             <asp:Label ID="labelID" runat="server" Text="ID"></asp:Label>
                         </td>
                         <td class="style3">
-                            <asp:TextBox ID="txb_id" runat="server" Enabled="False" 
+                            <asp:TextBox ID="txb_id" runat="server" Enabled="False" Width="150px" 
                              >0</asp:TextBox>
                         </td>
                         <td>
                             &nbsp;</td>
-                        <td class="style6">
+                        <td class="style17">
                             &nbsp;</td>
-                        <td class="style7">
+                        <td class="style16">
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
@@ -119,7 +133,7 @@
                     <tr>
                         <td>
                             &nbsp;</td>
-                        <td>
+                        <td class="style14">
                             &nbsp;</td>
                         <td class="style4">
                             &nbsp;</td>
@@ -127,13 +141,16 @@
                             <asp:Label ID="Label1" runat="server" Text="Nombre del Empleado"></asp:Label>
                         </td>
                         <td class="style3">
-                            <asp:TextBox ID="txb_nombreemp" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txb_nombreemp" runat="server" Width="146px"></asp:TextBox>
                         </td>
                         <td>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                ErrorMessage="**Ingrese Nombre del Empleado" ForeColor="Red" 
+                                ControlToValidate="txb_nombreemp"></asp:RequiredFieldValidator>
+                        </td>
+                        <td class="style17">
                             &nbsp;</td>
-                        <td class="style6">
-                            &nbsp;</td>
-                        <td class="style7">
+                        <td class="style16">
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
@@ -143,7 +160,7 @@
                     <tr>
                         <td>
                             &nbsp;</td>
-                        <td>
+                        <td class="style14">
                             &nbsp;</td>
                         <td class="style4">
                             &nbsp;</td>
@@ -151,13 +168,16 @@
                             <asp:Label ID="Label2" runat="server" Text="Primer Apellido"></asp:Label>
                         </td>
                         <td class="style3">
-                            <asp:TextBox ID="txb_firstname" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txb_firstname" runat="server" Width="145px"></asp:TextBox>
                         </td>
                         <td>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                ErrorMessage="**Ingrese Primer Apellido" ForeColor="Red" 
+                                ControlToValidate="txb_firstname"></asp:RequiredFieldValidator>
+                        </td>
+                        <td class="style17">
                             &nbsp;</td>
-                        <td class="style6">
-                            &nbsp;</td>
-                        <td class="style7">
+                        <td class="style16">
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
@@ -167,7 +187,7 @@
                     <tr>
                         <td>
                             &nbsp;</td>
-                        <td>
+                        <td class="style14">
                             &nbsp;</td>
                         <td class="style4">
                             &nbsp;</td>
@@ -175,13 +195,16 @@
                             <asp:Label ID="Label3" runat="server" Text="Segundo Apellido"></asp:Label>
                         </td>
                         <td class="style3">
-                            <asp:TextBox ID="txb_secondlastname" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txb_secondlastname" runat="server" Width="143px"></asp:TextBox>
                         </td>
                         <td>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                                ErrorMessage="**Ingrese Segundo Apellido" ForeColor="Red" 
+                                ControlToValidate="txb_secondlastname"></asp:RequiredFieldValidator>
+                        </td>
+                        <td class="style17">
                             &nbsp;</td>
-                        <td class="style6">
-                            &nbsp;</td>
-                        <td class="style7">
+                        <td class="style16">
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
@@ -191,7 +214,7 @@
                     <tr>
                         <td class="style8">
                             </td>
-                        <td class="style8">
+                        <td class="style15">
                             </td>
                         <td class="style9">
                             </td>
@@ -203,10 +226,13 @@
                             </asp:DropDownList>
                         </td>
                         <td class="style8">
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                                ErrorMessage="**Debe Escoger un Puesto" ForeColor="Red" 
+                                ControlToValidate="cmb_position"></asp:RequiredFieldValidator>
                             </td>
-                        <td class="style12">
+                        <td class="style18">
                             </td>
-                        <td class="style13">
+                        <td class="style19">
                             </td>
                         <td class="style8">
                             </td>
@@ -216,7 +242,7 @@
                     <tr>
                         <td>
                             &nbsp;</td>
-                        <td>
+                        <td class="style14">
                             &nbsp;</td>
                         <td class="style4">
                             &nbsp;</td>
@@ -226,9 +252,9 @@
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
-                        <td class="style6">
+                        <td class="style17">
                             &nbsp;</td>
-                        <td class="style7">
+                        <td class="style16">
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
@@ -238,7 +264,7 @@
                     <tr>
                         <td>
                             &nbsp;</td>
-                        <td>
+                        <td class="style14">
                             &nbsp;</td>
                         <td class="style4">
                             &nbsp;</td>
@@ -248,11 +274,11 @@
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
-                        <td class="style6">
+                        <td class="style17">
                             <asp:Button ID="btn_save" runat="server" Text="Guardar" 
                                 onclick="btn_save_Click" />
                         </td>
-                        <td class="style7">
+                        <td class="style16">
                             <asp:Button ID="Button1" runat="server" Text="Cancelar" />
                         </td>
                         <td>
@@ -263,7 +289,7 @@
                     <tr>
                         <td>
                             &nbsp;</td>
-                        <td>
+                        <td class="style14">
                             &nbsp;</td>
                         <td class="style4">
                             &nbsp;</td>
@@ -273,9 +299,9 @@
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
-                        <td class="style6">
+                        <td class="style17">
                             &nbsp;</td>
-                        <td class="style7">
+                        <td class="style16">
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
@@ -285,7 +311,7 @@
                     <tr>
                         <td>
                             &nbsp;</td>
-                        <td>
+                        <td class="style14">
                             &nbsp;</td>
                         <td class="style4">
                             &nbsp;</td>
@@ -295,9 +321,9 @@
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>
-                        <td class="style6">
+                        <td class="style17">
                             &nbsp;</td>
-                        <td class="style7">
+                        <td class="style16">
                             &nbsp;</td>
                         <td>
                             &nbsp;</td>

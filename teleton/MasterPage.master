@@ -22,11 +22,14 @@
 
              
               <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" 
-                 CssClass="sidemenu" StaticSubMenuIndent="8px" >
+                 CssClass="sidemenu" StaticSubMenuIndent="8px" 
+                 >
                     <Items> 
                        <asp:MenuItem Text="Expedientes" Value="Administrar Paciente">
                             <asp:MenuItem Text="Crear Expediente" Value="New Item" 
                                 NavigateUrl="~/Crear_Paciente.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Consultar Expediente" Value="Consultar Expediente">
+                            </asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Citas" Value="Administrar Expedientes">
                             <asp:MenuItem Text="Crear Citas" Value="New Item"></asp:MenuItem>
@@ -46,15 +49,17 @@
                                 Value="Eliminar Permisos"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Usuarios" Value="Usuarios">
-                            <asp:MenuItem Text="Agregar Empleados" Value="New Item" 
-                                NavigateUrl="~/Empleados.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Agregar Usuarios" Value="New Item" 
                                 NavigateUrl="~/Crear_Usuarios.aspx"></asp:MenuItem>
                         </asp:MenuItem>
+                        <asp:MenuItem Text="Empleados" Value="Empleados">
+                            <asp:MenuItem NavigateUrl="~/Empleados.aspx" Text="Agregar Empleados" 
+                                Value="Agregar Empleados"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Editar Empleados.aspx" Text="Editar Empleados" 
+                                Value="Editar Empleados"></asp:MenuItem>
+                        </asp:MenuItem>
                         <asp:MenuItem Text="Generar Reportes" Value="Generar Reportes">
                             <asp:MenuItem Text="New Item" Value="New Item"></asp:MenuItem>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Consultar Exp." Value="Consultar Exp.">
                         </asp:MenuItem>
                     </Items>
                 </asp:Menu>		        
