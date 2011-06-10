@@ -14,16 +14,25 @@
 
                     <span >Nº de Cédula:</span>
                     <br /><asp:TextBox ID="txtCedula" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                ErrorMessage="*Ingrese el Numero de Cédula" ForeColor="Red" 
+                                ControlToValidate="txtCedula"></asp:RequiredFieldValidator>
         </p>
         <p style="text-align:center">
                     <span >Nombres:</span>
                     <br />
                     <asp:TextBox ID="txtNombres" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                ErrorMessage="*Ingrese el Nombre" ForeColor="Red" 
+                                ControlToValidate="txtNombres"></asp:RequiredFieldValidator>
         </p>
         <p style="text-align:center">
         <span >Primer Apellido:</span>
                     <br />
                     <asp:TextBox ID="txtPrimerApellido" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                                ErrorMessage="*Ingrese el Primer Apellido" ForeColor="Red" 
+                                ControlToValidate="txtPrimerApellido"></asp:RequiredFieldValidator>
         </p>
         <p style="text-align:center">
         <span >Segundo Apellido:</span>
@@ -35,11 +44,16 @@
                     <br />
                     <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
                     
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                                ErrorMessage="*Ingrese la Dirección" ForeColor="Red" 
+                                ControlToValidate="txtDireccion"></asp:RequiredFieldValidator>
+                    
         </p>
         <p style="text-align:center" align="center">
         <span >Sexo:</span>
                     <br />
-            <asp:radiobuttonlist id="rdSexo" runat="server" RepeatDirection="Horizontal">
+            <asp:radiobuttonlist id="rdSexo" runat="server" RepeatDirection="Horizontal" 
+                RepeatLayout="Flow">
                           <asp:listitem id="rdMasculino" Selected="true" runat="server" value="Masculino" />
                           <asp:listitem id="rdFemenino" runat="server" value="Femenino" />
             </asp:radiobuttonlist>
@@ -59,16 +73,25 @@
         <span >Lugar de Nacimiento:</span>
                     <br />
                     <asp:TextBox ID="txtLugarNacimiento" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
+                                ErrorMessage="*Ingrese el Lugar de Nacimiento" ForeColor="Red" 
+                                ControlToValidate="txtLugarNacimiento"></asp:RequiredFieldValidator>
         </p>
         <p style="text-align:center">
         <span >Fecha de Nacimiento:</span>
                     <br />
                     <asp:TextBox ID="txtFechaNacimiento" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
+                                ErrorMessage="*Ingrese la Fecha de Nacimiento" ForeColor="Red" 
+                                ControlToValidate="txtFechaNacimiento"></asp:RequiredFieldValidator>
         </p>
         <p style="text-align:center">
         <span >Fecha de Ingreso:</span>
                     <br />
                     <asp:TextBox ID="txtFechaIngreso" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
+                                ErrorMessage="*Ingrese la fecha de Ingreso" ForeColor="Red" 
+                                ControlToValidate="txtFechaIngreso"></asp:RequiredFieldValidator>
         </p>
         <p style="text-align:center">
                     <asp:Button ID="btIngresar" runat="server" Text="Ingresar Paciente" 
