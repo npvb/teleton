@@ -4,7 +4,9 @@
 	margin-top: 0;
     font-size: small;
 }:focus,:active {outline:0}img{border: 0}
-body { font: .8em Arial, Tahoma, Verdana; background: #fff url(../images/bg.gif) repeat-x; color: #777; }
+body { font: .8em Arial, Tahoma, Verdana; background: #fff url(../images/bg.gif) repeat-x; color: #777;
+    text-align: center;
+}
 a { text-decoration: none; color: #B20F0F; }
 h1 { font-size: 1.4em; font-weight: normal; }
 	h1 a {
@@ -14,7 +16,7 @@ h1 { font-size: 1.4em; font-weight: normal; }
 h2 { font-size: 1em; }
 h3 { font-size: .5px; background: #B00A0A url(../images/redbg.gif) repeat-x left bottom; padding: 6px 7px; color: #fff; font-weight: normal; margin: 0 0 15px; float: left; }
 h4 { margin: 0 0 15px; color: #555; font-weight: normal; font-size: 1.6em; font-weight: normal; }
-p { clear: both; line-height: 1.64em; margin: 0 0 15px; text-align:center;font-weight:bold;}
+p { clear: both; line-height: 1.64em; margin: 0 0 15px; text-align:center;}
 .line { clear: both; border-bottom: 1px solid #ddd; margin: 0 0 45px; }
 .clear { clear: both; }
 /* Main */

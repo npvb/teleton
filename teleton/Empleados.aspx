@@ -2,337 +2,253 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-        .style2
-        {
-            width: 187px;
-        }
-        .style3
-        {
-            width: 170px;
-        }
-        .style4
-        {
-            width: 134px;
-        }
-        .style5
-        {
-            font-size: large;
-        }
-        .style7
-        {
-            width: 82px;
-        }
         .style8
         {
-            height: 31px;
-        }
-        .style9
-        {
-            width: 134px;
-            height: 31px;
-        }
-        .style10
-        {
-            width: 187px;
-            height: 31px;
-        }
-        .style11
-        {
-            width: 170px;
-            height: 31px;
-        }
-        .style14
-        {
-            width: 106px;
-        }
-        .style15
-        {
-            height: 31px;
-            width: 106px;
-        }
-        .style16
-        {
-            color: #FFFFFF;
-            width: 9px;
-        }
-        .style17
-        {
-            width: 5px;
-        }
-        .style18
-        {
-            height: 31px;
-            width: 5px;
+            width: 958px;
         }
         .style19
         {
-            height: 31px;
-            width: 9px;
+            width: 486px;
+        }
+        .style30
+        {
+            width: 932px;
+        }
+        .style43
+        {
+            width: 274px;
+        }
+        .style46
+        {
+            width: 1619px;
+            height: 3px;
+        }
+        .style47
+        {
+            height: 3px;
+        }
+        .style48
+        {
+            width: 760px;
+            height: 3px;
+        }
+        .style49
+        {
+            width: 271px;
+            height: 3px;
+        }
+        .style50
+        {
+            width: 932px;
+            height: 3px;
+        }
+        .style51
+        {
+            width: 141px;
+            height: 3px;
+        }
+        .style52
+        {
+            width: 274px;
+            height: 3px;
+        }
+        .style54
+        {
+            width: 760px;
+        }
+        .style58
+        {
+            width: 1619px;
+            height: 26px;
+        }
+        .style59
+        {
+            height: 26px;
+        }
+        .style60
+        {
+            width: 760px;
+            height: 26px;
+        }
+        .style61
+        {
+            width: 271px;
+            height: 26px;
+        }
+        .style62
+        {
+            width: 932px;
+            height: 26px;
+        }
+        .style63
+        {
+            width: 141px;
+            height: 26px;
+        }
+        .style64
+        {
+            width: 274px;
+            height: 26px;
+        }
+        .style68
+        {
+            width: 1619px;
+        }
+        .style70
+        {
+            width: 271px;
+        }
+        .style71
+        {
+            width: 141px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <table class="style1">
-        <tr>
-            <td style="text-align: center; font-weight: 700; font-size: medium">
-                <span class="style5">
-                <br />
-                Ingreso de Empleados</span><br />
-                <table class="style1">
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style14">
-                            &nbsp;</td>
-                        <td class="style4">
-                            &nbsp;</td>
-                        <td class="style2">
-                            &nbsp;</td>
-                        <td class="style3">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style17">
-                            &nbsp;</td>
-                        <td class="style16">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style14">
-                            &nbsp;</td>
-                        <td class="style4">
-                            &nbsp;</td>
-                        <td class="style2">
-                            <asp:Label ID="labelID" runat="server" Text="ID"></asp:Label>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            Ingreso de Empleados<br /> &nbsp;
+            <table class="style8">
+                <tr>
+                    <td class="style68">
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                    <td class="style54">
+                        <asp:Label ID="Label1" runat="server" Text="ID"></asp:Label>
+                    </td>
+                    <td class="style70">
+                        <asp:TextBox ID="txb_id" runat="server" Enabled="False" Width="191px">0</asp:TextBox>
+                    </td>
+                    <td class="style19">
+                        &nbsp;</td>
+                    <td class="style71">
+                        &nbsp;</td>
+                    <td class="style43">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="style68">
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                    <td class="style54">
+                        <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
+                    </td>
+                    <td class="style70">
+                        <asp:TextBox ID="txb_nombreemp" runat="server" Width="188px"></asp:TextBox>
+                    </td>
+                    <td class="style19">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                            ControlToValidate="txb_nombreemp" ErrorMessage="**Debe Ingresar Nombre"></asp:RequiredFieldValidator>
+                    </td>
+                    <td class="style71">
+                        &nbsp;</td>
+                    <td class="style43">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="style68">
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                    <td class="style54">
+                        <asp:Label ID="Label3" runat="server" Text="Primer Apellido"></asp:Label>
+                    </td>
+                    <td class="style70">
+                        <asp:TextBox ID="txb_firstname" runat="server" Width="187px"></asp:TextBox>
+                    </td>
+                    <td class="style19">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                            ControlToValidate="txb_firstname" 
+                            ErrorMessage="**Debe Ingresar Primer Apellido"></asp:RequiredFieldValidator>
+                    </td>
+                    <td class="style71">
+                        &nbsp;</td>
+                    <td class="style43">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="style68">
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                    <td class="style54">
+                        Segundo Apellido</td>
+                    <td class="style70">
+                        <asp:TextBox ID="txb_secondlastname" runat="server" Width="186px"></asp:TextBox>
+                    </td>
+                    <td class="style19">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                            ControlToValidate="txb_secondlastname" 
+                            ErrorMessage="**Debe Ingresar Segundo Apellido"></asp:RequiredFieldValidator>
+                    </td>
+                    <td class="style71">
+                        &nbsp;</td>
+                    <td class="style43">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="style46">
+                    </td>
+                    <td class="style47">
+                    </td>
+                    <td class="style48">
+                        <asp:Label ID="Label4" runat="server" Text="Posicion"></asp:Label>
+                    </td>
+                    <td class="style49">
+                        <asp:DropDownList ID="cmb_position" runat="server" Height="16px" Width="185px">
+                        </asp:DropDownList>
+                    </td>
+                    <td class="style50">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                            ControlToValidate="cmb_position" ErrorMessage="**Debe Ingresar Posicion"></asp:RequiredFieldValidator>
+                    </td>
+                    <td class="style51">
+                    </td>
+                    <td class="style52">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style58">
                         </td>
-                        <td class="style3">
-                            <asp:TextBox ID="txb_id" runat="server" Enabled="False" Width="150px" 
-                             >0</asp:TextBox>
+                    <td class="style59">
                         </td>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style17">
-                            &nbsp;</td>
-                        <td class="style16">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style14">
-                            &nbsp;</td>
-                        <td class="style4">
-                            &nbsp;</td>
-                        <td class="style2">
-                            <asp:Label ID="Label1" runat="server" Text="Nombre del Empleado"></asp:Label>
+                    <td class="style60">
                         </td>
-                        <td class="style3">
-                            <asp:TextBox ID="txb_nombreemp" runat="server" Width="146px"></asp:TextBox>
+                    <td class="style61">
                         </td>
-                        <td>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                                ErrorMessage="**Ingrese Nombre del Empleado" ForeColor="Red" 
-                                ControlToValidate="txb_nombreemp"></asp:RequiredFieldValidator>
+                    <td class="style62">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btn_save1" runat="server" onclick="btn_save_Click" 
+                            Text="Guardar" />
+                        &nbsp;&nbsp;
+                    </td>
+                    <td class="style63">
+                        &nbsp;<asp:Button ID="btn_cancel2" runat="server" onclick="btn_cancel_Click" 
+                            Text="Cancelar" />
+                    </td>
+                    <td class="style64">
                         </td>
-                        <td class="style17">
-                            &nbsp;</td>
-                        <td class="style16">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style14">
-                            &nbsp;</td>
-                        <td class="style4">
-                            &nbsp;</td>
-                        <td class="style2">
-                            <asp:Label ID="Label2" runat="server" Text="Primer Apellido"></asp:Label>
-                        </td>
-                        <td class="style3">
-                            <asp:TextBox ID="txb_firstname" runat="server" Width="145px"></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                                ErrorMessage="**Ingrese Primer Apellido" ForeColor="Red" 
-                                ControlToValidate="txb_firstname"></asp:RequiredFieldValidator>
-                        </td>
-                        <td class="style17">
-                            &nbsp;</td>
-                        <td class="style16">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style14">
-                            &nbsp;</td>
-                        <td class="style4">
-                            &nbsp;</td>
-                        <td class="style2">
-                            <asp:Label ID="Label3" runat="server" Text="Segundo Apellido"></asp:Label>
-                        </td>
-                        <td class="style3">
-                            <asp:TextBox ID="txb_secondlastname" runat="server" Width="143px"></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
-                                ErrorMessage="**Ingrese Segundo Apellido" ForeColor="Red" 
-                                ControlToValidate="txb_secondlastname"></asp:RequiredFieldValidator>
-                        </td>
-                        <td class="style17">
-                            &nbsp;</td>
-                        <td class="style16">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="style8">
-                            </td>
-                        <td class="style15">
-                            </td>
-                        <td class="style9">
-                            </td>
-                        <td class="style10">
-                            <asp:Label ID="Label4" runat="server" Text="Puesto"></asp:Label>
-                        </td>
-                        <td class="style11">
-                            <asp:DropDownList ID="cmb_position" runat="server" Height="45px" Width="152px">
-                            </asp:DropDownList>
-                        </td>
-                        <td class="style8">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
-                                ErrorMessage="**Debe Escoger un Puesto" ForeColor="Red" 
-                                ControlToValidate="cmb_position"></asp:RequiredFieldValidator>
-                            </td>
-                        <td class="style18">
-                            </td>
-                        <td class="style19">
-                            </td>
-                        <td class="style8">
-                            </td>
-                        <td class="style8">
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style14">
-                            &nbsp;</td>
-                        <td class="style4">
-                            &nbsp;</td>
-                        <td class="style2">
-                            &nbsp;</td>
-                        <td class="style3">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style17">
-                            &nbsp;</td>
-                        <td class="style16">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style14">
-                            &nbsp;</td>
-                        <td class="style4">
-                            &nbsp;</td>
-                        <td class="style2">
-                            &nbsp;</td>
-                        <td class="style3">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style17">
-                            <asp:Button ID="btn_save" runat="server" Text="Guardar" 
-                                onclick="btn_save_Click" />
-                        </td>
-                        <td class="style16">
-                            <asp:Button ID="Button1" runat="server" Text="Cancelar" />
-                        </td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style14">
-                            &nbsp;</td>
-                        <td class="style4">
-                            &nbsp;</td>
-                        <td class="style2">
-                            &nbsp;</td>
-                        <td class="style3">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style17">
-                            &nbsp;</td>
-                        <td class="style16">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style14">
-                            &nbsp;</td>
-                        <td class="style4">
-                            &nbsp;</td>
-                        <td class="style2">
-                            &nbsp;</td>
-                        <td class="style3">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td class="style17">
-                            &nbsp;</td>
-                        <td class="style16">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                </tr>
+                <tr>
+                    <td class="style68">
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                    <td class="style54">
+                        &nbsp;</td>
+                    <td class="style70">
+                        &nbsp;</td>
+                    <td class="style19">
+                        &nbsp;</td>
+                    <td class="style71">
+                        &nbsp;</td>
+                    <td class="style43">
+                        &nbsp;</td>
+                </tr>
+            </table>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
 

@@ -16,6 +16,27 @@ namespace BL
         #endregion
 
         #region gets y sets
+        public int GetPositionId(string nombrecargo)
+        {
+            var query = from pos in entidad.cargos
+                        where nombrecargo == pos.cargo1
+                        select pos.id;
+            int posId = Convert.ToInt32(query.First());
+
+            return posId;
+        }
+
+
+        public int GetEmpId(string nombre)
+        {
+            var idemp_query = from p in entidad.empleados
+                              where nombre == p.nombres
+                              select p.id;
+            int emp_id = Convert.ToInt32(idemp_query.First());
+
+            return emp_id;
+
+        }
         #endregion
 
         #region constructores
@@ -32,7 +53,7 @@ namespace BL
         }
         #endregion
 
-
+        
         public void crear_permiso(string name, string description)
         {
             try
@@ -43,7 +64,7 @@ namespace BL
 
                 entidad.permisos.AddObject(permisoNuevo);
                 entidad.SaveChanges();//commit
-            } 
+            }
             catch (Exception e)
             {
                 throw new Exception(e.ToString() + " --Security.cs / crear_permiso()");
@@ -58,13 +79,13 @@ namespace BL
                 rolNuevo.descripcion = descripcion;
                 entidad.roles.AddObject(rolNuevo);//agregar el rol nuevo al contexto
                 entidad.SaveChanges();//commit1
-                
+
                 foreach (string permisoCod in licences)
-                {                                       
+                {
                     var permisoQuery = from per in entidad.permisos
-                                  where per.id == permisoCod
-                                  select per;
-                    
+                                       where per.id == permisoCod
+                                       select per;
+
                     DataAccess.permiso permisoTMP = permisoQuery.First();
                     rolNuevo.permisos.Add(permisoTMP);//ya que el permisos en roles es un collection, agregamos cada permiso utilizando el id que viene en la lista
                 }
@@ -88,7 +109,7 @@ namespace BL
                 entidad.DeleteObject(permisoTMP);
                 entidad.SaveChanges();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw new Exception(e.ToString() + " --Security.cs / eliminar_permiso()");
             }
@@ -119,9 +140,9 @@ namespace BL
                 var rolQuery = from rol in entidad.roles
                                where rol.id == identity
                                select rol;
-                DataAccess.role rolTMP = rolQuery.First();                
+                DataAccess.role rolTMP = rolQuery.First();
                 rolTMP.descripcion = description;
-                
+
                 foreach (string perm in grants)
                 {
                     var permisoQuery = from per in entidad.permisos
@@ -145,5 +166,8 @@ namespace BL
                 throw new Exception(e.ToString() + " --Security.cs / editar_rol()");
             }
         }
+
+
+       
     }
 }
