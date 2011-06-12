@@ -14,12 +14,7 @@ public partial class Editar_Empleados : System.Web.UI.Page
         try{
             if (!this.IsPostBack)
             {
-                //carga empleados
-                cmb_usuarios.Items.Clear();
-                cmb_usuarios.DataSource = EMPLOYEE.RetrieveEmployeesName();
-                cmb_usuarios.DataBind();
-
-
+                CargarEmpleado();
                 //carga puestos de empleados
                 cmb_puesto.Items.Clear();
                 cmb_puesto.DataSource = EMPLOYEE.RetrievePositionName();
@@ -31,7 +26,12 @@ public partial class Editar_Empleados : System.Web.UI.Page
             }
         
         }
-
+    protected void CargarEmpleado() {
+        //carga empleados
+        cmb_usuarios.Items.Clear();
+        cmb_usuarios.DataSource = EMPLOYEE.RetrieveEmployeesName();
+        cmb_usuarios.DataBind();    
+    }
     protected void LimpiarPage() {
         txt_username.Text = "";
         txt_lastname.Text = "";
@@ -46,8 +46,9 @@ public partial class Editar_Empleados : System.Web.UI.Page
             if (this.IsValid)
             {
                 EMPLOYEE.EditarEmpleado(cmb_usuarios.Text,txt_username.Text, txt_lastname.Text, txt_secondlastname.Text, cmb_puesto.Text);
-                Response.Write("<script>alert('Empleado Editado Correctamente')</script>");
-                  LimpiarPage();
+               // Response.Write("<script>alert('Empleado Editado Correctamente')</script>");
+                CargarEmpleado();
+                LimpiarPage();
 
             }
             else { 

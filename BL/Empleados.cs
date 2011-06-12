@@ -107,7 +107,7 @@ namespace BL
                                 where e.id==emp_id
                                 select e).First();
 
-                   DataAccess.empleado TEMPEMP = new DataAccess.empleado();
+                   DataAccess.empleado TEMPEMP = query;
                    //TEMPEMP.id = emp_id;
                    TEMPEMP.nombres = nombre;
                    TEMPEMP.primer_apellido = primerapellido;
@@ -134,7 +134,7 @@ namespace BL
                                 where e.id == id
                                 select e).First();
 
-                   DataAccess.empleado EMPDELETE = new DataAccess.empleado();
+                   DataAccess.empleado EMPDELETE = query;
                    entities.DeleteObject(EMPDELETE);
                    entities.SaveChanges();
 

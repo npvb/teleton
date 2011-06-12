@@ -57,6 +57,8 @@
                                 Value="Agregar Empleados"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Editar Empleados.aspx" Text="Editar Empleados" 
                                 Value="Editar Empleados"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Eliminar Empleados.aspx" Text="Eliminar Empleados" 
+                                Value="Eliminar Empleados"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Reportes" Value="Generar Reportes">
                             <asp:MenuItem Text="New Item" Value="New Item"></asp:MenuItem>
