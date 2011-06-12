@@ -19,10 +19,6 @@
     {
         font-size: small;
     }
-    .style5
-    {
-        width: 114px;
-    }
     .style6
     {
         width: 181px;
@@ -143,12 +139,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table class="style1">
     <tr>
-        <td style="text-align: center; font-size: large; font-weight: 700">
-            <p>Ingreso de Usuarios</p>
+        <td style="text-align: center; font-size: small; ">
+            Ingreso de Usuarios
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                   <div class="line">
-                      <div ID="main">
+                       <!--<div ID="main">
                           <!-- /sidebar -->
                           
                           <table class="style1">
@@ -196,8 +192,8 @@
                                   
                                   <td class="style29">
                                       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                                          ControlToValidate="cmb_empleados" ErrorMessage="**Debe Escoger Un Empleado" 
-                                          ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                                          ControlToValidate="cmb_empleados" 
+                                          ErrorMessage="**Debe Escoger Un Empleado"></asp:RequiredFieldValidator>
                                   </td>
                                   <td class="style16">
                                       &nbsp;</td>
@@ -221,7 +217,7 @@
                                   </td>
                                   <td class="style30">
                                       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                                          ErrorMessage="**Ingrese Username" ForeColor="#FF3300" 
+                                          ErrorMessage="**Ingrese Username" 
                                           ControlToValidate="txt_username"></asp:RequiredFieldValidator>
                                   </td>
                                   <td class="style14">
@@ -249,7 +245,7 @@
                                   </td>
                                   <td class="style30">
                                       <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
-                                          ErrorMessage="**Ingrese Contraseña" ForeColor="#FF3300" 
+                                          ErrorMessage="**Ingrese Contraseña" 
                                           ControlToValidate="txt_password"></asp:RequiredFieldValidator>
                                   </td>
                                   <td class="style14">
@@ -289,7 +285,7 @@
                                   <td class="style26">
                                   </td>
                                   <td class="style19">
-                                      <asp:Label ID="Label4" runat="server" style="font-size: medium" 
+                                      <asp:Label ID="Label4" runat="server" style="font-size: small" 
                                           Text="Roles de Usuario"></asp:Label>
                                   </td>
                                   <td class="style20">

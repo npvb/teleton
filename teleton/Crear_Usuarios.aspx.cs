@@ -12,11 +12,16 @@ public partial class Crear_Usuarios : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        if (!this.IsPostBack) 
+        try
         {
-            CargarEmpleados();
-            CargarRoles();              
+            if (!this.IsPostBack)
+            {
+                CargarEmpleados();
+                CargarRoles();
+            }
+        }catch(Exception er){
+           Response.Write("<script>alert('CrearUsuarios.aspx.cs: " + er.ToString() + "')</script>");
+        
         }
     }
     protected void btn_leftuserrol_Click(object sender, EventArgs e)
@@ -39,7 +44,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            throw new Exception(er.ToString() + "Error de Crear Usuarios");
+            Response.Write("<script>alert('CrearUsuarios.aspx.cs/leftuserrolclick: " + er.ToString() + "')</script>");
 
         }
     }
@@ -52,7 +57,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            throw new Exception(er.ToString() + "Error de Crear Usuarios");
+            Response.Write("<script>alert('CrearUsuarios.aspx.cs/CargarEmpleados: " + er.ToString() + "')</script>");
 
         }
     
@@ -67,8 +72,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            throw new Exception(er.ToString() + "Error de Crear Usuarios");
-
+            Response.Write("<script>alert('CrearUsuarios.aspx.cs/CargarRoles: " + er.ToString() + "')</script>");
         }
     }
 
@@ -93,7 +97,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            throw new Exception(er.ToString() + "Error de Crear Usuarios");
+            Response.Write("<script>alert('CrearUsuarios.aspx.cs/rightuserrol_Click: " + er.ToString() + "')</script>");
 
         }
     }
@@ -143,8 +147,8 @@ public partial class Crear_Usuarios : System.Web.UI.Page
 
             }
         }
-        catch (Exception er) { 
-            throw new Exception(er.ToString()+"Error de Crear Usuarios");
+        catch (Exception er) {
+            Response.Write("<script>alert('CrearUsuarios.aspx.cs/GuardarUsuario_Click: " + er.ToString() + "')</script>");
         
         }
     }

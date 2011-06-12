@@ -12,7 +12,7 @@ namespace BL
 {
     public class AdministradordeSistema
     {
-        
+
         #region variables
         private Security security;
         #endregion
@@ -32,7 +32,7 @@ namespace BL
             {
                 throw new Exception(ex.ToString() + " --AdministradordeSistema.cs / AdministradordeSistema()");
             }
-        }        
+        }
         #endregion
 
         public void crearPermiso(string name, string description)
@@ -40,7 +40,7 @@ namespace BL
             try
             {
                 security.crear_permiso(name, description);
-                
+
             }
             catch (Exception e)
             {
@@ -95,5 +95,15 @@ namespace BL
                 throw new Exception(e.ToString() + " --AdministradordeSistema.cs / editarRol()");
             }
         }
+
+
+        
+
+
+
+
+
+
     }
 }
+

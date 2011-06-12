@@ -9,13 +9,10 @@ using BL;
 public partial class Empleados : System.Web.UI.Page
 {
     private BL.Empleados EMPLOYEES = new BL.Empleados();
+   
 
-    private bool IsTheInfoComplete()
+    protected void LimpiarPage()
     {
-        return txb_firstname.Text.Length > 0 && txb_nombreemp.Text.Length > 0 && txb_secondlastname.Text.Length > 0 && cmb_position.Text.Length>0;
-    }
-
-    protected void LimpiarPage() {
         txb_firstname.Text = "";
         txb_nombreemp.Text = "";
         txb_secondlastname.Text = "";
@@ -24,18 +21,20 @@ public partial class Empleados : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        try{
-        if (!this.IsPostBack) {
-
-            cmb_position.Items.Clear();
-            cmb_position.DataSource = EMPLOYEES.RetrievePositionName();
-            cmb_position.DataBind();
-           
-        }
-        }
-        catch (Exception err)
+        try
         {
-            throw new Exception(err.ToString() + "Error en Empleados");
+            if (!this.IsPostBack)
+            {
+
+                cmb_position.Items.Clear();
+                cmb_position.DataSource = EMPLOYEES.RetrievePositionName();
+                cmb_position.DataBind();
+
+            }
+        }
+        catch (Exception er)
+        {
+            Response.Write("<script>alert('Empleados.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
     protected void btn_save_Click(object sender, EventArgs e)
@@ -44,7 +43,7 @@ public partial class Empleados : System.Web.UI.Page
         {
             if (this.IsPostBack)
             {
-                if (IsTheInfoComplete())
+                if (this.IsValid)
                 {
                     EMPLOYEES.GuardarEmpleado(Convert.ToInt32(txb_id.Text), txb_nombreemp.Text, txb_firstname.Text, txb_secondlastname.Text, cmb_position.Text);
                     LimpiarPage();
@@ -52,12 +51,17 @@ public partial class Empleados : System.Web.UI.Page
                 else
                 {
 
-                    Response.Write("<script>alert('Uno de los Campos esta Vacio')</script>");
                 }
             }
         }
-        catch (Exception err) { 
-            throw new Exception(err.ToString()+"Error en Empleados");
+        catch (Exception er)
+        {
+            Response.Write("<script>alert('Empleados.aspx.cs/btn_save_Click: " + er.ToString() + "')</script>");
         }
+    }
+
+    protected void btn_cancel_Click(object sender, EventArgs e)
+    {
+        LimpiarPage();
     }
 }
