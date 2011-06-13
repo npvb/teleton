@@ -2,10 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style type="text/css">
-    .style11
-    {
-        font-size: small;
-    }
         .style29
         {
             color: #000000;
@@ -33,7 +29,7 @@
             position: absolute;
             width: 800px;
             text-align:left;
-            top: 300px;
+            top: 250px;
             left: 50px;
             padding: 1px;
             z-index: 0;
@@ -42,9 +38,9 @@
          #navBotones
          {
              position: absolute;
-             width: 250px;
-             top: 490px;
-             left: 550px;
+             width: 200px;
+             top: 440px;
+             left: 300px;
              padding: 1px;
              z-index: 0;
          }
