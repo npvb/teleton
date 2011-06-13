@@ -9,7 +9,7 @@ using System.Data.Objects.DataClasses;// ^^ y haber agregado la referencia a Sys
 
 namespace BL
 {
-    class Security
+    public class Security
     {
         #region variables
         DataAccess.teletonEntities entidad;
@@ -167,7 +167,35 @@ namespace BL
             }
         }
 
+        public bool login(string user, string password)
+        {
+            try
+            {
+                Login l = new Login(user, password);
+                return l.validateUser();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + "  --Security.cs / login()");
+            }
+        }
 
-       
+        public List<String> getCentros()
+        {
+            try
+            {
+                List<String> centros; //= new List<string>();
+
+                var allcentros = from c in entidad.centros
+                                 select c.lugar;
+
+                centros = allcentros.ToList();
+                return centros;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + "  --Security.cs / getCentros()");
+            }
+        }
     }
 }

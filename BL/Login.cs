@@ -17,10 +17,16 @@ namespace BL
 
         public Login(string userName, string password)
         {
-            this.userName = userName;
-            this.password = password;
-            this.msg = "";
-            entidad = new DataAccess.teletonEntities();
+            try
+            {
+                this.userName = userName;
+                this.password = password;
+                this.msg = "";
+                entidad = new DataAccess.teletonEntities();
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.ToString() + "  --Login.cs / Login()");
+            }
         }
 
         public bool validateUser()
@@ -37,15 +43,20 @@ namespace BL
                     return false;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                msg = e.Message;
-                return false;
+                throw new Exception(ex.ToString() + "  --Login.cs / validateUser()");
             }
         }
-        public string getMsg()
+
+        public long getIdUser()
         {
-            return msg;
+
+            var id = from l in entidad.usuarios
+                     where l.username == userName && l.password == password
+                     select l.empleado;
+
+            return id.First();
         }
     }
 }

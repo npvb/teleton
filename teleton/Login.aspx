@@ -5,7 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+<link href="~/Styles/Login.css" rel="stylesheet" type="text/css" />
+    <title>Login</title>
 </head>
 <body>
     <center>
@@ -48,9 +49,11 @@
         </LayoutTemplate>
     </asp:Login>
     
+        <asp:DropDownList ID="DropDownList1" runat="server">
+        </asp:DropDownList>
+    
     </div>
     </form>
     </center>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-</body>
+    </body>
 </html>

@@ -140,5 +140,31 @@ namespace BL
                 throw new Exception(ex.ToString() + " --ROL!!!");
             }
         }
+
+        public List<long> getPermisosUsuario(int idUser)
+        {
+            try
+            {
+                List<long> rols;
+
+                var allrols = from r in entidad.roles
+                              where r.id == idUser
+                              select r.id;
+
+                rols = allrols.ToList();
+
+                List<long> pers = new List<long>();
+                foreach (long p in rols)
+                {
+                    pers.Add(p);
+                }
+
+                return pers;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --Rol.cs / getPermisosUsuario()!!!");
+            }
+        }
     }
 }
