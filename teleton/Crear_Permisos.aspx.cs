@@ -30,7 +30,7 @@ public partial class Crear_Permisos : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Crear_Permisos.aspx!!!");
+            Response.Write("<script>alert(" + ex.ToString() + " --Crear_Permisos.aspx.cs / SaveButton_Click()"+")</script>");          
         }
     }
 }

@@ -21,7 +21,7 @@ public partial class Crear_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Crear_Roles.aspx.cs");
+            Response.Write("<script>alert(" + ex.ToString() + " --Crear_Roles.aspx.cs /  Page_Load()" + ")</script>");
         }
     }
 
@@ -51,7 +51,7 @@ public partial class Crear_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Crear_Roles.aspx.cs / acceptButton_Click()");
+            Response.Write("<script>alert(" + ex.ToString() + " --Crear_Roles.aspx.cs /  acceptButton_Click()" + ")</script>");     
         }
     }
 

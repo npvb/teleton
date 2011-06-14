@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Crear_Paciente.aspx.cs" Inherits="Crear_Paciente" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 
@@ -87,9 +85,7 @@
                            <asp:TextBox ID="txtFechaNacimiento" runat="server" 
                 ReadOnly="True"></asp:TextBox>
                            
-                            <asp:CalendarExtender ID="txt_fecha_CalendarExtender" runat="server" 
-                            TargetControlID="txtFechaNacimiento" Format="dd/MM/yyyy" PopupButtonID="img_fecha_nacimiento" >
-                        </asp:CalendarExtender>
+                            
                     <img alt="Icon" src="images/calendar_icon.jpg" id="img_fecha_nacimiento" width="24px" />
                     
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
@@ -106,9 +102,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
                                 ErrorMessage="*Ingrese la fecha de Ingreso" ForeColor="Red" 
                                 ControlToValidate="txtFechaIngreso"></asp:RequiredFieldValidator>
-                                <asp:CalendarExtender ID="txt_fecha_CalendarExtender2" runat="server" 
-                            TargetControlID="txtFechaIngreso" Format="dd/MM/yyyy" PopupButtonID="img_fecha_ingreso">
-                        </asp:CalendarExtender>
+                                
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btIngresar" runat="server" Text="Ingresar Paciente" 

@@ -26,7 +26,7 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --ROL!!!");
+                throw new Exception(e.ToString() + " --Rol.cs / Rol()");
             }
         }
         #endregion
@@ -42,7 +42,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolesID()");
             }
         }
 
@@ -56,7 +56,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRoelsDescripcion()");
             }
         }
 
@@ -72,7 +72,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolID()");
             }
         }
 
@@ -87,7 +87,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolDescripcion()");
             }
         }
 
@@ -112,7 +112,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolPermisos()");
             }
         }
 
@@ -137,7 +137,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolPermisos()");
             }
         }
 

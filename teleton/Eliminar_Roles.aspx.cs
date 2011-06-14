@@ -19,7 +19,7 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(e.ToString() + " --Eliminar Roles!");
+            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Roles.aspx.cs / Page_Load()" + ")</script>");
         }
     }
     protected void acceptButton_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Eliminar Roles!");
+            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Roles.aspx.cs / acceptButton_Click()" + ")</script>");
         }
     }
 
@@ -69,9 +69,10 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Eliminar Roles!");
+            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Roles.aspx.cs / setCheckBoxes()" + ")</script>");            
         }
     }
+
     protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
     {
         bool flag = false;

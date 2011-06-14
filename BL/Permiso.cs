@@ -27,7 +27,7 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --PERMISO!!!");
+                throw new Exception(e.ToString() + " --Permiso.cs / Permiso()");
             }
         }        
         #endregion
@@ -46,7 +46,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --PERMISO!!!");
+                throw new Exception(ex.ToString() + " --Permiso.cs / getPermisosID()");
             }
         }
 
@@ -64,7 +64,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --PERMISO!!!");
+                throw new Exception(ex.ToString() + " --Permiso.cs / getPermisosDescripciones()");
             }
         }
 
@@ -80,7 +80,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --PERMISO!!!");
+                throw new Exception(ex.ToString() + " --Permiso.cs / getPermisoID()");
             }
         }
 
@@ -96,7 +96,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --PERMISO!!!");
+                throw new Exception(ex.ToString() + " --Permiso.cs / getPermisoDescripcion()");
             }
         }
     }
