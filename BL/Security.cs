@@ -197,5 +197,15 @@ namespace BL
                 throw new Exception(ex.ToString() + "  --Security.cs / getCentros()");
             }
         }
+        public List<long> getPermisosUsuario(int idUser)
+        {
+            try
+            {
+                return new Rol().getPermisosUsuario(idUser);
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.ToString() + "  --Security.cs / getPermisosUsuarios(idUser)");
+            }
+        }
     }
 }
