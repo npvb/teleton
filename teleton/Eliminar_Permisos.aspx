@@ -1,71 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Eliminar_Permisos.aspx.cs" Inherits="Eliminar_Permisos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <link href="Styles/Security.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <table class="style1">
-        <tr>
-            <td colspan="4" style="text-align: center; font-weight: 700">
-                Eliminar Permisos</td>
-            <td style="text-align: center; font-weight: 700">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style4">
-                &nbsp;</td>
-            <td class="style3">
-                &nbsp;</td>
-            <td class="style5">
-                &nbsp;</td>
-            <td class="style6">
-                &nbsp;</td>
-            <td class="style6">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style4">
-                &nbsp;</td>
-            <td class="style3">
-                <asp:Label ID="Label4" runat="server" Text="Permisos:"></asp:Label>
-            </td>
-            <td class="style5">
-                &nbsp;</td>
-            <td class="style6">
-                <asp:Button ID="acceptButton" runat="server" Text="Aceptar" 
-                    onclick="acceptButton_Click" />
-            </td>
-            <td class="style6">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style4">
-                &nbsp;</td>
-            <td class="style3">
-                &nbsp;</td>
-            <td class="style5">
+     <div id="content">
+        <div id = "titulo">Eliminar Permisos</div>        
+        <div id="navcontroles">
+            <asp:Label ID="Label1" runat="server" Text="Permisos:"></asp:Label>
+            <div id="control1" style = "text-align:left;width: 50%;margin: auto;">                               
                 <asp:CheckBoxList ID="permisos_CBList" runat="server" TabIndex="3">
-                </asp:CheckBoxList>
-            </td>
-            <td class="style6">
+                    </asp:CheckBoxList>
                 <asp:CustomValidator ID="CustomValidator1" runat="server" 
                     ErrorMessage="Seleccione un permiso a borrar" 
                     onservervalidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
-            </td>
-            <td class="style6">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style4">
-                &nbsp;</td>
-            <td class="style3">
-                &nbsp;</td>
-            <td class="style5">
-                &nbsp;</td>
-            <td class="style6">
-                &nbsp;</td>
-            <td class="style6">
-                &nbsp;</td>
-        </tr>
-    </table>
+            </div>                           
+        </div>
+        <div id="navBotones">
+            <asp:Button ID="acceptButton" runat="server" Text="Aceptar" 
+                    onclick="acceptButton_Click" />            
+        </div>
+    </div>
 </asp:Content>
 

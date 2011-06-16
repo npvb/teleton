@@ -9,7 +9,7 @@
             text-align:left;
             width: 800px;
             top: 190px;
-            left: 30px;
+            left: 200px;
             padding: 1px;
             z-index: 0;
         }
@@ -19,7 +19,7 @@
             text-align:left;
             width: 70px;
             top: 220px;
-            left: 350px;
+            left: 420px;
             padding: 1px;
             z-index: 0;
         }            

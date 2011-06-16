@@ -23,7 +23,7 @@
         text-align:left;
         width: 800px;
         top: 190px;
-        left: 30px;
+        left: 200px;
         padding: 1px;
         z-index: 0;
     }    
@@ -34,7 +34,7 @@
         text-align:left;
         width: 127px;
         top: 370px;
-        left: 30px;
+        left: 200px;
         padding: 1px;
         z-index: 0;
     }
@@ -45,7 +45,7 @@
         text-align: right;
         width: 127px;
         top: 370px;
-        left: 320px;
+        left: 490px;
         padding:1px;
         z-index:0;
     }
@@ -56,7 +56,7 @@
         text-align: center;
         width: 127px;
         top: 370px;
-        left: 180px;
+        left: 350px;
         padding:1px;
         z-index:0;
     }
@@ -66,7 +66,7 @@
         position: absolute;
         width: 250px;
         top: 520px;
-        left: 250px;
+        left: 470px;
         padding: 1px;
         z-index: 0;
     }
@@ -108,8 +108,7 @@
         <br />
         <br />
         <br />
-            <div id="h32">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div id="h31">
             Roles de Usuario
             </div>
         <br />

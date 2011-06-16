@@ -30,7 +30,7 @@
             width: 800px;
             text-align:left;
             top: 250px;
-            left: 50px;
+            left: 250px;
             padding: 1px;
             z-index: 0;
          }
@@ -40,7 +40,7 @@
              position: absolute;
              width: 200px;
              top: 440px;
-             left: 300px;
+             left: 500px;
              padding: 1px;
              z-index: 0;
          }
