@@ -1,9 +1,3 @@
-C:\Users\Sergio\teleton\DataAccess\bin\Debug\DataAccess.dll.config
-C:\Users\Sergio\teleton\DataAccess\bin\Debug\DataAccess.dll
-C:\Users\Sergio\teleton\DataAccess\bin\Debug\DataAccess.pdb
-C:\Users\Sergio\teleton\DataAccess\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Sergio\teleton\DataAccess\obj\Debug\DataAccess.dll
-C:\Users\Sergio\teleton\DataAccess\obj\Debug\DataAccess.pdb
 C:\Users\Daniel\Desktop\teleton\DataAccess\bin\Debug\DataAccess.dll.config
 C:\Users\Daniel\Desktop\teleton\DataAccess\bin\Debug\DataAccess.dll
 C:\Users\Daniel\Desktop\teleton\DataAccess\bin\Debug\DataAccess.pdb

@@ -23,6 +23,7 @@ namespace BL
         private string _direccion;
         private string _lugarNac;
         private string _estado;
+        private int _centroActual;
         #endregion
 
         #region Get y Set
@@ -85,6 +86,12 @@ namespace BL
             get { return _estado; }
             set { _estado = value; }
         }
+
+        public int CentroActual
+        {
+            get { return _centroActual; }
+            set { _centroActual = value; }
+        }
         #endregion
 
         #region Constructores
@@ -121,10 +128,11 @@ namespace BL
         }
         #endregion
 
-        public bool guardarPaciente(string nombres, string primerApellido, string segundoApellido,
+        public void guardarPaciente(int centroActual, string nombres, string primerApellido, string segundoApellido,
                                     string fechaNac, bool sexo, string fechaIngreso, string cedula,
                                     string direccion, string lugarNac, string estado)
         {
+            CentroActual = centroActual;
             Nombres = nombres;
             PrimerApellido = primerApellido;
             SegundoApellido = segundoApellido;
@@ -135,7 +143,7 @@ namespace BL
             Direccion = direccion;
             LugarNac = lugarNac;
             Estado = estado;
-            return guardarPaciente();
+            guardarPaciente();
         }
 
         private bool isTheInfoComplete()
@@ -144,7 +152,7 @@ namespace BL
             return FechaIngreso.Length > 0 && PrimerApellido.Length > 0 && SegundoApellido.Length > 0 && Nombres.Length > 0 && Cedula.Length > 0 && FechaNac.Length > 0;
         }
 
-        public bool guardarPaciente()
+        public void guardarPaciente()
         {
             if (isTheInfoComplete())
             {
@@ -171,8 +179,7 @@ namespace BL
                     pac.segundo_apellido = SegundoApellido;
                     pac.sexo = Sexo;
 
-                    //TODO: cambiar esto cuando se active el feature de las variables de secion
-                    pac.centro_actual = 1;
+                    pac.centro_actual = CentroActual;
                     pac.prefijo = 1;
                     pac.expediente = 0;
 
@@ -181,7 +188,6 @@ namespace BL
 
                     entities.pacientes.AddObject(pac); //se guarda en la memoria
                     entities.SaveChanges(); //se guarda en la DB
-                    return true;
 
                 }
                 catch (Exception e)
@@ -189,7 +195,6 @@ namespace BL
                     throw e;
                 }
             }
-            return false;
         }
     }
 }

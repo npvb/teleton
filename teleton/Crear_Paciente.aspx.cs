@@ -49,20 +49,23 @@ public partial class Crear_Paciente : System.Web.UI.Page
     {
         if (this.IsPostBack)
         {
-            if (isTheInfoComplete())
+            if (this.IsValid)
             {
-                bool saved = _paciente.guardarPaciente(txtNombres.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
-                                          txtFechaNacimiento.Text, rdMasculino.Selected, txtFechaIngreso.Text,
-                                          txtCedula.Text, txtDireccion.Text, txtLugarNacimiento.Text,
-                                          ddEstado.SelectedItem.Text);
-                if (saved)
+                try
                 {
+
+                    int ca = 1;//= int.Parse(Session["Centro_id"]); 
+                    _paciente.guardarPaciente(ca,txtNombres.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
+                                              txtFechaNacimiento.Text, rdMasculino.Selected, txtFechaIngreso.Text,
+                                              txtCedula.Text, txtDireccion.Text, txtLugarNacimiento.Text,
+                                              ddEstado.SelectedItem.Text);
+                    
                     Response.Write("<script>alert('la data del paciente ha sido guardada exitosamente')</script>");
                     cleanPage();
                 }
-                else
+                catch (Exception err)
                 {
-                    Response.Write("<script>alert('ha ocurrido un error y no se ha podido guardar la data del paciente')</script>");
+                    Response.Write("<script>alert('" + err.Message + "')</script>");
                 }
             }
             else

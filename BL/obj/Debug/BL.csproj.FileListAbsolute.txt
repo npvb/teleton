@@ -1,10 +1,3 @@
-C:\Users\Sergio\teleton\BL\bin\Debug\BL.dll
-C:\Users\Sergio\teleton\BL\bin\Debug\BL.pdb
-C:\Users\Sergio\teleton\BL\bin\Debug\DataAccess.dll
-C:\Users\Sergio\teleton\BL\bin\Debug\DataAccess.pdb
-C:\Users\Sergio\teleton\BL\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Sergio\teleton\BL\obj\Debug\BL.dll
-C:\Users\Sergio\teleton\BL\obj\Debug\BL.pdb
 C:\Users\Daniel\Desktop\teleton\BL\bin\Debug\BL.dll
 C:\Users\Daniel\Desktop\teleton\BL\bin\Debug\BL.pdb
 C:\Users\Daniel\Desktop\teleton\BL\bin\Debug\DataAccess.dll
@@ -33,6 +26,7 @@ C:\Users\Archangel\teleton\BL\bin\Debug\DataAccess.pdb
 C:\Users\Archangel\teleton\BL\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Archangel\teleton\BL\obj\Debug\BL.dll
 C:\Users\Archangel\teleton\BL\obj\Debug\BL.pdb
+<<<<<<< HEAD
 C:\Documents and Settings\Diego\Desktop\PROYECTO_TELETON\teleton\BL\bin\Debug\BL.dll
 C:\Documents and Settings\Diego\Desktop\PROYECTO_TELETON\teleton\BL\bin\Debug\BL.pdb
 C:\Documents and Settings\Diego\Desktop\PROYECTO_TELETON\teleton\BL\bin\Debug\DataAccess.dll
@@ -40,3 +34,12 @@ C:\Documents and Settings\Diego\Desktop\PROYECTO_TELETON\teleton\BL\bin\Debug\Da
 C:\Documents and Settings\Diego\Desktop\PROYECTO_TELETON\teleton\BL\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Diego\Desktop\PROYECTO_TELETON\teleton\BL\obj\Debug\BL.dll
 C:\Documents and Settings\Diego\Desktop\PROYECTO_TELETON\teleton\BL\obj\Debug\BL.pdb
+=======
+C:\Users\Fco Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\bin\Debug\BL.dll
+C:\Users\Fco Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\bin\Debug\BL.pdb
+C:\Users\Fco Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\bin\Debug\DataAccess.dll
+C:\Users\Fco Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\bin\Debug\DataAccess.pdb
+C:\Users\Fco Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Fco Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\obj\Debug\BL.dll
+C:\Users\Fco Meraz\Documents\Visual Studio 2010\Projects\teleton\BL\obj\Debug\BL.pdb
+>>>>>>> e3110b28f4b0cc85ab7e78ba0a160b1c7aa3f3bd

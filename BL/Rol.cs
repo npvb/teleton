@@ -26,7 +26,7 @@ namespace BL
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --ROL!!!");
+                throw new Exception(e.ToString() + " --Rol.cs / Rol()");
             }
         }
         #endregion
@@ -42,7 +42,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolesID()");
             }
         }
 
@@ -56,7 +56,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRoelsDescripcion()");
             }
         }
 
@@ -72,7 +72,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolID()");
             }
         }
 
@@ -87,7 +87,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolDescripcion()");
             }
         }
 
@@ -112,7 +112,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolPermisos()");
             }
         }
 
@@ -137,7 +137,33 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --ROL!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolPermisos()");
+            }
+        }
+
+        public List<long> getPermisosUsuario(int idUser)
+        {
+            try
+            {
+                List<long> rols;
+
+                var allrols = from r in entidad.roles
+                              where r.id == idUser
+                              select r.id;
+
+                rols = allrols.ToList();
+
+                List<long> pers = new List<long>();
+                foreach (long p in rols)
+                {
+                    pers.Add(p);
+                }
+
+                return pers;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --Rol.cs / getPermisosUsuario()!!!");
             }
         }
     }

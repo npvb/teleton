@@ -19,7 +19,7 @@ public partial class Eliminar_Permisos : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Eliminar Permisos!");
+            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Permisos.aspx.cs / Page_Load()" + ")</script>");
         }
     }
 
@@ -54,20 +54,28 @@ public partial class Eliminar_Permisos : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Eliminar Permisos!");
+            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Permisos.aspx.cs / acceptButton_Click()" + ")</script>");
         }
     }
 
     private void setCheckBoxes()
     {
-        BL.Permiso per = new Permiso();
-        permisos_CBList.DataSource = per.getPermisosID();
-        permisos_CBList.DataBind();
+        try
+        {
+            BL.Permiso per = new Permiso();
+            permisos_CBList.DataSource = per.getPermisosID();
+            permisos_CBList.DataBind();
+        }
+        catch (Exception ex)
+        {
+            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Permisos.aspx.cs / setCheckBoxes()" + ")</script>");
+        }
     }
 
     protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
     {
         bool flag = false;
+
         foreach (ListItem it in permisos_CBList.Items)
         {
             if (it.Selected)

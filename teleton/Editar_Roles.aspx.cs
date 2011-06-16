@@ -17,13 +17,12 @@ public partial class Editar_Roles : System.Web.UI.Page
                 BL.Rol rl = new Rol();
                 descripciones_DDList.DataSource = rl.getRolesDescripcion();
                 descripciones_DDList.DataBind();
-
                 setCheckBoxes();
             }
         } 
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Editar Roles!");
+            Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs /  Page_Load()" + ")</script>");
         }
     }
 
@@ -35,7 +34,7 @@ public partial class Editar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Editar Roles!");
+            Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs /  descripciones_DDList_SelectedIndexChanged()" + ")</script>");
         }
 
     }
@@ -75,7 +74,7 @@ public partial class Editar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Editar Roles!");
+            Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs / setCheckBoxes()" + ")</script>");            
         }
     }
 
@@ -122,7 +121,7 @@ public partial class Editar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.ToString() + " --Editar Roles!");
+            Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs / acceptButton_Click()" + ")</script>");            
         }
     }
 }
