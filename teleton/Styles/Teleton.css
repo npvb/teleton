@@ -1,0 +1,79 @@
+﻿/* GENERALES
+----------------------------------------------------------*/
+
+#titulo
+{
+    text-align:center;
+    font-size: small;
+    width: 70%;
+    margin: auto;    
+}
+
+#navcenter
+{       
+    padding: 20px 0 20px 0;
+    text-align:left;
+    width: 70%;
+    margin: auto;
+}
+         
+#navcontroles
+{
+    padding: 20px 0 20px 0;
+    text-align:left;
+    width: 70%;
+    margin: auto;
+}
+
+#navBotones
+{
+    padding: 20px 0 20px 0;
+    text-align:left;
+    width: 70%;
+    margin: auto;
+}
+
+fieldset
+{    
+    padding: 10px 5px 10px 5px;
+    text-align:left;
+    width: 100%;
+    margin: auto;
+}
+
+.list
+{
+    list-style-type: none;
+}
+
+
+.label
+{
+    padding: 1px;
+    width: 20%;
+    float: left;
+    text-align: right;    
+}
+
+/* Crear_Permisos
+----------------------------------------------------------*/
+.field .tb_Permiso
+{
+    width: 60%;
+}
+
+/* Eliminar_Permisos
+----------------------------------------------------------*/
+#ctrlCentrado
+{
+    text-align:left;
+    width: 50%;
+    margin: auto;
+}
+
+
+.tb_crearRol
+{
+    width: 60%;
+}
+

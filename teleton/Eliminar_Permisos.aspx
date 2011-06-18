@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Eliminar_Permisos.aspx.cs" Inherits="Eliminar_Permisos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-    <link href="Styles/Security.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
      <div id="content">
-        <div id = "titulo">Eliminar Permisos</div>        
+        <div id = "titulo">Eliminar Permisos</div>
         <div id="navcontroles">
             <asp:Label ID="Label1" runat="server" Text="Permisos:"></asp:Label>
-            <div id="control1" style = "text-align:left;width: 50%;margin: auto;">                               
+            <div id="ctrlCentrado">
                 <asp:CheckBoxList ID="permisos_CBList" runat="server" TabIndex="3">
                     </asp:CheckBoxList>
                 <asp:CustomValidator ID="CustomValidator1" runat="server" 
@@ -16,6 +16,7 @@
                     onservervalidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
             </div>                           
         </div>
+
         <div id="navBotones">
             <asp:Button ID="acceptButton" runat="server" Text="Aceptar" 
                     onclick="acceptButton_Click" />            
