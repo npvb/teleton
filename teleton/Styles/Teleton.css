@@ -31,7 +31,13 @@
     text-align:left;
     width: 70%;
     margin: auto;
+    
 }
+.boton
+{
+	border: thin solid #000000; padding: 2px; margin: 2px; background-color: #C11B17; font-family: Verdana; color: #FFFFFF;
+}
+
 
 fieldset
 {    
@@ -77,3 +83,16 @@ fieldset
     width: 60%;
 }
 
+/*Empleados
+------------------------------------------------------*/
+
+.field .txtbx_Empleado
+{
+    width: 55%;
+}
+
+.field .cmb_Empleado
+{
+    Height: 16px; 
+    Width: 185px;
+  }

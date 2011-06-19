@@ -202,7 +202,6 @@ p
 	height: 49px;
 	margin-right: 1px;
 	padding: 16px 40px 0px 40px;
-	/*background: url(/images/img04.gif) no-repeat right top;*/
 	/*text-decoration: none;
 	text-align: center;
 	font-size: 1em;
@@ -261,6 +260,7 @@ p
 	padding-left: 0;	
 	font-weight: bold;		
 	color: #000000;
+	background: url(/Imagenes/redbg.gif) repeat-x left top; word-spacing:0;
 }
 .sidemenu ul li span {
 	display: block;	
@@ -269,9 +269,9 @@ p
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
 	text-transform: none;	
 }
-.sidemenu ul li a:hover { color: #FFF;	border: none; background: url(../Imagenes/redbg.gif) repeat-x left top;}
-.sidemenu ul ul { margin: 0 0 0 5px; padding: 0; border: none; }
-.sidemenu ul ul li { border: none; }
+.sidemenu ul li a:hover { color: #FFF; word-spacing: 0; border: none; background: url(../Imagenes/redbg.gif) repeat-x left top;}
+.sidemenu ul ul { margin: 0 0 0 5px; padding: 0; border: none;}
+.sidemenu ul ul li { border: none;}
 .left { 
 	float: left; width: 250px; 
 }	

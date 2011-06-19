@@ -22,7 +22,7 @@
 
              
               <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" 
-                 CssClass="sidemenu" StaticSubMenuIndent="8px" 
+                 CssClass="sidemenu" StaticSubMenuIndent="2px" 
                  >
                     <Items> 
                        <asp:MenuItem Text="Expedientes" Value="Administrar Paciente">
