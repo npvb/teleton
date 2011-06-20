@@ -1,158 +1,82 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Crear_Usuarios.aspx.cs" Inherits="Crear_Usuarios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-    <style type="text/css">
-    .style7
-    {
-        height: 178px;
-    }
-    #h31
-    {
-        text-align:center;
-        font-size: small;
-    }
-
-    #h32
-    {
-        font-size: small;
-        text-align: left;    
-    }
-    #navcenter
-    {
-        position: absolute;
-        text-align:left;
-        width: 800px;
-        top: 190px;
-        left: 200px;
-        padding: 1px;
-        z-index: 0;
-    }    
-    
-    #menuizq
-    {
-        position: absolute;
-        text-align:left;
-        width: 127px;
-        top: 370px;
-        left: 200px;
-        padding: 1px;
-        z-index: 0;
-    }
-    
-    #menuder
-    {
-        position: absolute;
-        text-align: right;
-        width: 127px;
-        top: 370px;
-        left: 490px;
-        padding:1px;
-        z-index:0;
-    }
-    
-    #menubotones
-    {
-        position: absolute;
-        text-align: center;
-        width: 127px;
-        top: 370px;
-        left: 350px;
-        padding:1px;
-        z-index:0;
-    }
-    
-    #navBotones
-    {
-        position: absolute;
-        width: 250px;
-        top: 520px;
-        left: 470px;
-        padding: 1px;
-        z-index: 0;
-    }
-    </style>
+    <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" /> 
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <div id="h31">
-        Ingreso de Usuarios
-    </div>   
-    <div id="navcenter">
-         <asp:Label ID="Label2" runat="server" style="font-size: small; text-align: center" Text="Empleado"></asp:Label>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <asp:DropDownList ID="cmb_empleados" runat="server" Width="149px"></asp:DropDownList>
-         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="cmb_empleados" 
-              ErrorMessage="**Debe Escoger Un Empleado"></asp:RequiredFieldValidator>
-         <br />
-         <br />
-         <asp:Label ID="Label1" runat="server" CssClass="style4" Text="UserName"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <asp:TextBox ID="txt_username" runat="server" Width="149px"></asp:TextBox>
-         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="**Ingrese Username" 
-              ControlToValidate="txt_username"></asp:RequiredFieldValidator>
-        <br />
-        <br />
-        <asp:Label ID="Label3" runat="server" style="font-size: small" Text="Contraseña"></asp:Label>
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txt_password" runat="server" TextMode="Password" Width="150px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="**Ingrese Contraseña" 
-            ControlToValidate="txt_password"></asp:RequiredFieldValidator>
-             
-        <br />
-    </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-            <div id="h31">
-            Roles de Usuario
-            </div>
-        <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-      
-    <div id="menuizq">
-         <asp:ListBox ID="lb_userrols" runat="server" Height="121px" Width="127px"></asp:ListBox>
-    </div>
-    <div id="menubotones">
-         <asp:Button ID="btn_leftuserrol" runat="server" onclick="btn_leftuserrol_Click" Text="&lt;" />
-         <br />
-         <br />
-         <br />
-         <br />
-         <br />
-         <asp:Button ID="btn_rightuserrol" runat="server" onclick="btn_rightuserrol_Click" Text="&gt;" />
-    </div>
 
-    <div id="menuder">
-        <asp:ListBox ID="lb_sourcerols" runat="server" Height="121px" Width="127px"></asp:ListBox>
-    </div>
-    
-    <div id="navBotones">
-        <asp:Button ID="btn_GuardarUsuario" runat="server" onclick="btn_GuardarUsuario_Click" Text="Guardar" Width="76px" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btn_Cancel" runat="server" onclick="btn_Cancel_Click" Text="Cancelar" />
-    </div>
-   
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+ 
+ <div id="titulo">Ingreso de<div id = "navcenter">
+                <fieldset>
+                    <ul class = "list">
+                        <li class="field">
+                            <asp:Label ID="Label2" CssClass="label" runat="server" Text="Empleado"></asp:Label>
+                            <asp:DropDownList ID="DropDownList1" runat="server" Enabled="false" TabIndex="1" CssClass="dropdownlist"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="cmb_empleados" 
+                                ErrorMessage="**Debe Escoger Un Empleado"></asp:RequiredFieldValidator>
+                        </li>
+
+                        <li class="field">
+                            <asp:Label ID="Label1" runat="server" CssClass="label" Text="UserName"></asp:Label>
+                            <asp:TextBox ID="txt_username" runat="server" Enabled="false" TabIndex="1" CssClass="txtbx_Empleado"></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="**Ingrese Username" 
+                              ControlToValidate="txt_username"></asp:RequiredFieldValidator>
+                        </li>
+
+                        <li class="field">
+                            <asp:Label ID="Label4" runat="server" CssClass="label" Text="Contraseña"></asp:Label>
+                            <asp:TextBox ID="TextBox1" runat="server" Enable="false" TabIndex="1" CssClass="txtbx_Empleado" TextMode="Password" ></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="**Ingrese Contraseña" 
+                                ControlToValidate="txt_password"></asp:RequiredFieldValidator>
+                        </li>
+                        </ul>
+                        </fieldset>
+                        </div>
+                        <div id="Div1">Roles de Usuario</div>
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                                    <div id="navBotones">
+           <asp:Button ID="btn_save1" runat="server" CssClass="boton" onclick="btn_save_Click" 
+                            Text="Guardar" />
+              
+            <asp:Button ID="btn_cancel2" runat="server" CssClass="boton" onclick="btn_cancel_Click" 
+                            Text="Cancelar" />
+
+</div>
+          
+        
+           
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <div id="menuizq">
+                           <asp:ListBox ID="lb_userrols" runat="server" Height="121px" Width="127px"></asp:ListBox>
+                         </div>
+                         <div id="menubotones">
+                                <asp:Button ID="btn_leftuserrol" runat="server" onclick="btn_leftuserrol_Click" Text="&lt;" />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <asp:Button ID="btn_rightuserrol" runat="server" onclick="btn_rightuserrol_Click" Text="&gt;" />
+                         </div>
+
+                         <div id="menuder">
+                         <asp:ListBox ID="lb_sourcerols" runat="server" Height="121px" Width="127px"></asp:ListBox>
+                         </div>
+                                    
+          
+        
+           
 </asp:Content>
 

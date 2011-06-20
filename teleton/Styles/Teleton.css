@@ -30,8 +30,24 @@
     padding: 20px 0 20px 0;
     text-align:left;
     width: 70%;
+    margin: 0px auto auto auto;
+}
+
+#navBotonmenor
+{
+    width: 22px;
+    height: 26px;
     margin: auto;
-    
+    top: 150px;
+    left: 350px;
+}
+
+#navBotonmayor
+{
+    width: 22px;
+    height: 26px;
+    margin: auto;
+    top: 500px;
 }
 .boton
 {
@@ -95,4 +111,54 @@ fieldset
 {
     Height: 16px; 
     Width: 185px;
-  }
+}
+
+.field .dropdownlist
+{
+    width: 55%;
+}
+
+.field .listbox
+{
+    Height: 121px;
+    Width: 127px;
+}
+
+/*
+
+--------------------------- MENUS DE USUARIOS
+*/
+
+ #menuizq
+    {
+        position: absolute;
+        text-align:left;
+        width: 127px;
+        top: 350px;
+        left: 200px;
+        padding: 1px;
+        z-index: 0;
+    }
+    
+    #menuder
+    {
+        position: absolute;
+        text-align: right;
+        width: 127px;
+        top: 350px;
+        left: 490px;
+        padding:1px;
+        z-index:0;
+    }
+    
+    #menubotones
+    {
+        position: absolute;
+        text-align: center;
+        width: 127px;
+        top: 350px;
+        left: 350px;
+        padding:1px;
+        z-index:0;
+    height: 121px;
+}
