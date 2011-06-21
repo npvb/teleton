@@ -190,9 +190,9 @@ namespace BL
                     entities.SaveChanges(); //se guarda en la DB
 
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    throw e;
+                    throw new Exception(ex.ToString() + "Pacientes.cs / guardarPaciente()");
                 }
             }
         }

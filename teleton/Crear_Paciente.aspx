@@ -76,7 +76,7 @@
                     </li>
                     <li class="field">
                         <asp:Label ID="Label9" CssClass="label" runat="server" Text="Fecha de Nacimiento:"></asp:Label>
-                        <asp:TextBox ID="txtFechaNacimiento" runat="server" ReadOnly="True" ></asp:TextBox>
+                        <asp:TextBox ID="txtFechaNacimiento" runat="server" ></asp:TextBox>
                         <img alt="Icon" src="images/calendar_icon.jpg" id="img_fecha_nacimiento" width="24px" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                             ErrorMessage="*Fecha de Nacimiento Requerida" ForeColor="Red" 
@@ -95,7 +95,7 @@
                     
         </div>
         <div id="navBotones">
-            <asp:Button ID="btIngresar" runat="server" Text="Ingresar Paciente" 
+            <asp:Button ID="btIngresar" CssClass="boton" runat="server" Text="Ingresar Paciente" 
                         onclick="btIngresar_Click" />
         </div>
     </div>

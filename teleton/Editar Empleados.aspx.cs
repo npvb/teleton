@@ -22,7 +22,6 @@ public partial class Editar_Empleados : System.Web.UI.Page
             }
             }catch(Exception er){
             Response.Write("<script>alert('Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
-            
             }
         
         }
@@ -46,7 +45,7 @@ public partial class Editar_Empleados : System.Web.UI.Page
             if (this.IsValid)
             {
                 EMPLOYEE.EditarEmpleado(cmb_usuarios.Text,txt_username.Text, txt_lastname.Text, txt_secondlastname.Text, cmb_puesto.Text);
-               // Response.Write("<script>alert('Empleado Editado Correctamente')</script>");
+                Response.Write("<script>alert('Empleado Editado Correctamente')</script>");
                 CargarEmpleado();
                 LimpiarPage();
 
@@ -57,8 +56,7 @@ public partial class Editar_Empleados : System.Web.UI.Page
 
        }
         catch (Exception er) {
-           // Response.Write("<script>alert('Guardar_Click/Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
-            throw new Exception(er.ToString());
+           Response.Write("<script>alert('Guardar_Click/Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
 

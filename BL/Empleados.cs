@@ -43,9 +43,7 @@ namespace BL
            }
            #endregion
 
-           #region Gets
-
-         
+           #region Gets  
            public int GetPositionId(string nombrecargo) {
                var query = from pos in entities.cargos
                            where nombrecargo == pos.cargo1
@@ -127,7 +125,6 @@ namespace BL
            {
                try
                {
-
                    int id = GetEmpId(nombre);
 
                    var query = (from e in entities.empleados
@@ -135,9 +132,8 @@ namespace BL
                                 select e).First();
 
                    DataAccess.empleado EMPDELETE = query;
-                   entities.DeleteObject(EMPDELETE);
+                   entities.empleados.DeleteObject(EMPDELETE);
                    entities.SaveChanges();
-
                }
                catch (Exception er)
                {

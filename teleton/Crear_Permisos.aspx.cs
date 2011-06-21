@@ -20,6 +20,7 @@ public partial class Crear_Permisos : System.Web.UI.Page
     {
         try
         {
+            //Response.Write("<script>alert('Le diste click!')</script>");
             if (this.IsValid)
             {
                 AdministradordeSistema admin = new AdministradordeSistema();
@@ -32,5 +33,9 @@ public partial class Crear_Permisos : System.Web.UI.Page
         {
             Response.Write("<script>alert(" + ex.ToString() + " --Crear_Permisos.aspx.cs / SaveButton_Click()"+")</script>");          
         }
+    }
+    protected void nombrePermiso_TB_TextChanged(object sender, EventArgs e)
+    {
+        //todo
     }
 }

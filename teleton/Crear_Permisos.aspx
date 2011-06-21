@@ -11,7 +11,8 @@
                 <ul class = "list">
                     <li class="field">
                         <asp:Label ID="Label2" CssClass="label" runat="server" Text="Nombre de Permiso"></asp:Label>
-                        <asp:TextBox ID="nombrePermiso_TB" runat="server" TabIndex="1" CssClass="tb_Permiso"></asp:TextBox>
+                        <asp:TextBox ID="nombrePermiso_TB" runat="server" TabIndex="1" 
+                            CssClass="tb_Permiso" ontextchanged="nombrePermiso_TB_TextChanged"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                                 ErrorMessage="Nombre Requerido" ControlToValidate="nombrePermiso_TB"></asp:RequiredFieldValidator>
                     </li>
@@ -21,11 +22,14 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                             ErrorMessage="Descripcion Requerida" ControlToValidate="descripcion_TB"></asp:RequiredFieldValidator>
                     </li>
-                </ul>                
+                    <li class="field">
+                        <asp:Label ID="Label4" CssClass="label" runat="server" Text=""></asp:Label>
+                    </li>
+                </ul>        
             </fieldset>
         </div>
 
-        <div id="navBotones">            
+        <div id="navBotones">         
             <asp:Button ID="saveButton" cssclass="boton" runat="server" Text="Guardar" 
                         onclick="saveButton_Click" />
         </div>        

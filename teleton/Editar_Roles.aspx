@@ -24,7 +24,8 @@
                 <asp:CheckBoxList ID="otrosPermisos_CBList" runat="server" TabIndex="4">
                         </asp:CheckBoxList>
             </div>
-           
+            <div id="resestFloats">
+            </div>
         </div>
         <div id="navBotones">
             <asp:Button ID="acceptButton" cssclass="boton" runat="server" Text="Aceptar" 

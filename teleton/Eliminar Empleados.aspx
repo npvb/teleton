@@ -4,31 +4,25 @@
     <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    
-       <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-           <ContentTemplate>
-               <div id="titulo">Eliminar Empleados</div>
-                 <div id = "navcenter">
-                      <fieldset>
-                         <ul class = "list">
-              <li class="field">
-                  <asp:Label ID="Label1" cssclass="label" runat="server" Text="Escoga Empleado"></asp:Label>
-                     <asp:DropDownList ID="cmb_empleados" CssClass="cmb_Empleado" runat="server">
-               </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                            ControlToValidate="cmb_empleados" ErrorMessage="**Debe escoger un empleado"></asp:RequiredFieldValidator>
-              </li>
-            </ul>
-           </fieldset>
-          </div>
-
-               <div id="navBotones">
-                   <asp:Button ID="btn_eliminar" cssclass="boton" runat="server" onclick="btn_eliminar_Click" 
+<div id = "content">
+    <div id="titulo">Eliminar Empleados</div>
+        <div id = "navcenter">
+                    <fieldset>
+                        <ul class = "list">
+                            <li class="field">
+                                <asp:Label ID="Label1" cssclass="label" runat="server" Text="Escoga Empleado"></asp:Label>
+                                <asp:DropDownList ID="cmb_empleados" CssClass="cmb_Empleado" runat="server">
+                                </asp:DropDownList>
+                                <!--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                                    ControlToValidate="cmb_empleados" ErrorMessage="**Debe escoger un empleado"></asp:RequiredFieldValidator>-->
+                            </li>
+                        </ul>
+                    </fieldset>
+        </div>
+        <div id="navBotones">
+                    <asp:Button ID="btn_eliminar" cssclass="boton" runat="server" onclick="btn_eliminar_Click1" 
                     Text="Eliminar" />
-               </div>
-           </ContentTemplate>
-       </asp:UpdatePanel>
-   
-    
+        </div>
+</div>
 </asp:Content>
 

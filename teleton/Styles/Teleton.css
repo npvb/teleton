@@ -99,7 +99,7 @@ fieldset
     width: 60%;
 }
 
-/*Editar Permisos
+/*Editar ROLES
 ---------------------------------------------------------*/
 #perActs
 {
@@ -112,7 +112,11 @@ fieldset
   {
        width:49%;
        float:right
-       
+  }
+  
+  #resestFloats
+  {
+      clear:both;      
   }
   
   /*Editar Permisos
@@ -130,13 +134,12 @@ fieldset
 
 .txtbx_Empleado
 {
-    width: 55%;
+    width: 40%;
 }
 
-.field .cmb_Empleado
+.cmb_Empleado
 {
-    Height: 16px; 
-    Width: 185px;
+    Width: 40%;
 }
 
 .field .dropdownlist

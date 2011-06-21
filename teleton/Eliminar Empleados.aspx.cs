@@ -28,19 +28,20 @@ public partial class Eliminar_Empleados : System.Web.UI.Page
         cmb_empleados.DataSource = DEMPLOYEES.RetrieveEmployeesName();
         cmb_empleados.DataBind();
     }
-    protected void btn_eliminar_Click(object sender, EventArgs e)
+    
+    protected void btn_eliminar_Click1(object sender, EventArgs e)
     {
         try
         {
-            if (this.IsValid)
-            {
+            //Response.Write("<script>alert('"+ cmb_empleados.Text +"')</script>");
                 DEMPLOYEES.EliminarEmpleado(cmb_empleados.Text);
                 CargarEmpleados();
-            }
+                Response.Write("<script>alert('Empleado Eliminado')</script>");
         }
-        catch (Exception er) {
-          //  Response.Write("<script>alert('Eliminar_Click/Eliminar Empleados.aspx.cs: " + er.ToString() + "')</script>");
-            throw new Exception (er.ToString());
+        catch (Exception er)
+        {
+            Response.Write("<script>alert('Eliminar_Click/Eliminar Empleados.aspx.cs: " + er.ToString() + "')</script>");
+            //throw new Exception (er.ToString());
         }
     }
 }
