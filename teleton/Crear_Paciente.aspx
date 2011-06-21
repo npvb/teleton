@@ -21,37 +21,33 @@
                         <asp:Label ID="Label2" CssClass="label" runat="server" Text="Nº de Cédula:"></asp:Label>
                         <asp:TextBox ID="txtCedula" runat="server" CssClass="tb_Permiso"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                                ErrorMessage="*Ingrese el Numero de Cédula" ForeColor="Red" 
-                                ControlToValidate="txtCedula" >
-                                </asp:RequiredFieldValidator>
+                                ErrorMessage="*Campo Requerido" ForeColor="Red" 
+                                ControlToValidate="txtCedula" ></asp:RequiredFieldValidator>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label3" CssClass="label" runat="server" Text="Nombres:"></asp:Label>
                         <asp:TextBox ID="txtNombres" runat="server" CssClass="tb_Permiso"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                                ErrorMessage="*Ingrese el Nombre" ForeColor="Red" 
+                                ErrorMessage="*Nombre Requerido" ForeColor="Red" 
                                 ControlToValidate="txtNombres"></asp:RequiredFieldValidator>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label4" CssClass="label" runat="server" Text="Primer Apellido:"></asp:Label>
                         <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="tb_Permiso"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                             ErrorMessage="*Ingrese el Primer Apellido" ForeColor="Red" 
+                             ErrorMessage="*Apellido Requerido" ForeColor="Red" 
                              ControlToValidate="txtPrimerApellido"></asp:RequiredFieldValidator>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label1" CssClass="label" runat="server" Text="Segundo Apellido:"></asp:Label>
                         <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="tb_Permiso"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
-                             ErrorMessage="*Ingrese el Segundo Apellido" ForeColor="Red" 
-                             ControlToValidate="txtPrimerApellido"></asp:RequiredFieldValidator>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label5" CssClass="label" runat="server" Text="Dirección:"></asp:Label>
                         <asp:TextBox ID="txtDireccion" runat="server" CssClass="tb_Permiso"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
-                             ErrorMessage="*Ingrese el Segundo Apellido" ForeColor="Red" 
-                             ControlToValidate="txtPrimerApellido"></asp:RequiredFieldValidator>
+                             ErrorMessage="*Direccion Requerida" ForeColor="Red" 
+                             ControlToValidate="txtDireccion"></asp:RequiredFieldValidator>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label6" CssClass="label" runat="server" Text="Sexo:"></asp:Label>
@@ -75,26 +71,24 @@
                         <asp:Label ID="Label8" CssClass="label" runat="server" Text="Lugar de Nacimiento:"></asp:Label>
                         <asp:TextBox ID="txtLugarNacimiento" runat="server" CssClass="tb_Permiso"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
-                                ErrorMessage="*Ingrese el Lugar de Nacimiento" ForeColor="Red" 
+                                ErrorMessage="*Campo Requerido" ForeColor="Red" 
                                 ControlToValidate="txtLugarNacimiento"></asp:RequiredFieldValidator>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label9" CssClass="label" runat="server" Text="Fecha de Nacimiento:"></asp:Label>
-                        <asp:TextBox ID="txtFechaNacimiento" runat="server" ></asp:TextBox>
+                        <asp:TextBox ID="txtFechaNacimiento" runat="server" ReadOnly="True" ></asp:TextBox>
                         <img alt="Icon" src="images/calendar_icon.jpg" id="img_fecha_nacimiento" width="24px" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
-                            ErrorMessage="*Ingrese el Lugar de Nacimiento" ForeColor="Red" 
-                            ControlToValidate="txtFechaNacimiento">
-                        </asp:RequiredFieldValidator>
+                            ErrorMessage="*Fecha de Nacimiento Requerida" ForeColor="Red" 
+                            ControlToValidate="txtFechaNacimiento"></asp:RequiredFieldValidator>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label10" CssClass="label" runat="server" Text="Fecha de Ingreso:"></asp:Label>
                         <asp:TextBox ID="txtFechaIngreso" runat="server" ReadOnly="True" ></asp:TextBox>
                         <img alt="Icon" src="images/calendar_icon.jpg" id="img1" width="24px" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
-                            ErrorMessage="*Ingrese el Lugar de Nacimiento" ForeColor="Red" 
-                            ControlToValidate="txtLugarNacimiento">
-                        </asp:RequiredFieldValidator>
+                            ErrorMessage="*Fecha de Ingreso Requerida" ForeColor="Red" 
+                            ControlToValidate="txtFechaIngreso"></asp:RequiredFieldValidator>
                     </li>
                 </ul>                
             </fieldset>
