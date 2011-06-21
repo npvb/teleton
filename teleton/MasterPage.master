@@ -13,7 +13,7 @@
         <div id="content">
 		     <p id="top">Proyecto Teleton 2011</p>
 		      <div id="logo">
-			      <h1><a href="Default.aspx">Logo</a></h1>
+			      <h1><a href="Default.aspx"></a></h1>
 		      </div>            
               <a href="Default.aspx">
               </a>            

@@ -26,7 +26,7 @@
         </div>
 
         <div id="navBotones">            
-            <asp:Button ID="saveButton" runat="server" Text="Guardar" 
+            <asp:Button ID="saveButton" cssclass="boton" runat="server" Text="Guardar" 
                         onclick="saveButton_Click" />
         </div>        
     </div>

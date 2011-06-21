@@ -150,12 +150,15 @@ p
 #logo
 {
 	float: left;
-	padding: 100px 25px 15px;
-	margin: -46px 0 20px;
-	background-image: url('../Imagenes/redbg.gif');
-	background-repeat: repeat-x;
-    height: 33px;
-    width: 64px;
+	/*padding: 100px 25px 15px 25px;*/
+	height: 150px;
+	width: 150px;
+	/*margin: -46px 0 20px;*/
+	background-image: url('../images/ImagenTeleton.jpg');
+	background-repeat: no-repeat;
+	/*background-repeat: repeat-x;*/
+    /*height: 20px;
+    width: 33px;*/
 }
 #logo h1 
 { 

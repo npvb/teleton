@@ -123,32 +123,17 @@ public partial class Crear_Usuarios : System.Web.UI.Page
                     }
 
                     USER.GuardarUsuario(txt_username.Text, txt_password.Text, cmb_empleados.Text, RolUsuario);
-                    Response.Write("<script>alert('Usuario Guardado!')</script>");
+                     Response.Write("<script>alert('Usuario Guardado!')</script>");
                     LimpiarPagina();
 
 
-                    // }
-                    //else {
-
-                    // Response.Write("<script>alert('El Usuario debe Tener al Menos un Rol')</script>");
-
-                    // }
-
-                }
-                else
-                {
-
-                    Response.Write("<script>alert('Debe Llenar Todos Los Campos')</script>");
-
                 }
             }
-            else { 
-            
-
-            }
+           
         }
         catch (Exception er) {
             Response.Write("<script>alert('CrearUsuarios.aspx.cs/GuardarUsuario_Click: " + er.ToString() + "')</script>");
+            
         
         }
     }
@@ -167,5 +152,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
     {
         LimpiarPagina();
     }
-    
+
+
+
 }

@@ -99,10 +99,36 @@ fieldset
     width: 60%;
 }
 
+/*Editar Permisos
+---------------------------------------------------------*/
+#perActs
+{
+    width:49%; 
+    float:left
+    
+}
+
+ #perAds
+  {
+       width:49%;
+       float:right
+       
+  }
+  
+  /*Editar Permisos
+---------------------------------------------------------*/
+
+#control1
+{
+    text-align:left;
+    width: 50%;
+    margin: auto
+    }
+
 /*Empleados
 ------------------------------------------------------*/
 
-.field .txtbx_Empleado
+.txtbx_Empleado
 {
     width: 55%;
 }
