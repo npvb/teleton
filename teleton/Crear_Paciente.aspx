@@ -78,25 +78,25 @@
                     </li>
                     <li class="field">
                         <asp:Label ID="Label9" CssClass="label" runat="server" Text="Fecha de Nacimiento:"></asp:Label>
-                        <asp:TextBox ID="txtFechaNacimiento" runat="server" ReadOnly="true" ></asp:TextBox>
+                        <asp:TextBox ID="txtFechaNacimiento" runat="server" ></asp:TextBox>
                         <img alt="Icon" src="images/calendar_icon.jpg" id="img_fecha_nacimiento" width="24px" />
 
                         <asp:CalendarExtender ID="FechaNacimientoExtender" runat="server" 
-                            TargetControlID="txtFechaNacimiento" Format="dd/MM/yyyy" PopupButtonID="img_fecha_nacimiento">
-                        </asp:CalendarExtender>              
-                       
+                            TargetControlID="txtFechaNacimiento" Format="yyyy-MM-dd" PopupButtonID="img_fecha_nacimiento">
+                        </asp:CalendarExtender>
+
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                             ErrorMessage="*Fecha de Nacimiento Requerida" ForeColor="Red" 
                             ControlToValidate="txtFechaNacimiento"></asp:RequiredFieldValidator>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label10" CssClass="label" runat="server" Text="Fecha de Ingreso:"></asp:Label>
-                        <asp:TextBox ID="txtFechaIngreso" runat="server" ReadOnly="True" ></asp:TextBox>
+                        <asp:TextBox ID="txtFechaIngreso" runat="server" ></asp:TextBox>
                         <img alt="Icon" src="images/calendar_icon.jpg" id="img1" width="24px" />
 
 
                         <asp:CalendarExtender ID="FechaIngresoExtender" runat="server" 
-                            TargetControlID="txtFechaIngreso" Format="dd/MM/yyyy" PopupButtonID="img1">
+                            TargetControlID="txtFechaIngreso" Format="yyyy-MM-ddy" PopupButtonID="img1">
                         </asp:CalendarExtender>
 
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
@@ -108,7 +108,7 @@
                     
         </div>
         <div id="navBotones">
-            <asp:Button ID="btIngresar" CssClass ="boton" runat="server" Text="Ingresar Paciente" 
+            <asp:Button ID="btIngresar" runat="server" Text="Ingresar Paciente" 
                         onclick="btIngresar_Click" />
         </div>
     </div>
