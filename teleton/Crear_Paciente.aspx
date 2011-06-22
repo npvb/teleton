@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Crear_Paciente.aspx.cs" Inherits="Crear_Paciente" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+
     <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -11,6 +15,7 @@
             <h1 style="text-align:center">Registro de Pacientes</h1> 
             <h2 style="text-align:center">Información General</h2>
         </div>
+
         <div id="navcenter">
         <fieldset>
                 <ul class = "list">
@@ -73,8 +78,13 @@
                     </li>
                     <li class="field">
                         <asp:Label ID="Label9" CssClass="label" runat="server" Text="Fecha de Nacimiento:"></asp:Label>
-                        <asp:TextBox ID="txtFechaNacimiento" runat="server" ></asp:TextBox>
+                        <asp:TextBox ID="txtFechaNacimiento" runat="server" ReadOnly="True" ></asp:TextBox>
                         <img alt="Icon" src="images/calendar_icon.jpg" id="img_fecha_nacimiento" width="24px" />
+
+                        <asp:CalendarExtender ID="FechaNacimientoExtender" runat="server" 
+                            TargetControlID="txtFechaNacimiento" Format="dd/MM/yyyy" PopupButtonID="img_fecha_nacimiento">
+                        </asp:CalendarExtender>
+
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                             ErrorMessage="*Fecha de Nacimiento Requerida" ForeColor="Red" 
                             ControlToValidate="txtFechaNacimiento"></asp:RequiredFieldValidator>
@@ -83,6 +93,12 @@
                         <asp:Label ID="Label10" CssClass="label" runat="server" Text="Fecha de Ingreso:"></asp:Label>
                         <asp:TextBox ID="txtFechaIngreso" runat="server" ReadOnly="True" ></asp:TextBox>
                         <img alt="Icon" src="images/calendar_icon.jpg" id="img1" width="24px" />
+
+
+                        <asp:CalendarExtender ID="FechaIngresoExtender" runat="server" 
+                            TargetControlID="txtFechaIngreso" Format="dd/MM/yyyy" PopupButtonID="img1">
+                        </asp:CalendarExtender>
+
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
                             ErrorMessage="*Fecha de Ingreso Requerida" ForeColor="Red" 
                             ControlToValidate="txtFechaIngreso"></asp:RequiredFieldValidator>
@@ -92,7 +108,7 @@
                     
         </div>
         <div id="navBotones">
-            <asp:Button ID="btIngresar" CssClass="boton" runat="server" Text="Ingresar Paciente" 
+            <asp:Button ID="btIngresar" runat="server" Text="Ingresar Paciente" 
                         onclick="btIngresar_Click" />
         </div>
     </div>
