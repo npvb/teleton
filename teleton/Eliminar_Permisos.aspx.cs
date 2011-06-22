@@ -43,11 +43,11 @@ public partial class Eliminar_Permisos : System.Web.UI.Page
 
                 if (count > 1)
                 {
-                    Response.Write("<script>alert('Permisos Eliminados')</script>");
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Permisos Eliminados')", true);                    
                 }
                 else
                 {
-                    Response.Write("<script>alert('Permiso Eliminado')</script>");
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Permiso Eliminado')", true);
                 }
                 setCheckBoxes();
             }

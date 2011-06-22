@@ -9,23 +9,23 @@ using BL;
 public partial class Crear_Permisos : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
-
+    {        
     }
+
     void LimpiarPage()
     {
         nombrePermiso_TB.Text = descripcion_TB.Text = "";
     }
+
     protected void saveButton_Click(object sender, EventArgs e)
     {
         try
         {
-            //Response.Write("<script>alert('Le diste click!')</script>");
             if (this.IsValid)
             {
                 AdministradordeSistema admin = new AdministradordeSistema();
                 admin.crearPermiso(nombrePermiso_TB.Text, descripcion_TB.Text);
-                Response.Write("<script>alert('Permiso Guardado')</script>");
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Permiso Guardado')",true);
                 LimpiarPage();
             }
         }
@@ -33,9 +33,5 @@ public partial class Crear_Permisos : System.Web.UI.Page
         {
             Response.Write("<script>alert(" + ex.ToString() + " --Crear_Permisos.aspx.cs / SaveButton_Click()"+")</script>");          
         }
-    }
-    protected void nombrePermiso_TB_TextChanged(object sender, EventArgs e)
-    {
-        //todo
     }
 }

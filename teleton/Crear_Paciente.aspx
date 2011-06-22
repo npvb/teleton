@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Crear_Paciente.aspx.cs" Inherits="Crear_Paciente" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-
     <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -13,7 +11,6 @@
             <h1 style="text-align:center">Registro de Pacientes</h1> 
             <h2 style="text-align:center">Información General</h2>
         </div>
-
         <div id="navcenter">
         <fieldset>
                 <ul class = "list">

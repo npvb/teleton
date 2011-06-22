@@ -49,9 +49,15 @@
     margin: auto;
     top: 500px;
 }
+
 .boton
 {
-	border: thin solid #000000; padding: 2px; margin: 2px; background-color: #C11B17; font-family: Verdana; color: #FFFFFF;
+	border: thin solid #000000; 
+	padding: 2px; 
+	margin: 2px; 
+	background-color: #C11B17; 
+	font-family: Verdana; 
+	color: #FFFFFF;
 }
 
 
@@ -65,6 +71,7 @@ fieldset
 
 .list
 {
+    margin: 10px 0 10px 0;
     list-style-type: none;
 }
 
@@ -81,9 +88,13 @@ fieldset
 ----------------------------------------------------------*/
 .field .tb_Permiso
 {
-    width: 60%;
+    width: 50%;
 }
 
+.field .tb_Permiso2
+{
+    width: 40%;
+}
 /* Eliminar_Permisos
 ----------------------------------------------------------*/
 #ctrlCentrado
@@ -108,16 +119,16 @@ fieldset
     
 }
 
- #perAds
-  {
+#perAds
+{
        width:49%;
-       float:right
-  }
+       float:left
+}
   
-  #resestFloats
-  {
-      clear:both;      
-  }
+#resetFloats
+{
+    clear:both;      
+}
   
   /*Editar Permisos
 ---------------------------------------------------------*/
@@ -127,7 +138,7 @@ fieldset
     text-align:left;
     width: 50%;
     margin: auto
-    }
+}
 
 /*Empleados
 ------------------------------------------------------*/
@@ -154,40 +165,62 @@ fieldset
 }
 
 /*
-
 --------------------------- MENUS DE USUARIOS
 */
 
- #menuizq
-    {
-        position: absolute;
-        text-align:left;
-        width: 127px;
-        top: 350px;
-        left: 200px;
-        padding: 1px;
-        z-index: 0;
-    }
+#menuizq
+{
+    float:left;
+    /*position: absolute;*/    
+    text-align: right;
+    width:30%;
+    /*width: 127px;*/
+    top: 350px;
+    left: 200px;
+    padding: 1px;
+    z-index: 0;
+}
     
-    #menuder
-    {
-        position: absolute;
-        text-align: right;
-        width: 127px;
-        top: 350px;
-        left: 490px;
-        padding:1px;
-        z-index:0;
-    }
+#menuder
+{
+    float:left;    
+    /*position: absolute;*/
+    text-align: left;
+    width:30%;
+    /*width: 127px;*/
+    /*top: 350px;
+    left: 490px;
+    padding:1px;
+    z-index:0;*/
+}
     
-    #menubotones
-    {
-        position: absolute;
-        text-align: center;
-        width: 127px;
-        top: 350px;
-        left: 350px;
-        padding:1px;
-        z-index:0;
-    height: 121px;
+#menubotones
+{
+    float:left;
+    /*position: absolute;*/
+    text-align: center;
+    width:39%;
+    /*width: 127px;*/
+    /*top: 350px;
+    left: 350px;
+    padding:1px;
+    z-index:0;
+    height: 121px;*/
+}
+
+#espaciadorBotones
+{
+    margin: 10%;
+}
+
+#ctrlCentrado2
+{    
+    width: 80%;
+    margin: auto;
+}
+
+#Div1
+{
+    text-align:center;
+    margin: 10px 0 10px 0;
 }

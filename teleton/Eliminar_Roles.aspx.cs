@@ -44,11 +44,11 @@ public partial class Eliminar_Roles : System.Web.UI.Page
 
                 if (count > 1)
                 {
-                    Response.Write("<script>alert('Roles Eliminados')</script>");
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Roles Eliminados')", true);
                 }
                 else
                 {
-                    Response.Write("<script>alert('Rol Eliminado')</script>");
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Rol Eliminado')", true);
                 }
                 setCheckBoxes();
             }
@@ -69,7 +69,7 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Roles.aspx.cs / setCheckBoxes()" + ")</script>");            
+            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Roles.aspx.cs / setCheckBoxes()" + ")</script>");
         }
     }
 

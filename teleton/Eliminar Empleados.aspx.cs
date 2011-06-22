@@ -14,7 +14,6 @@ public partial class Eliminar_Empleados : System.Web.UI.Page
     {        
         try { 
             if(!this.IsPostBack){
-
                 CargarEmpleados();
             }
         
@@ -32,16 +31,14 @@ public partial class Eliminar_Empleados : System.Web.UI.Page
     protected void btn_eliminar_Click1(object sender, EventArgs e)
     {
         try
-        {
-            //Response.Write("<script>alert('"+ cmb_empleados.Text +"')</script>");
-                DEMPLOYEES.EliminarEmpleado(cmb_empleados.Text);
-                CargarEmpleados();
-                Response.Write("<script>alert('Empleado Eliminado')</script>");
+        {            
+            DEMPLOYEES.EliminarEmpleado(cmb_empleados.Text);
+            Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Empleado Eliminado')", true);
+            CargarEmpleados();
         }
         catch (Exception er)
         {
             Response.Write("<script>alert('Eliminar_Click/Eliminar Empleados.aspx.cs: " + er.ToString() + "')</script>");
-            //throw new Exception (er.ToString());
         }
     }
 }

@@ -10,7 +10,6 @@ public partial class Empleados : System.Web.UI.Page
 {
     private BL.Empleados EMPLOYEES = new BL.Empleados();
    
-
     protected void LimpiarPage()
     {
         txb_firstname.Text = "";
@@ -45,13 +44,10 @@ public partial class Empleados : System.Web.UI.Page
             {
                 if (this.IsValid)
                 {
-                    EMPLOYEES.GuardarEmpleado(Convert.ToInt32(txb_id.Text), txb_nombreemp.Text, txb_firstname.Text, txb_secondlastname.Text, cmb_position.Text);
+                    EMPLOYEES.GuardarEmpleado(0, txb_nombreemp.Text, txb_firstname.Text, txb_secondlastname.Text, cmb_position.Text);
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Empleado Creado')", true);
                     LimpiarPage();
-                }
-                else
-                {
-
-                }
+                }                
             }
         }
         catch (Exception er)

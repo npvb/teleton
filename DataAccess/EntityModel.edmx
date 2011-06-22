@@ -330,7 +330,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="empleado_fk">
-          <End Role="empleados" Type="teletonModel.Store.empleados" Multiplicity="1" />
+          <End Role="empleados" Type="teletonModel.Store.empleados" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="empleados">
@@ -436,7 +438,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="usuarios_fk">
-          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1" />
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="usuarios_x_rol" Type="teletonModel.Store.usuarios_x_rol" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="usuarios">

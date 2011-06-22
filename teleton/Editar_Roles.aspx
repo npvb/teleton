@@ -7,29 +7,41 @@
     <div id="content">
         <div id = "titulo">Editar Rol</div>
         <div id = "navcenter">
-            <asp:Label ID="Label1" runat="server" Text="Descripcion:"></asp:Label>
-            <asp:DropDownList ID="descripciones_DDList" runat="server" AutoPostBack="True" 
-                    onselectedindexchanged="descripciones_DDList_SelectedIndexChanged" 
-                Width="33%">
-                </asp:DropDownList>            
+            <fieldset>
+                <ul class = "list">
+                    <li class = "field">
+                        <asp:Label ID="Label1" CssClass="label" runat="server" Text="Descripcion:"></asp:Label>
+                        <asp:DropDownList ID="descripciones_DDList" runat="server" AutoPostBack="True" 
+                                onselectedindexchanged="descripciones_DDList_SelectedIndexChanged" Width="60%">
+                                </asp:DropDownList>
+                    </li>
+                </ul>
+            </fieldset>
         </div>        
         <div id="navcontroles">
-            <div id="perActs">
-                <asp:Label ID="Label2" runat="server" Text="Permisos Actuales:"></asp:Label>
-                <asp:CheckBoxList ID="permisos_CBList" runat="server" TabIndex="3">
-                        </asp:CheckBoxList>
-            </div>
-            <div id="perAds">
-                <asp:Label ID="Label3" runat="server" Text="Permisos Adicionales:"></asp:Label>
-                <asp:CheckBoxList ID="otrosPermisos_CBList" runat="server" TabIndex="4">
-                        </asp:CheckBoxList>
-            </div>
-            <div id="resestFloats">
-            </div>
+            <fieldset>
+                <ul class = "list">
+                    <li class = "field">
+                        <div id="perActs">
+                            <asp:Label ID="Label2" runat="server" Text="Permisos Actuales:"></asp:Label>
+                            <asp:CheckBoxList ID="permisos_CBList" runat="server" TabIndex="3">
+                                </asp:CheckBoxList>
+                        </div>
+                        <div id="perAds">
+                            <asp:Label ID="Label3" runat="server" Text="Permisos Adicionales:"></asp:Label>
+                            <asp:CheckBoxList ID="otrosPermisos_CBList" runat="server" TabIndex="4">
+                                </asp:CheckBoxList>
+                        </div>
+                    </li>
+                    <li class = "field">
+                        <div id="resetFloats"></div>
+                    </li>
+                </ul>
+            </fieldset>
         </div>
-        <div id="navBotones">
+        <div id="navBotones">            
             <asp:Button ID="acceptButton" cssclass="boton" runat="server" Text="Aceptar" 
-                    onclick="acceptButton_Click" />
+                onclick="acceptButton_Click" />
         </div>
     </div>
 </asp:Content>

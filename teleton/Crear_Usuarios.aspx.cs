@@ -65,10 +65,11 @@ public partial class Crear_Usuarios : System.Web.UI.Page
 
     protected void CargarRoles()
     {
-        try{
-        lb_sourcerols.Items.Clear();
-        lb_sourcerols.DataSource = USER.RetrieveRol();
-        lb_sourcerols.DataBind();
+        try
+        {
+            lb_sourcerols.Items.Clear();
+            lb_sourcerols.DataSource = USER.RetrieveRol();
+            lb_sourcerols.DataBind();
         }
         catch (Exception er)
         {
@@ -91,18 +92,15 @@ public partial class Crear_Usuarios : System.Web.UI.Page
                 else
                 {
                     Response.Write("<script>alert('No Tiene Ningun Rol Seleccionado Para el Usuario')</script>");
-
                 }
             }
         }
         catch (Exception er)
         {
             Response.Write("<script>alert('CrearUsuarios.aspx.cs/rightuserrol_Click: " + er.ToString() + "')</script>");
-
         }
     }
 
-    
     protected void btn_GuardarUsuario_Click(object sender, EventArgs e)
     {
         try
@@ -112,10 +110,8 @@ public partial class Crear_Usuarios : System.Web.UI.Page
             //{
             if (this.IsValid)
             {
-
                 if (lb_userrols.Items.Count > 0)
                 {
-
                     for (int x = 0; x < lb_userrols.Items.Count; x++)
                     {
 
@@ -123,18 +119,14 @@ public partial class Crear_Usuarios : System.Web.UI.Page
                     }
 
                     USER.GuardarUsuario(txt_username.Text, txt_password.Text, cmb_empleados.Text, RolUsuario);
-                     Response.Write("<script>alert('Usuario Guardado!')</script>");
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Usuario Guardado!')", true);
                     LimpiarPagina();
-
-
                 }
             }
            
         }
         catch (Exception er) {
-            Response.Write("<script>alert('CrearUsuarios.aspx.cs/GuardarUsuario_Click: " + er.ToString() + "')</script>");
-            
-        
+            Response.Write("<script>alert('CrearUsuarios.aspx.cs/GuardarUsuario_Click: " + er.ToString() + "')</script>");    
         }
     }
 
@@ -148,11 +140,9 @@ public partial class Crear_Usuarios : System.Web.UI.Page
     
     
     }
+
     protected void btn_Cancel_Click(object sender, EventArgs e)
     {
         LimpiarPagina();
     }
-
-
-
 }

@@ -132,7 +132,7 @@ namespace BL
                                 select e).First();
 
                    DataAccess.empleado EMPDELETE = query;
-                   entities.empleados.DeleteObject(EMPDELETE);
+                   entities.DeleteObject(EMPDELETE);
                    entities.SaveChanges();
                }
                catch (Exception er)

@@ -59,8 +59,8 @@ public partial class Crear_Paciente : System.Web.UI.Page
                                               txtFechaNacimiento.Text, rdMasculino.Selected, txtFechaIngreso.Text,
                                               txtCedula.Text, txtDireccion.Text, txtLugarNacimiento.Text,
                                               ddEstado.SelectedItem.Text);
-                    
-                    Response.Write("<script>alert('la data del paciente ha sido guardada exitosamente')</script>");
+
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('la data del paciente ha sido guardada exitosamente')", true);
                     cleanPage();
                 }
                 catch (Exception err)

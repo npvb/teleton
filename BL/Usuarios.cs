@@ -66,7 +66,6 @@ namespace BL
                                      where us.descripcion == username
                                      select us).First();
                         USUARIOS.roles.Add(userRol);
-                        USUARIOS.username = nombreusuario;
                      } 
                    
                     USUARIOS.username = nombreusuario;

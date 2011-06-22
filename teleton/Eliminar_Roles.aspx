@@ -8,24 +8,24 @@
     <div id = "titulo">Eliminar Rol</div>
         <div id="navcontroles">
             <fieldset>
-                        <ul class = "list">
-                            <li class = "field">
-                                <asp:Label ID="Label1" CssClass="label" runat="server" Text="Roles:"></asp:Label>
-                                <div id="ctrlCentrado">
-                                    <asp:CheckBoxList ID="roles_CBList" runat="server" TabIndex="3">
+                <ul class = "list">
+                    <li class = "field">
+                        <asp:Label ID="Label1" CssClass="label" runat="server" Text="Roles:"></asp:Label>
+                        <div id="ctrlCentrado">
+                            <asp:CheckBoxList ID="roles_CBList" runat="server" TabIndex="3">
                                     </asp:CheckBoxList>
-                                    <asp:CustomValidator ID="CustomValidator1" runat="server"
+                            <asp:CustomValidator ID="CustomValidator1" runat="server"
                                     ErrorMessage="Seleccione al menos un permiso." 
                                     onservervalidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
-                                </div>
-                            </li>
-                        </ul>
-                    </fieldset>
-                </div>
-                <div id="navBotones">
-                    <asp:Button ID="acceptButton" cssclass="boton" runat="server" Text="Aceptar" 
+                        </div>
+                    </li>
+                </ul>
+            </fieldset>
+        </div>
+        <div id="navBotones">
+            <asp:Button ID="acceptButton" cssclass="boton" runat="server" Text="Aceptar" 
                     onclick="acceptButton_Click" />
-                </div>
+        </div>
 </div>       
 </asp:Content>
 

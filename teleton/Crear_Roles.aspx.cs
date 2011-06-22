@@ -45,7 +45,7 @@ public partial class Crear_Roles : System.Web.UI.Page
                 AdministradordeSistema admin = new AdministradordeSistema();//tmp-> deberia ser quien este logeado!
                 admin.crearRol(descripcion_TB.Text, persAdded);
 
-                Response.Write("<script>alert('Rol Guardado')</script>");
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Rol Guardado')", true);
                 LimpiarPage();
             }
         }

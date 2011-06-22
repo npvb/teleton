@@ -111,12 +111,13 @@ public partial class Editar_Roles : System.Web.UI.Page
                 long rolId = rl.getRolID(descripciones_DDList.SelectedItem.Text);
                 AdministradordeSistema admin = new AdministradordeSistema();
                 admin.editarRol(rolId, descripciones_DDList.SelectedItem.Text, grants, revokes);
-                Response.Write("<script>alert('Rol Editado!')</script>");
+
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Rol Editado')", true);
                 setCheckBoxes();
             }
             else
             {
-                Response.Write("<script>alert('Rol No Editado!')</script>");
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Rol No Editado')", true);
             }
         }
         catch (Exception ex)

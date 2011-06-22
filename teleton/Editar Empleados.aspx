@@ -3,9 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
      <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" /> 
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">   
         <div id = "content">   
         <div id="titulo">Editar Empleados</div>
          <div id = "navcenter">
@@ -53,9 +51,6 @@
         <asp:Button ID="Button1" CssClass="boton" runat="server" Text="Guardar" onclick="btnGuardar_Click" />     
         <asp:Button ID="Button2" CssClass="boton" runat="server" Text="Cancelar" onclick="btnCancelar_Click" />
         </div>
-        </div>
-        </ContentTemplate>    
-    </asp:UpdatePanel>
-   
+        </div>        
 </asp:Content>
 

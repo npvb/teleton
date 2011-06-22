@@ -35,7 +35,6 @@ public partial class Editar_Empleados : System.Web.UI.Page
         txt_username.Text = "";
         txt_lastname.Text = "";
         txt_secondlastname.Text = "";
-    
     }
 
     protected void btnGuardar_Click(object sender, EventArgs e)
@@ -45,15 +44,10 @@ public partial class Editar_Empleados : System.Web.UI.Page
             if (this.IsValid)
             {
                 EMPLOYEE.EditarEmpleado(cmb_usuarios.Text,txt_username.Text, txt_lastname.Text, txt_secondlastname.Text, cmb_puesto.Text);
-                Response.Write("<script>alert('Empleado Editado Correctamente')</script>");
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Empleado Editado Correctamente')", true);
                 CargarEmpleado();
                 LimpiarPage();
-
             }
-            else { 
-                       
-            }
-
        }
         catch (Exception er) {
            Response.Write("<script>alert('Guardar_Click/Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
