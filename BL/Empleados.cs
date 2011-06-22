@@ -24,43 +24,65 @@ namespace BL
            
            public List<String> RetrievePositionName() 
         {
+               try{
             var query = from p in entities.cargos select p;
                 List<string> Cargos = new List<string>();
                     foreach (cargo name in query)
                           Cargos.Add(name.cargo1);
                      return Cargos;
+                   }catch(Exception err){
+                       throw new Exception(err.ToString() + "--Empleados.cs / RetrievePositionName()");
+               }
         }
 
 
            public List<String> RetrieveEmployeesName() 
            {
-               var query = from e in entities.empleados select e;
-                    List<string> nomemp = new List<string>();
-                    foreach (empleado emp in query)
-                        nomemp.Add(emp.nombres);
-                 
-               return nomemp;
+               try
+               {
+                   var query = from e in entities.empleados select e;
+                   List<string> nomemp = new List<string>();
+                   foreach (empleado emp in query)
+                       nomemp.Add(emp.nombres);
+
+                   return nomemp;
+               }
+               catch (Exception err)
+               {
+                   throw new Exception(err.ToString() + "--Empleados.cs / RetrieveEmployeesName()");
+               }
            }
            #endregion
 
            #region Gets  
            public int GetPositionId(string nombrecargo) {
-               var query = from pos in entities.cargos
-                           where nombrecargo == pos.cargo1
-                           select pos.id;
-               int posId = Convert.ToInt32(query.First());
+               try
+               {
+                   var query = from pos in entities.cargos
+                               where nombrecargo == pos.cargo1
+                               select pos.id;
+                   int posId = Convert.ToInt32(query.First());
 
-               return posId;
+                   return posId;
+               }catch(Exception err){
+                    throw new Exception(err.ToString()+ "--Empleados.cs / GetPositionId(string)")
+               }
            }
 
 
            public int GetEmpId(string nombre) {
-               var idemp_query = from p in entities.empleados
-                                 where p.nombres==nombre
-                                 select p.id;
-               int emp_id = Convert.ToInt32(idemp_query.First());
+               try
+               {
+                   var idemp_query = from p in entities.empleados
+                                     where p.nombres == nombre
+                                     select p.id;
+                   int emp_id = Convert.ToInt32(idemp_query.First());
 
-               return emp_id;
+                   return emp_id;
+
+               }catch(Exception err){
+                   throw new Exception(err.ToString() + "--Empleados.cs / GetEmpId(string)");
+               }
            
            }
 
@@ -86,9 +108,9 @@ namespace BL
 
                    entities.SaveChanges();//Se guarda en la base de datos
                }
-               catch (Exception er)
-               {
-                   throw new Exception(er.ToString());
+              catch(Exception err){
+
+                       throw new Exception(err.ToString() + "--Empleados.cs / GuardarEmpleados()");
                }
 
            }
@@ -117,7 +139,8 @@ namespace BL
                }
                catch (Exception er)
                {
-                   throw new Exception(er.ToString());
+
+                   throw new Exception(er.ToString() + "--Empleados.cs / EditarEmpleados()");
                }
            }
 
@@ -137,7 +160,7 @@ namespace BL
                }
                catch (Exception er)
                {
-                   throw new Exception(er.ToString());
+                   throw new Exception(er.ToString() + "--Empleados.cs / EliminarEmpleados()");
 
                }
 

@@ -17,6 +17,7 @@ public partial class Crear_Permisos : System.Web.UI.Page
         nombrePermiso_TB.Text = descripcion_TB.Text = "";
     }
 
+   
     protected void saveButton_Click(object sender, EventArgs e)
     {
         try
@@ -33,5 +34,16 @@ public partial class Crear_Permisos : System.Web.UI.Page
         {
             Response.Write("<script>alert(" + ex.ToString() + " --Crear_Permisos.aspx.cs / SaveButton_Click()"+")</script>");          
         }
+    }
+    protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        bool flag = true;
+        if (nombrePermiso_TB.Text.Length > 10)
+        {
+            flag=false;
+            
+        }
+        args.IsValid = flag;
+
     }
 }

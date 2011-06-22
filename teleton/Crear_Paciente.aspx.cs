@@ -17,14 +17,14 @@ public partial class Crear_Paciente : System.Web.UI.Page
         }
     }
 
-    private bool isTheInfoComplete()
+   /* private bool isTheInfoComplete()
     {
         return txtFechaIngreso.Text.Length > 0 &&
                txtPrimerApellido.Text.Length > 0 &&
                txtSegundoApellido.Text.Length > 0 &&
                txtNombres.Text.Length > 0 &&
                txtFechaNacimiento.Text.Length > 0;
-    }
+    }*/
 
     private void cleanPage()
     {
@@ -49,6 +49,7 @@ public partial class Crear_Paciente : System.Web.UI.Page
     {
         if (this.IsPostBack)
         {
+            //Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('"+txtFechaIngreso.Text+"')", true);
             if (this.IsValid)
             {
                 try
@@ -70,7 +71,7 @@ public partial class Crear_Paciente : System.Web.UI.Page
             }
             else
             {
-                Response.Write("<script>alert('Uno de los Campos necesario esta Vacio')</script>");
+              //  Response.Write("<script>alert('Uno de los Campos necesario esta Vacio')</script>");
             }
         }
     }
