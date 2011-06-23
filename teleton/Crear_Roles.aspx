@@ -20,7 +20,6 @@
         </div>
         <div id="navcontroles">
             <fieldset>
-                <div id="ctrlCentrado">
                     <ul class = "list">
                         <li class = "field">
                             <asp:Label ID="Label2" cssclass="label" runat="server" Text="Permisos:"></asp:Label>
@@ -28,7 +27,6 @@
                                 </asp:CheckBoxList>
                         </li>
                     </ul>
-                </div>
             </fieldset>
         </div>
         <div id="navBotones">

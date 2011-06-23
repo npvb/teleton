@@ -106,7 +106,7 @@
                     
         </div>
         <div id="navBotones">
-            <asp:Button ID="btIngresar" runat="server" Text="Ingresar Paciente" 
+            <asp:Button ID="btIngresar" CssClass="boton" runat="server" Text="Ingresar Paciente" 
                         onclick="btIngresar_Click" />
         </div>
     </div>

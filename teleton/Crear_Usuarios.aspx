@@ -48,9 +48,9 @@
                                             <asp:ListBox ID="lb_userrols" runat="server" Height="121px" Width="127px"></asp:ListBox>
                                         </div>
                                         <div id="menubotones">
-                                            <asp:Button ID="btn_leftuserrol" runat="server" onclick="btn_leftuserrol_Click" Text="&lt;" />
+                                            <asp:Button ID="btn_leftuserrol" runat="server" CssClass="boton" onclick="btn_leftuserrol_Click" Text="&lt;" />
                                             <div id="espaciadorBotones"></div>
-                                            <asp:Button ID="btn_rightuserrol" runat="server" onclick="btn_rightuserrol_Click" Text="&gt;" />
+                                            <asp:Button ID="btn_rightuserrol" runat="server" CssClass="boton" onclick="btn_rightuserrol_Click" Text="&gt;" />
                                         </div>
                                         <div id="menuder">
                                             <asp:ListBox ID="lb_sourcerols" runat="server" Height="121px" Width="127px"></asp:ListBox>

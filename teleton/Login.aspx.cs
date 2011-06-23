@@ -30,20 +30,23 @@ public partial class Login : System.Web.UI.Page
             Response.Write("<script>alert('" + ex.ToString() + "')</script>");
         }
     }
+
     protected void LoginButton_Click(object sender, EventArgs e)
     {
         try
         {
             /*string SH1Password = FormsAuthentication.HashPasswordForStoringInConfigFile(
                 this.LoginUser.Password, "SHA1");*/
-
-            if (sec.login(this.LoginUser.UserName, this.LoginUser.Password))
+            this.Validate();
+            if (this.IsValid)
             {
-                
-                Session["Centro_id"] = CenterList.SelectedItem.Text;
-                Session["Permisos_usuario"] = sec.getPermisosUsuario(sec.getIdUser());
-                Response.Write("entro login usuario existe.");
-                FormsAuthentication.RedirectFromLoginPage(this.LoginUser.UserName, this.LoginUser.RememberMeSet);
+                if (sec.login(this.LoginUser.UserName, this.LoginUser.Password))
+                {
+                    Session["Centro_id"] = CenterList.SelectedItem.Text;
+                    Session["Permisos_usuario"] = sec.getPermisosUsuario(sec.getIdUser());
+                    Response.Write("entro login usuario existe.");
+                    FormsAuthentication.RedirectFromLoginPage(this.LoginUser.UserName, this.LoginUser.RememberMeSet);
+                }
             }
         }
         catch (Exception ex)

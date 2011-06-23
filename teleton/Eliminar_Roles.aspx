@@ -14,7 +14,7 @@
                         <div id="ctrlCentrado">
                             <asp:CheckBoxList ID="roles_CBList" runat="server" TabIndex="3">
                                     </asp:CheckBoxList>
-                            <asp:CustomValidator ID="CustomValidator1" runat="server"
+                            <asp:CustomValidator ID="CustomValidator1" runat="server" ForeColor="Red"
                                     ErrorMessage="Seleccione al menos un permiso." 
                                     onservervalidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
                         </div>
