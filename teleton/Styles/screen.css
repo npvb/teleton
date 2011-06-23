@@ -205,12 +205,11 @@ p
 #logo
 {
 	float: left;
-	height: 93px;
-	width: 120px;
-	/*margin: -46px 0 20px;
-	background-image: url('../images/teletonLogoSolid.png');
+	height: 118px;
+	width: 89px;
+	margin: -46px 0 20px;
+	background-image: url('../images/teletonLogoSolid_3.png');
 	background-repeat: no-repeat;
-    */
 }
 
 #logo h1 

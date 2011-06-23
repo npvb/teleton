@@ -12,7 +12,7 @@
     <form id="Form1" runat="server">
         <div id="content">
 		     <p id="top">Proyecto Teleton 2011</p>
-		      <div id="teleton">  
+		      <div id="logo">  
 			     <a href="Default.aspx">
               </a> 
 		      </div>            

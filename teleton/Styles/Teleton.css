@@ -225,7 +225,9 @@ fieldset
     margin: 10px 0 10px 0;
 }
 
-#imagen
+#calendar
 {
-    float:left;
+    width:20px;
+    height:20px;
+    background-image: url('../images/calendar_icon.jpg');
 } 
