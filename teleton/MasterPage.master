@@ -13,7 +13,7 @@
         <div id="content">
 		     <!--<p >Proyecto Teleton 2011 | <asp:LinkButton ID="labelLogout" runat="server" Text="Logout" onclick="labelLogout_Click"></asp:LinkButton></p>-->
                  <div class="loginDisplay">
-                 <p id="top">
+                 <p id="top"> Proyecto Teleton 2011 |
                     <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                         <AnonymousTemplate>
                             [ <a href="Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
