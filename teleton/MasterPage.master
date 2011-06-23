@@ -71,11 +71,13 @@
           <div class="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
           </div>
-        </form>
       <!--<div style="clear: both;">&nbsp;</div>-->
      <div id="footer">
-       <p>&copy; Copyright 2011 Proyecto Teleton&minus; Derechos Reservados <a href="http://www.unitec.edu/" title="Unitec">Unitec</a></p>    
-     </div>  
+       <p>&copy; Copyright 2011 Proyecto Teleton&minus; Derechos Reservados <a href="http://www.unitec.edu/" title="Unitec">Unitec</a> | <a>
+           <asp:LinkButton ID="labelLogout" runat="server" Text="Logout" 
+               onclick="labelLogout_Click"></asp:LinkButton></a></p>    
+     </div> 
+     </form> 
     <!--</form>-->
 </body>
 </html>
