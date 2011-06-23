@@ -5,7 +5,12 @@
 	margin-right: 0;
 	margin-top: 0;
     font-size: small;
-}:focus,:active {outline:0}img{border: 0}
+}:focus,:active {outline:0}img{border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    height: 24px;
+    width: 29px;
+}
 
 body  
 {
@@ -200,15 +205,12 @@ p
 #logo
 {
 	float: left;
-	/*padding: 100px 25px 15px 25px;*/
-	height: 150px;
-	width: 150px;
-	/*margin: -46px 0 20px;*/
-	background-image: url('../images/ImagenTeleton.jpg');
+	height: 93px;
+	width: 120px;
+	/*margin: -46px 0 20px;
+	background-image: url('../images/teletonLogoSolid.png');
 	background-repeat: no-repeat;
-	/*background-repeat: repeat-x;*/
-    /*height: 20px;
-    width: 33px;*/
+    */
 }
 
 #logo h1 
@@ -243,6 +245,7 @@ p
 
 #Menu1 
 {
+    float:left;
 	margin: 0;
 	padding: 0px;
 	list-style: none;
@@ -414,4 +417,12 @@ p
 .style7
 {
     color: #FFFFFF;
+}
+
+#teleton
+{
+    float: left;
+    height: 89px;
+    width: 84px;
+    background-image: url(../images/teletonLogoSolid_3.png);
 }

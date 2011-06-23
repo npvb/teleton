@@ -65,7 +65,7 @@ namespace BL
 
                    return posId;
                }catch(Exception err){
-                    throw new Exception(err.ToString()+ "--Empleados.cs / GetPositionId(string)")
+                   throw new Exception(err.ToString() + "--Empleados.cs / GetPositionId(string)");
                }
            }
 

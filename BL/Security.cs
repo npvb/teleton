@@ -13,6 +13,7 @@ namespace BL
     {
         #region variables
         DataAccess.teletonEntities entidad;
+        private long idUser;
         #endregion
 
         #region gets y sets
@@ -172,6 +173,7 @@ namespace BL
             try
             {
                 Login l = new Login(user, password);
+                idUser = l.getIdUser();
                 return l.validateUser();
             }
             catch (Exception ex)
@@ -197,7 +199,17 @@ namespace BL
                 throw new Exception(ex.ToString() + "  --Security.cs / getCentros()");
             }
         }
-        public List<long> getPermisosUsuario(int idUser)
+        public long getIdUser()
+        {
+            try
+            {
+                return idUser;
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + "  --Security.cs / getIdUser()");
+            }
+        }
+        public List<long> getPermisosUsuario(long idUser)
         {
             try
             {

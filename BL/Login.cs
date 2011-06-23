@@ -12,7 +12,7 @@ namespace BL
         DataAccess.teletonEntities entidad;
         private string userName;
         private string password;
-        private string msg; //mensaje de error del login... es usado para debugging
+        private long idUser;
         #endregion
 
         public Login(string userName, string password)
@@ -21,7 +21,6 @@ namespace BL
             {
                 this.userName = userName;
                 this.password = password;
-                this.msg = "";
                 entidad = new DataAccess.teletonEntities();
             }catch(Exception ex)
           
@@ -37,12 +36,10 @@ namespace BL
                 var usuarioQuery = entidad.usuarios.Where(USER => USER.username == userName && USER.password == password).First();
                 if (usuarioQuery != null)
                 {
+                    this.idUser = usuarioQuery.empleado;
                     return true;
                 }
-                else
-                {
                     return false;
-                }
             }
             catch (Exception ex)
             {
@@ -52,12 +49,20 @@ namespace BL
 
         public long getIdUser()
         {
+            try
+            {
+                /*
+                var id = from l in entidad.usuarios
+                         where l.username == userName && l.password == password
+                         select l.empleado;
+                 * */
 
-            var id = from l in entidad.usuarios
-                     where l.username == userName && l.password == password
-                     select l.empleado;
-
-            return id.First();
+                return this.idUser;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + "  --Login.cs / getIdUser()");
+            }
         }
     }
 }

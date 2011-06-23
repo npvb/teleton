@@ -141,7 +141,7 @@ namespace BL
             }
         }
 
-        public List<long> getPermisosUsuario(int idUser)
+        public List<long> getPermisosUsuario(long idUser)
         {
             try
             {

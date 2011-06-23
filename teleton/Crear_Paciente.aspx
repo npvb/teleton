@@ -79,10 +79,8 @@
                     <li class="field">
                         <asp:Label ID="Label9" CssClass="label" runat="server" Text="Fecha de Nacimiento:"></asp:Label>
                         <asp:TextBox ID="txtFechaNacimiento" runat="server" ></asp:TextBox>
-                        <img alt="Icon" src="images/calendar_icon.jpg" id="img_fecha_nacimiento" width="24px" />
-
-                        <asp:CalendarExtender ID="FechaNacimientoExtender" runat="server" 
-                            TargetControlID="txtFechaNacimiento" Format="yyyy-MM-dd" PopupButtonID="img_fecha_nacimiento">
+                        <img alt="Icon" src="images/calendar_icon.jpg" id="img_fecha_nacimiento" class="imgg"/>
+                        <asp:CalendarExtender ID="FechaNacimientoExtender" runat="server" TargetControlID="txtFechaNacimiento" Format="yyyy-MM-dd" PopupButtonID="img_fecha_nacimiento">
                         </asp:CalendarExtender>
 
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 

@@ -11,14 +11,19 @@ using BL;
 
 public partial class Login : System.Web.UI.Page
 {
-    BL.Security sec;
+    private BL.Security sec;
+    private DropDownList CenterList;
     protected void Page_Load(object sender, EventArgs e)
     {
         try
         {
-            sec = new BL.Security();
-            this.DropDownList1.DataSource = sec.getCentros();
-            this.DropDownList1.DataBind();
+            /*if (!Page.IsPostBack)
+            {*/
+                sec = new BL.Security();
+                CenterList = LoginUser.FindControl("CenterList") as DropDownList;
+                CenterList.DataSource = sec.getCentros();
+                CenterList.DataBind();
+            //}
         }
         catch (Exception ex)
         {
@@ -34,9 +39,11 @@ public partial class Login : System.Web.UI.Page
 
             if (sec.login(this.LoginUser.UserName, this.LoginUser.Password))
             {
-                Session["Centro_id"] = DropDownList1.SelectedItem.Text;
-                Session["Permisos_usuario"] = sec.getPermisosUsuario(sec.GetEmpId(this.LoginUser.UserName));
-                FormsAuthentication.RedirectFromLoginPage(this.LoginUser.UserName, LoginUser.RememberMeSet);
+                
+                Session["Centro_id"] = CenterList.SelectedItem.Text;
+                Session["Permisos_usuario"] = sec.getPermisosUsuario(sec.getIdUser());
+                Response.Write("entro login usuario existe.");
+                FormsAuthentication.RedirectFromLoginPage(this.LoginUser.UserName, this.LoginUser.RememberMeSet);
             }
         }
         catch (Exception ex)
