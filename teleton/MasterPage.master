@@ -11,7 +11,20 @@
 <body>
     <form id="Form1" runat="server">
         <div id="content">
-		     <p id="top">Proyecto Teleton 2011</p>
+		     <!--<p >Proyecto Teleton 2011 | <asp:LinkButton ID="labelLogout" runat="server" Text="Logout" onclick="labelLogout_Click"></asp:LinkButton></p>-->
+                 <div class="loginDisplay">
+                 <p id="top">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                        <AnonymousTemplate>
+                            [ <a href="Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                            [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/Login.aspx"/> ]
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                    </p>
+                </div>
 		      <div id="logo">  
 			     <a href="Default.aspx">
               </a> 
@@ -65,19 +78,16 @@
                             <asp:MenuItem Text="New Item" Value="New Item"></asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
-                </asp:Menu>		        
-	         
-           </div>
+                </asp:Menu>		        	         
+            </div>
           <div class="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
           </div>
+          </form> 
       <!--<div style="clear: both;">&nbsp;</div>-->
      <div id="footer">
-       <p>&copy; Copyright 2011 Proyecto Teleton&minus; Derechos Reservados <a href="http://www.unitec.edu/" title="Unitec">Unitec</a> | <a>
-           <asp:LinkButton ID="labelLogout" runat="server" Text="Logout" 
-               onclick="labelLogout_Click"></asp:LinkButton></a></p>    
+       <p>&copy; Copyright 2011 Proyecto Teleton&minus; Derechos Reservados <a href="http://www.unitec.edu/" title="Unitec">Unitec</a></p>    
      </div> 
-     </form> 
     <!--</form>-->
 </body>
 </html>
