@@ -32,12 +32,11 @@
               <a href="Default.aspx">
               </a>            
               <asp:ScriptManager ID="ScriptManager1" runat="server">
-             </asp:ScriptManager>
-
-             
+              </asp:ScriptManager>
+                                         
               <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" 
-                 CssClass="sidemenu" StaticSubMenuIndent="2px" 
-                 >
+                 CssClass="pointermenu" StaticSubMenuIndent="2px">                    
+
                     <Items> 
                        <asp:MenuItem Text="Expedientes" Value="Administrar Paciente">
                             <asp:MenuItem Text="Crear Expediente" Value="New Item" 

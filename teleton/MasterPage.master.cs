@@ -10,11 +10,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
     }
     protected void labelLogout_Click(object sender, EventArgs e)
     {
         FormsAuthentication.SignOut();
         FormsAuthentication.RedirectToLoginPage();
-    }
+    }    
 }

@@ -307,8 +307,6 @@ p
 /* sidemenu */
 .sidemenu ul 
 {
-	/*margin: 10px 8px 8px 8px; padding: 0;*/
-	/*border-top: 1px solid #29201c; */
 	text-align: left;
 }
 
@@ -317,11 +315,10 @@ p
 	list-style: none;
 	margin: 0;
 	padding: 8px 5px 8px 19px;
-	/*border-bottom: 1px solid #29201c;*/
 	font-size: 13px;
 	line-height: 20px;
-	/*text-transform: uppercase;*/	
-	background: url(../images/bullet.gif) no-repeat 0 14px;
+	/*text-transform: uppercase;*/
+	/*background: url(../images/bullet.gif) no-repeat 0 14px;*/	
 }
 
 .sidemenu ul li a:link, 
@@ -424,4 +421,36 @@ p
     height: 89px;
     width: 84px;
     background-image: url(../images/teletonLogoSolid_3.png);
+}
+
+/*menu*/
+.pointermenu{
+    margin: 0;
+    padding: 0;
+}
+
+.pointermenu ul{
+    margin: 0;
+    margin-left: 15px; /*menu offset from left edge of window*/
+    padding-left: 8px;
+    font: bold 13px Verdana;
+    background-color: black;
+    background: black url(/images/leftround.gif) bottom left no-repeat; /*optional left round corner*/
+}
+
+.pointermenu ul li a{
+    color: white;
+    font-weight: bold;
+    padding: 2px 11px 7px 7px;
+    text-decoration: none;
+    background: url(/images/pointer.gif) bottom center no-repeat;
+}
+
+.pointermenu ul li a:visited{
+    color: white;
+}
+
+.pointermenu ul li a:hover, #pointermenu ul li a#selected{ /*hover and selected link*/
+    color: white;
+    background-color: darkred;
 }
