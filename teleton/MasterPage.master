@@ -25,12 +25,12 @@
                     </asp:LoginView>
                     </p>
                 </div>
-		      <div id="logo">  
-			     <a href="Default.aspx">
-              </a> 
-		      </div>            
-              <a href="Default.aspx">
-              </a>            
+		        <div id="logo"> 
+                    <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="False" 
+                        Height="120px" ImageUrl="~/images/teletonLogoSolid3.png" 
+                        PostBackUrl="~/Default.aspx" Width="90px" /> 
+			        <a href="~/Default.aspx"></a> 
+		        </div>
               <asp:ScriptManager ID="ScriptManager1" runat="server">
               </asp:ScriptManager>
                                          

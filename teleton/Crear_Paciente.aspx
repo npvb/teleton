@@ -53,15 +53,14 @@
                     </li>
                     <li class="field">
                         <asp:Label ID="Label6" CssClass="label" runat="server" Text="Sexo:"></asp:Label>
-                        <asp:radiobuttonlist id="rdSexo" runat="server" RepeatDirection="Horizontal" 
-                            RepeatLayout="Flow">
+                        <asp:radiobuttonlist id="rdSexo" runat="server" RepeatDirection="Horizontal">
                           <asp:listitem id="rdMasculino" Selected="true" runat="server" value="Masculino" />
                           <asp:listitem id="rdFemenino" runat="server" value="Femenino" />
-                           </asp:radiobuttonlist>
+                        </asp:radiobuttonlist>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label7" CssClass="label" runat="server" Text="Estado Civil:"></asp:Label>
-                        <asp:DropDownList ID="ddEstado" runat="server">
+                        <asp:DropDownList ID="ddEstado" runat="server" CssClass="tb_Permiso">
                             <asp:ListItem Selected="True" Value="0">Soltero</asp:ListItem>
                             <asp:ListItem Value="1">Casado</asp:ListItem>
                             <asp:ListItem Value="2">Divorciado</asp:ListItem>
@@ -94,7 +93,7 @@
 
 
                         <asp:CalendarExtender ID="FechaIngresoExtender" runat="server" 
-                            TargetControlID="txtFechaIngreso" Format="yyyy-MM-ddy" PopupButtonID="img1">
+                            TargetControlID="txtFechaIngreso" Format="yyyy-MM-dd" PopupButtonID="img1">
                         </asp:CalendarExtender>
 
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
