@@ -12,8 +12,8 @@
     <div id="content">
 
         <div id = "titulo">
-            <h1 style="text-align:center">Registro de Pacientes</h1> 
-            <h2 style="text-align:center">Información General</h2>
+            <h1>Registro de Pacientes</h1> 
+            <h2>Información General</h2>
         </div>
 
         <div id="navcenter">

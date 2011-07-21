@@ -9,7 +9,9 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="Form1" runat="server">
+
+    <div id = "container">
+        <form id="Form1" runat="server">
         <div id="content">
 		     <!--<p >Proyecto Teleton 2011 | <asp:LinkButton ID="labelLogout" runat="server" Text="Logout" onclick="labelLogout_Click"></asp:LinkButton></p>-->
                  <div class="loginDisplay">
@@ -31,11 +33,14 @@
                         PostBackUrl="~/Default.aspx" Width="90px" /> 
 			        <a href="~/Default.aspx"></a> 
 		        </div>
+
+
               <asp:ScriptManager ID="ScriptManager1" runat="server">
               </asp:ScriptManager>
-                                         
+                    
+               <div id = "sitemenu">
               <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" 
-                 CssClass="pointermenu" StaticSubMenuIndent="2px">                    
+                 CssClass="pointermenu" StaticSubMenuIndent="2px">             
 
                     <Items> 
                        <asp:MenuItem Text="Expedientes" Value="Administrar Paciente">
@@ -62,11 +67,11 @@
                                 Value="Eliminar Permisos"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Usuarios" Value="Usuarios">
-                            <asp:MenuItem Text="Agregar Usuarios" Value="New Item" 
+                            <asp:MenuItem Text="Ingreso de Usuarios" Value="New Item" 
                                 NavigateUrl="~/Crear_Usuarios.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Empleados" Value="Empleados">
-                            <asp:MenuItem NavigateUrl="~/Empleados.aspx" Text="Agregar Empleados" 
+                            <asp:MenuItem NavigateUrl="~/Empleados.aspx" Text="Registro de Empleados" 
                                 Value="Agregar Empleados"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Editar Empleados.aspx" Text="Editar Empleados" 
                                 Value="Editar Empleados"></asp:MenuItem>
@@ -77,16 +82,20 @@
                             <asp:MenuItem Text="New Item" Value="New Item"></asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
-                </asp:Menu>		        	         
+                </asp:Menu>		   
+                </div>     	         
             </div>
-          <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-          </div>
-          </form> 
-      <!--<div style="clear: both;">&nbsp;</div>-->
-     <div id="footer">
+              <div class="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+              </div>
+              </form> 
+          <!--<div style="clear: both;">&nbsp;</div>-->
+                 <div id="footer">
+                    <div id= "footerContent">
        <p>&copy; Copyright 2011 Proyecto Teleton&minus; Derechos Reservados <a href="http://www.unitec.edu/" title="Unitec">Unitec</a></p>    
+        </div>
      </div> 
-    <!--</form>-->
+        <!--</form>-->
+    </div>
 </body>
 </html>

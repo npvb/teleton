@@ -6,7 +6,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <div id = "content">
-    <div id="titulo">Registro de Empleados</div> 
+    <div id="titulo">
+        <h1>Registro de Empleados</h1>
+    </div> 
     <div id = "navcenter">
         <fieldset>
             <ul class = "list">

@@ -17,8 +17,8 @@ public partial class Login : System.Web.UI.Page
     {
         try
         {
-            /*if (!Page.IsPostBack)
-            {*/
+            //if (!Page.IsPostBack)
+            //{
                 sec = new BL.Security();
                 CenterList = LoginUser.FindControl("CenterList") as DropDownList;
                 CenterList.DataSource = sec.getCentros();

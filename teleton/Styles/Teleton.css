@@ -3,8 +3,11 @@
 
 #titulo
 {
+
+    /*color: #C11B17;*/
+    color: Gray;
     text-align:center;
-    font-size: small;
+    font-size: medium;
     width: 70%;
     margin: auto;    
 }
@@ -78,10 +81,25 @@ fieldset
 
 .label
 {
+    color: Black;
     padding: 1px;
     width: 20%;
     float: left;
     text-align: right;    
+}
+/* Default
+----------------------------------------------------------*/
+.parrafo
+{
+    text-align: center;
+    margin-bottom: 10px;
+    color: Black;    
+}
+
+#about
+{
+    width:60%;
+    margin: auto;
 }
 
 /* Crear_Permisos
