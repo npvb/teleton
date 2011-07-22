@@ -52,6 +52,13 @@
       <SubType>Content</SubType>
       <DependentUpon>Editar Rol.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="Eliminar_Empleado.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Eliminar_Empleado.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Eliminar_Empleado.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="EliminarPermisos.sequencediagram">
       <SubType>Content</SubType>
     </Content>
