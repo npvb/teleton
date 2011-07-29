@@ -249,3 +249,28 @@ fieldset
     height:20px;
     background-image: url('../images/calendar_icon.jpg');
 } 
+
+/*--------------- Diagnosticos---------------*/
+#Grid
+{
+     width: 80%;
+    margin: auto;
+     
+    }
+    
+    .txtbx_Diagnostico
+{
+    width: 40%;
+}
+.txtbx_labelD
+{
+     width: 20%;
+    }
+.labelD
+{
+    color: Black;
+    padding: 1px;
+    width: 20%;
+    float: none;
+    text-align: right;    
+}

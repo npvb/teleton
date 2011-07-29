@@ -78,8 +78,9 @@
                             <asp:MenuItem NavigateUrl="~/Eliminar Empleados.aspx" Text="Eliminar Empleados" 
                                 Value="Eliminar Empleados"></asp:MenuItem>
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Reportes" Value="Generar Reportes">
-                            <asp:MenuItem Text="New Item" Value="New Item"></asp:MenuItem>
+                        <asp:MenuItem Text="Patologias" Value="Patologias">
+                            <asp:MenuItem Text="Mant. Patologias" Value="Mant. Patologias" 
+                                NavigateUrl="~/Diagnosticos.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
                 </asp:Menu>		   
