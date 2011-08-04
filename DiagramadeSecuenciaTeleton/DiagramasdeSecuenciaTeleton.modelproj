@@ -87,6 +87,13 @@
       <SubType>Content</SubType>
       <DependentUpon>EliminarRoles.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="Login.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Login.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Login.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="Revocar permisos a Rol.sequencediagram">
       <SubType>Content</SubType>
     </Content>
