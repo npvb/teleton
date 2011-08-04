@@ -61,6 +61,7 @@
 	background-color: #C11B17;
 	font-family: Verdana; 
 	color: #FFFFFF;
+    height: 30px;
 }
 
 
@@ -197,6 +198,23 @@ fieldset
     left: 200px;
     padding: 1px;
     z-index: 0;
+}
+
+#centertabla
+{
+    float:left; 
+    text-align:right;
+    width:52%;
+    left: 400px;
+    top: 400px;
+}
+
+#centergrid
+{
+    float:left;
+    text-align:right;
+    width: 20%;
+    top: 600px;
 }
     
 #menuder

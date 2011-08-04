@@ -45,6 +45,7 @@
     <Compile Include="Empleados.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Paciente.cs" />
+    <Compile Include="Patologia.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rol.cs" />

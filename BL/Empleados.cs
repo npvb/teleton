@@ -105,7 +105,7 @@ namespace BL
                    emp.puesto = posId;
 
                    entities.empleados.AddObject(emp);//Se guarda en la memoria
-
+                   
                    entities.SaveChanges();//Se guarda en la base de datos
                }
               catch(Exception err){

@@ -32,6 +32,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("teletonModel", "pacientes_fk1", "pacientes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataAccess.paciente), "evoluciones", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.evolucione), true)]
 [assembly: EdmRelationshipAttribute("teletonModel", "permisos_x_roles", "permisos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.permiso), "roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.role))]
 [assembly: EdmRelationshipAttribute("teletonModel", "usuarios_x_rol", "roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.role), "usuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.usuario))]
+[assembly: EdmRelationshipAttribute("teletonModel", "diagnostico_FK", "diagnostico", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DataAccess.diagnostico), "paciente", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.paciente), true)]
 
 #endregion
 
@@ -338,6 +339,22 @@ namespace DataAccess
             }
         }
         private ObjectSet<usuario> _usuarios;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<diagnostico> diagnosticos
+        {
+            get
+            {
+                if ((_diagnosticos == null))
+                {
+                    _diagnosticos = base.CreateObjectSet<diagnostico>("diagnosticos");
+                }
+                return _diagnosticos;
+            }
+        }
+        private ObjectSet<diagnostico> _diagnosticos;
 
         #endregion
         #region AddTo Methods
@@ -468,6 +485,14 @@ namespace DataAccess
         public void AddTousuarios(usuario usuario)
         {
             base.AddObject("usuarios", usuario);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the diagnosticos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTodiagnosticos(diagnostico diagnostico)
+        {
+            base.AddObject("diagnosticos", diagnostico);
         }
 
         #endregion
@@ -1649,6 +1674,112 @@ namespace DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<usuario>("teletonModel.usuario_fk", "usuarios", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="teletonModel", Name="diagnostico")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class diagnostico : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new diagnostico object.
+        /// </summary>
+        /// <param name="diagnostico1">Initial value of the diagnostico1 property.</param>
+        /// <param name="id">Initial value of the id property.</param>
+        public static diagnostico Creatediagnostico(global::System.String diagnostico1, global::System.Int64 id)
+        {
+            diagnostico diagnostico = new diagnostico();
+            diagnostico.diagnostico1 = diagnostico1;
+            diagnostico.id = id;
+            return diagnostico;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String diagnostico1
+        {
+            get
+            {
+                return _diagnostico1;
+            }
+            set
+            {
+                Ondiagnostico1Changing(value);
+                ReportPropertyChanging("diagnostico1");
+                _diagnostico1 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("diagnostico1");
+                Ondiagnostico1Changed();
+            }
+        }
+        private global::System.String _diagnostico1;
+        partial void Ondiagnostico1Changing(global::System.String value);
+        partial void Ondiagnostico1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int64 _id;
+        partial void OnidChanging(global::System.Int64 value);
+        partial void OnidChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("teletonModel", "diagnostico_FK", "paciente")]
+        public EntityCollection<paciente> pacientes
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<paciente>("teletonModel.diagnostico_FK", "paciente");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<paciente>("teletonModel.diagnostico_FK", "paciente", value);
                 }
             }
         }
@@ -2870,6 +3001,30 @@ namespace DataAccess
         private global::System.String _tipo_doc_alterno;
         partial void Ontipo_doc_alternoChanging(global::System.String value);
         partial void Ontipo_doc_alternoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> diagnostico
+        {
+            get
+            {
+                return _diagnostico;
+            }
+            set
+            {
+                OndiagnosticoChanging(value);
+                ReportPropertyChanging("diagnostico");
+                _diagnostico = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("diagnostico");
+                OndiagnosticoChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _diagnostico;
+        partial void OndiagnosticoChanging(Nullable<global::System.Int64> value);
+        partial void OndiagnosticoChanged();
 
         #endregion
     
@@ -2997,6 +3152,44 @@ namespace DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<evolucione>("teletonModel.pacientes_fk1", "evoluciones", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("teletonModel", "diagnostico_FK", "diagnostico")]
+        public diagnostico diagnostico1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<diagnostico>("teletonModel.diagnostico_FK", "diagnostico").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<diagnostico>("teletonModel.diagnostico_FK", "diagnostico").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<diagnostico> diagnostico1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<diagnostico>("teletonModel.diagnostico_FK", "diagnostico");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<diagnostico>("teletonModel.diagnostico_FK", "diagnostico", value);
                 }
             }
         }
