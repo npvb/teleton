@@ -10,7 +10,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     
     <div id="content">
-
         <div id = "titulo">
             <h1>Registro de Pacientes</h1> 
             <h2>Información General</h2>

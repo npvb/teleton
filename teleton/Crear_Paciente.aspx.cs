@@ -61,7 +61,12 @@ public partial class Crear_Paciente : System.Web.UI.Page
                                               txtCedula.Text, txtDireccion.Text, txtLugarNacimiento.Text,
                                               ddEstado.SelectedItem.Text);
 
-                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('la data del paciente ha sido guardada exitosamente')", true);
+                    String pageArgs = String.Format("HojaPaciente.aspx?Expediente={0}", _paciente.Expediente);
+                    LiteralControl lctl = new LiteralControl("<script type=\"text/javascript\"> function init(){" + String.Format("window.open('{0}', 'Información del Paciente', 'width=1000, height=600');", pageArgs) + "} window.onload = init(); </script>");
+                    Page.Header.Controls.Add(lctl);
+
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('La data del paciente ha sido guardada exitosamente con expediente:"+ _paciente.Expediente+ " ')", true);
+                    
                     cleanPage();
                 }
                 catch (Exception err)
