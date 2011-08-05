@@ -269,16 +269,27 @@ fieldset
 } 
 
 /*--------------- Diagnosticos---------------*/
-#Grid
+.Grid, th
 {
-     width: 80%;
+    
     margin: auto;
-     
-    }
+    background-color:white;
+    color:black;
+          
+    
+}
+th
+{
+background-color:black;
+color:white;
+border: 2px solid black;
+text-align:center;
+}
+ 
     
     .txtbx_Diagnostico
 {
-    width: 40%;
+    width: 30%;
 }
 .txtbx_labelD
 {

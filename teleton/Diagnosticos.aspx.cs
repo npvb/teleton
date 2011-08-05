@@ -12,7 +12,14 @@ public partial class Diagnosticos : System.Web.UI.Page
  
     protected void Page_Load(object sender, EventArgs e)
     {
+        try{
+        if (!this.IsPostBack) {
+            //cargarDiagnostico();
+        } 
+        }catch(Exception er){
+           Response.Write("<script>alert('Patologias.aspx.cs: " + er.ToString() + "')</script>");
         
+        }
     }
 
     protected void cargarDiagnostico()
@@ -31,11 +38,14 @@ public partial class Diagnosticos : System.Web.UI.Page
     {
        try
         {
-            if (this.IsPostBack)
+            if (this.IsValid)
             {
-                PAT.GuardarPatologia(0, diagnostico_txt.Text);
-                GridView1.DataBind();
-                diagnostico_txt.Text = "";
+                if (this.IsPostBack)
+                {
+                    PAT.GuardarPatologia(0, diagnostico_txt.Text);
+                    GridView1.DataBind();
+                    diagnostico_txt.Text = "";
+                }
             }
         }
         catch (Exception er)
@@ -44,4 +54,6 @@ public partial class Diagnosticos : System.Web.UI.Page
             
         }
     }
+
+  
 }

@@ -5,23 +5,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
    
-<div id = "content">
+<div id = "content3">
     <div id="titulo">
         <h1>Mantenimiento de Patologias</h1>
     </div> 
     <div id = "navcenter">
         <fieldset>
+                  
 
-           
-
-            <asp:Label ID="Label2" CssClass="labelD" runat="server" Text=" Diagnostico: "></asp:Label>
-            <asp:TextBox ID="diagnostico_txt" CssClass="txtbx_Diagnostico" runat="server"></asp:TextBox>
-
-           
-
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                ControlToValidate="diagnostico_txt" ErrorMessage="Ingrese el Diagnostico" 
-                ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:Label ID="Label2" CssClass="labelD" runat="server" Text=" Patologia: "></asp:Label>
+            <asp:TextBox ID="diagnostico_txt" CssClass="txtbx_Diagnostico" runat="server">
+                </asp:TextBox>
 
            
 
@@ -33,11 +27,18 @@
             <asp:GridView ID="GridView1" CssClass="Grid" runat="server" 
                 AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="EntityDataSource1" 
                 Width="322px">
-                <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                    <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" 
+                <Columns>                   
+                    <asp:CommandField ButtonType="Image" 
+                        CancelImageUrl="~/images/button_cancel-32.png" CancelText="" 
+                        DeleteImageUrl="~/images/calendar_icon.jpg" DeleteText="" 
+                        EditImageUrl="~/images/Edit-32.png" EditText="" ShowEditButton="True" 
+                        UpdateImageUrl="~/images/Refresh-32.png" UpdateText="" />
+                    <asp:CommandField ButtonType="Image" DeleteImageUrl="~/images/delete-32.png" 
+                        DeleteText="" EditImageUrl="~/images/Edit-32.png" EditText="" 
+                        ShowDeleteButton="True" />
+                    <asp:BoundField DataField="id" HeaderText="Id" ReadOnly="True" 
                         SortExpression="id" />
-                    <asp:BoundField DataField="diagnostico1" HeaderText="diagnostico1" 
+                    <asp:BoundField DataField="diagnostico1" HeaderText="Nom. Patologia" 
                         SortExpression="diagnostico1" />
                 </Columns>
             </asp:GridView>
