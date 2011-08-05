@@ -139,31 +139,29 @@ namespace BL
             {
                 throw new Exception(ex.ToString() + " --Rol.cs / getRolPermisos()");
             }
-        }
+        }        
 
-        public List<long> getPermisosUsuario(long idUser)
+        public List<long> getRolesUsuario(string username)
         {
             try
             {
-                List<long> rols;
+                List<long> rols = new List<long>();
 
-                var allrols = from r in entidad.roles
-                              where r.id == idUser
-                              select r.id;
+                var userQuery = from u in entidad.usuarios
+                                where u.username == username
+                                select u;
+                DataAccess.usuario usrtmp = userQuery.First();
 
-                rols = allrols.ToList();
-
-                List<long> pers = new List<long>();
-                foreach (long p in rols)
+                foreach (role rl in usrtmp.roles)
                 {
-                    pers.Add(p);
+                    rols.Add(rl.id);
                 }
 
-                return pers;
+                return rols;
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + " --Rol.cs / getPermisosUsuario()!!!");
+                throw new Exception(ex.ToString() + " --Rol.cs / getRolesUsuario()");
             }
         }
     }

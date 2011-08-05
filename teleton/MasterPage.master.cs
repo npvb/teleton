@@ -10,10 +10,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if ((bool)Session["loggedin"] == false)
+            Response.Redirect("Login.aspx");
+
+        usr.Text = (string)Session["nombre_usuario"];
     }
     protected void labelLogout_Click(object sender, EventArgs e)
-    {
-        FormsAuthentication.SignOut();
-        FormsAuthentication.RedirectToLoginPage();
+    {        
+        Session["loggedin"] = false;
+        Session["nombre_usuario"] = "";
+        Response.Redirect("Login.aspx");        
     }    
 }

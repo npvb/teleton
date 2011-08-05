@@ -99,5 +99,33 @@ namespace BL
                 throw new Exception(ex.ToString() + " --Permiso.cs / getPermisoDescripcion()");
             }
         }
+
+        public List<string> getPermisosUsuario(string username)
+        {
+            try
+            {
+                List<string> pers = new List<string>();
+
+                var usrQuery = from u in entidad.usuarios
+                               where u.username == username
+                               select u;
+
+                DataAccess.usuario usrtmp = usrQuery.First();
+
+                foreach (role rl in usrtmp.roles)
+                {
+                    foreach (permiso per in rl.permisos)
+                    {
+                        pers.Add(per.id);
+                    }
+                }
+
+                return pers;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --Permiso.cs / getPermisosUsuario()");
+            }
+        }
     }
 }

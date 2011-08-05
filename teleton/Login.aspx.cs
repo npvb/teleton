@@ -38,14 +38,19 @@ public partial class Login : System.Web.UI.Page
             /*string SH1Password = FormsAuthentication.HashPasswordForStoringInConfigFile(
                 this.LoginUser.Password, "SHA1");*/
             this.Validate();
+            
             if (this.IsValid)
             {
                 if (sec.login(this.LoginUser.UserName, this.LoginUser.Password))
                 {
                     Session["Centro_id"] = CenterList.SelectedItem.Text;
-                    Session["Permisos_usuario"] = sec.getPermisosUsuario(sec.getIdUser());
-                    Response.Write("entro login usuario existe.");
-                    FormsAuthentication.RedirectFromLoginPage(this.LoginUser.UserName, this.LoginUser.RememberMeSet);
+                    Session["Permisos_usuario"] = sec.getPermisosUsuario(this.LoginUser.UserName);                    
+                    //FormsAuthentication.RedirectFromLoginPage(this.LoginUser.UserName, this.LoginUser.RememberMeSet);
+                    //FormsAuthentication.SetAuthCookie(this.LoginUser.UserName, this.LoginUser.RememberMeSet);
+                    Session["loggedin"] = true;
+                    Session["nombre_usuario"] = this.LoginUser.UserName;
+
+                    Response.Redirect("Default.aspx");
                 }
             }
         }

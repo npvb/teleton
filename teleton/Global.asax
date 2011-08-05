@@ -26,7 +26,8 @@
         Session["Centro_id"] = "0";
         Session["User_id"] = "0";
         Session["Permisos_usuario"] = "";
-        
+        Session["nombre_usuario"] = "";
+        Session["loggedin"] = false;
     }
 
     void Session_End(object sender, EventArgs e) 

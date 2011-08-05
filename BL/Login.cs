@@ -50,13 +50,7 @@ namespace BL
         public long getIdUser()
         {
             try
-            {
-                /*
-                var id = from l in entidad.usuarios
-                         where l.username == userName && l.password == password
-                         select l.empleado;
-                 * */
-
+            {       
                 return this.idUser;
             }
             catch (Exception ex)

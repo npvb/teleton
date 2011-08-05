@@ -209,14 +209,26 @@ namespace BL
                 throw new Exception(ex.ToString() + "  --Security.cs / getIdUser()");
             }
         }
-        public List<long> getPermisosUsuario(long idUser)
+        public List<string> getPermisosUsuario(string username)
         {
             try
             {
-                return new Rol().getPermisosUsuario(idUser);
+                return new Permiso().getPermisosUsuario(username);
             }catch(Exception ex)
             {
-                throw new Exception(ex.ToString() + "  --Security.cs / getPermisosUsuarios(idUser)");
+                throw new Exception(ex.ToString() + "  --Security.cs / getPermisosUsuarios()");
+            }
+        }
+
+        public List<long> getRolesUsuario(string username)
+        {
+            try
+            {
+                return new Rol().getRolesUsuario(username);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + "  --Security.cs / getRolesUsuarios()");
             }
         }
     }
