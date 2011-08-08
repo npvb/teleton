@@ -48,7 +48,7 @@ public partial class Diagnosticos : System.Web.UI.Page
                 }
             }
         }
-        catch (Exception er)
+        catch (Exception)
         {
             Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('ERROR')", true);
             

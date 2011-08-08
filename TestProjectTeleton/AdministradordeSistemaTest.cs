@@ -102,7 +102,7 @@ namespace TestProjectTeleton
             {
                 target.crearRol(description, licences);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 flag = false;
             }
@@ -123,7 +123,7 @@ namespace TestProjectTeleton
             {
                 target.eliminarPermiso(identity);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 flag = false;
             }
@@ -144,7 +144,7 @@ namespace TestProjectTeleton
             {
                 target.eliminarRol(identity);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 flag = false;
             }
@@ -169,7 +169,7 @@ namespace TestProjectTeleton
             {
                 target.editarRol(identity, description, grants, revokes);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 flag = false;
             }

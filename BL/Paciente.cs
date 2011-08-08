@@ -16,14 +16,16 @@ namespace BL
         private string _nombres;
         private string _primerApellido;
         private string _segundoApellido;
-        private string _fechaNac;
+        private DateTime _fechaNac;
         private bool _sexo;
-        private string _fechaIngreso;
+        private DateTime _fechaIngreso;
         private string _cedula;
         private string _direccion;
         private string _lugarNac;
         private string _estado;
         private int _centroActual;
+        private long _expediente;
+
         #endregion
 
         #region Get y Set
@@ -45,7 +47,7 @@ namespace BL
             set { _segundoApellido = value; }
         }
 
-        public string FechaNac
+        public DateTime FechaNac
         {
             get { return _fechaNac; }
             set { _fechaNac = value; }
@@ -57,7 +59,7 @@ namespace BL
             set { _sexo = value; }
         }
 
-        public string FechaIngreso
+        public DateTime FechaIngreso
         {
             get { return _fechaIngreso; }
             set { _fechaIngreso = value; }
@@ -92,6 +94,19 @@ namespace BL
             get { return _centroActual; }
             set { _centroActual = value; }
         }
+
+        public long Expediente
+        {
+            get {
+                DataAccess.paciente pac = entities.pacientes.FirstOrDefault(
+                    P => P.cedula == Cedula && P.centro_actual == CentroActual);
+                if (pac != null)
+                {
+                    _expediente = pac.expediente;
+                }
+                return _expediente; 
+            }
+        }
         #endregion
 
         #region Constructores
@@ -100,36 +115,19 @@ namespace BL
             Nombres = "";
             PrimerApellido = "";
             SegundoApellido = "";
-            FechaNac = "";
+            FechaNac = DateTime.Now;
             Sexo = true;
-            FechaIngreso = "";
+            FechaIngreso = DateTime.Now;
             Cedula = "";
             Direccion = "";
             LugarNac = "";
             Estado = "";
             entities = new teletonEntities();
         }
-
-        public Paciente(string nombres, string primerApellido, string segundoApellido,
-                        string fechaNac, bool sexo, string fechaIngreso, string cedula,
-                        string direccion, string lugarNac, string estado)
-        {
-            Nombres = nombres;
-            PrimerApellido = primerApellido;
-            SegundoApellido = segundoApellido;
-            FechaNac = fechaNac;
-            Sexo = sexo;
-            FechaIngreso = fechaIngreso;
-            Cedula = cedula;
-            Direccion = direccion;
-            LugarNac = lugarNac;
-            Estado = estado;
-            entities = new teletonEntities();
-        }
         #endregion
 
-        public void guardarPaciente(int centroActual, string nombres, string primerApellido, string segundoApellido,
-                                    string fechaNac, bool sexo, string fechaIngreso, string cedula,
+        public void asignarDatos(int centroActual, string nombres, string primerApellido, string segundoApellido,
+                                    DateTime fechaNac, bool sexo, DateTime fechaIngreso, string cedula,
                                     string direccion, string lugarNac, string estado)
         {
             CentroActual = centroActual;
@@ -143,16 +141,58 @@ namespace BL
             Direccion = direccion;
             LugarNac = lugarNac;
             Estado = estado;
-            guardarPaciente();
         }
 
         private bool isTheInfoComplete()
         {
 
-            return FechaIngreso.Length > 0 && PrimerApellido.Length > 0 && SegundoApellido.Length > 0 && Nombres.Length > 0 && Cedula.Length > 0 && FechaNac.Length > 0;
+            return FechaIngreso != null && PrimerApellido.Length > 0 && SegundoApellido.Length > 0 && Nombres.Length > 0 && Cedula.Length > 0 && FechaNac != null;
         }
 
-        public void guardarPaciente()
+        public bool exist()
+        {
+            DataAccess.paciente pac = entities.pacientes.FirstOrDefault(
+                        P => P.cedula == Cedula && P.centro_actual == CentroActual);
+            if (pac == null)
+                return false;
+            else
+                return true;
+        }
+
+        public bool exist(int centroActual, long expediente)
+        {
+            DataAccess.paciente pac = entities.pacientes.FirstOrDefault(
+                        P => P.centro_actual == centroActual && P.expediente == expediente);
+            if (pac != null)
+                return true;
+            else
+                return false;
+        }
+
+        public bool leerPaciente(int centroActual, long expediente)
+        {
+            DataAccess.paciente pac = entities.pacientes.FirstOrDefault(
+                        P => P.centro_actual == centroActual && P.expediente == expediente);
+            if (pac != null)
+            {
+                _centroActual = centroActual;
+                _expediente = expediente;
+                _nombres = pac.nombres;
+                _primerApellido = pac.primer_apellido;
+                _segundoApellido = pac.segundo_apellido;
+                _fechaNac = pac.fecha_nac;
+                _sexo = pac.sexo;
+                _fechaIngreso = pac.fecha_ingreso;
+                _cedula = pac.cedula;
+                _direccion = pac.direccion;
+                _lugarNac = pac.lugar_nac;
+                _estado = pac.estado_civil;
+                return true;
+            }
+            return false;
+        }
+
+        public bool guardarPaciente()
         {
             if (isTheInfoComplete())
             {
@@ -162,16 +202,8 @@ namespace BL
                     pac.cedula = Cedula;
                     pac.direccion = Direccion;
                     pac.estado_civil = Estado;
-
-                    int yy = int.Parse(FechaIngreso.Substring(0, 4));
-                    int MM = int.Parse(FechaIngreso.Substring(5, 2));
-                    int dd = int.Parse(FechaIngreso.Substring(8, 2));
-                    pac.fecha_ingreso = new DateTime(yy, MM, dd);
-
-                    yy = int.Parse(FechaNac.Substring(0, 4));
-                    MM = int.Parse(FechaNac.Substring(5, 2));
-                    dd = int.Parse(FechaNac.Substring(8, 2));
-                    pac.fecha_nac = new DateTime(yy, MM, dd);
+                    pac.fecha_ingreso = FechaIngreso;
+                    pac.fecha_nac = FechaNac;
 
                     pac.lugar_nac = LugarNac;
                     pac.nombres = Nombres;
@@ -188,6 +220,7 @@ namespace BL
 
                     entities.pacientes.AddObject(pac); //se guarda en la memoria
                     entities.SaveChanges(); //se guarda en la DB
+                    return true;
 
                 }
                 catch (Exception ex)
@@ -195,6 +228,7 @@ namespace BL
                     throw new Exception(ex.ToString() + "Pacientes.cs / guardarPaciente()");
                 }
             }
+            return false;
         }
     }
 }
