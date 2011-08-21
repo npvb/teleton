@@ -22,8 +22,8 @@ namespace BL
                 this.userName = userName;
                 this.password = password;
                 entidad = new DataAccess.teletonEntities();
-            }catch(Exception ex)
-          
+            }
+            catch(Exception ex)
             {
                 throw new Exception(ex.ToString() + "  --Login.cs / Login()");
             }
@@ -33,12 +33,17 @@ namespace BL
         {
             try
             {
-                var usuarioQuery = entidad.usuarios.Where(USER => USER.username == userName && USER.password == password).First();
-                if (usuarioQuery != null)
+                var usuarioQuery = from user in entidad.usuarios
+                                   where user.username == userName && user.password == password
+                                   select user;
+
+                usuario[] usr = usuarioQuery.ToArray();
+                   
+                if (usr.Length != 0)
                 {
-                    this.idUser = usuarioQuery.empleado;
+                    this.idUser = usr[0].empleado;
                     return true;
-                }
+                } else
                     return false;
             }
             catch (Exception ex)

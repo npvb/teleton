@@ -168,13 +168,21 @@ namespace BL
             }
         }
 
+        #region login
+
         public bool login(string user, string password)
         {
             try
             {
                 Login l = new Login(user, password);
-                idUser = l.getIdUser();
-                return l.validateUser();
+                bool tmp = l.validateUser();
+                if (tmp)
+                {
+                    idUser = l.getIdUser();
+                    return true;
+                }
+                else
+                    return false;
             }
             catch (Exception ex)
             {
@@ -199,6 +207,7 @@ namespace BL
                 throw new Exception(ex.ToString() + "  --Security.cs / getCentros()");
             }
         }
+
         public long getIdUser()
         {
             try
@@ -209,6 +218,9 @@ namespace BL
                 throw new Exception(ex.ToString() + "  --Security.cs / getIdUser()");
             }
         }
+
+        #endregion
+
         public List<string> getPermisosUsuario(string username)
         {
             try

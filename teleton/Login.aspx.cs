@@ -11,16 +11,14 @@ using BL;
 
 public partial class Login : System.Web.UI.Page
 {
-    private BL.Security sec;
-    private DropDownList CenterList;
+    private BL.Security sec = new Security();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         try
         {
             //if (!Page.IsPostBack)
             //{
-                sec = new BL.Security();
-                CenterList = LoginUser.FindControl("CenterList") as DropDownList;
                 CenterList.DataSource = sec.getCentros();
                 CenterList.DataBind();
             //}
@@ -35,22 +33,22 @@ public partial class Login : System.Web.UI.Page
     {
         try
         {
-            /*string SH1Password = FormsAuthentication.HashPasswordForStoringInConfigFile(
-                this.LoginUser.Password, "SHA1");*/
             this.Validate();
             
             if (this.IsValid)
             {
-                if (sec.login(this.LoginUser.UserName, this.LoginUser.Password))
+                if (sec.login(UserName.Text, Password.Text))
                 {
                     Session["Centro_id"] = CenterList.SelectedItem.Text;
-                    Session["Permisos_usuario"] = sec.getPermisosUsuario(this.LoginUser.UserName);                    
-                    //FormsAuthentication.RedirectFromLoginPage(this.LoginUser.UserName, this.LoginUser.RememberMeSet);
-                    //FormsAuthentication.SetAuthCookie(this.LoginUser.UserName, this.LoginUser.RememberMeSet);
+                    Session["Permisos_usuario"] = sec.getPermisosUsuario(UserName.Text);
                     Session["loggedin"] = true;
-                    Session["nombre_usuario"] = this.LoginUser.UserName;
-
-                    Response.Redirect("Default.aspx");
+                    Session["nombre_usuario"] = UserName.Text;
+                    
+                    Response.Redirect("Default.aspx");                    
+                }
+                else
+                {                    
+                    FailureText.Text = "Error al intentar loginearse!!!";                 
                 }
             }
         }

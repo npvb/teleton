@@ -13,9 +13,7 @@
 		<div class="wrapper">
 			<div class="content">
             <div id="form_wrapper" class="form_wrapper">
-                <form id="form1" runat="server" class="login active">
-                    <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
-                        <LayoutTemplate>
+                <form id="form1" runat="server" class="login active">                    
                             <span class="failureNotification">
                                     <asp:Literal ID="FailureText" runat="server"></asp:Literal>
                             </span>
@@ -54,8 +52,6 @@
                                     onclick="LoginButton_Click"/>
                                 <div class="clear"></div>
                             </div>
-                        </LayoutTemplate>
-                    </asp:Login>
                  </form>
 		    <div class="clear"></div>
 		    </div>
