@@ -17,8 +17,7 @@ public partial class HojaPaciente : System.Web.UI.Page
                 {
 
                     long expedienteID = Convert.ToInt64(Request.QueryString["Expediente"]);
-                    //TODO: leer el codigo del centro
-                    int ca = 1;
+                    int ca = int.Parse(Request.QueryString["CentroActual"].ToString());
 
                     BL.Paciente paciente = new BL.Paciente();
                     if (paciente.leerPaciente(ca, expedienteID))

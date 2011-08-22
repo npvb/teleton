@@ -39,8 +39,10 @@ public partial class Login : System.Web.UI.Page
             {
                 if (sec.login(UserName.Text, Password.Text))
                 {
+                    sec = new BL.Security();
                     Session["Centro_id"] = CenterList.SelectedItem.Text;
-                    Session["Permisos_usuario"] = sec.getPermisosUsuario(UserName.Text);
+                    Session["Centro_idNum"] = sec.getCentroId(Session["Centro_id"].ToString()).ToString();
+                    Session["Permisos_usuario"] = sec.getPermisosUsuario(UserName.Text);                   
                     Session["loggedin"] = true;
                     Session["nombre_usuario"] = UserName.Text;
                     

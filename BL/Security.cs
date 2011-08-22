@@ -208,6 +208,37 @@ namespace BL
             }
         }
 
+        public List<string> getCentrosPermitidos(String username)
+        {
+            //TODO: hacer que esta funcion devuelva los centros permitidos para editar por el username
+            try
+            {
+                List<String> centros; //= new List<string>();
+
+                var allcentros = from c in entidad.centros
+                                 select c.lugar;
+
+                centros = allcentros.ToList();
+                return centros;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + "  --Security.cs / getCentros()");
+            }
+        }
+
+        public long getCentroId(string centro)
+        {
+            var QCId = from c in entidad.centros
+                       where c.lugar == centro
+                       select c.id;
+            long CId = 0;
+            foreach (long l in QCId)
+                CId = l;
+            return CId;
+
+        }
+
         public long getIdUser()
         {
             try

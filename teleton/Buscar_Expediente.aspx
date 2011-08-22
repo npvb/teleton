@@ -1,21 +1,30 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Crear_Paciente.aspx.cs" Inherits="Crear_Paciente" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Buscar_Expediente.aspx.cs" Inherits="Buscar_Expediente" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
-
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
     <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+<asp:Content ID="content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="content">
-        <div id = "titulo">
-            <h1>Registro de Pacientes</h1> 
-            <h2>Información General</h2>
+        <div id="titulo">
+            <h1>Busqueda de pacientes</h1>
+        </div>
+        <div id="navcenter">
+            <fieldset>
+                <asp:Label ID="lblCentro" runat="server" Text="Centro:"/>
+                <asp:ComboBox ID="cboCentro" runat="server" DropDownStyle="DropDownList"/>
+                <asp:Label ID="lblExpediente" runat="server" Text="Expediente:"/>
+                <asp:TextBox ID="txtExpediente" runat="server" />
+                <asp:RequiredFieldValidator id="reqFieldExp" runat="server"
+                    ErrorMessage="Expediente Requerido" ForeColor="Red"
+                    ControlToValidate="txtExpediente"></asp:RequiredFieldValidator>
+            </fieldset>
         </div>
 
-        <div id="navcenter">
-        <fieldset>
+        <div id="navcontroles">
+            <fieldset>
                 <ul class = "list">
                     <li class="field">
                         <asp:Label ID="Label2" CssClass="label" runat="server" Text="Nº de Cédula:"></asp:Label>
@@ -98,19 +107,22 @@
                             ErrorMessage="*Fecha de Ingreso Requerida" ForeColor="Red" 
                             ControlToValidate="txtFechaIngreso"></asp:RequiredFieldValidator>
                     </li>
-                </ul>                
-            </fieldset>                    
+                </ul>
+            </fieldset>
         </div>
-        <fieldset>
-        <div id="navBotones">
-            <asp:Button ID="btIngresar" CssClass="boton" runat="server" Text="Ingresar Paciente" 
-                        onclick="btIngresar_Click" />
-            <asp:Button ID="btnClean" CssClass="boton" runat="server" Text="Limpiar" 
-                CausesValidation="False" onclick="btnClean_Click"/>
-            <asp:Button ID="btnPrint" CssClass="boton" runat="server" Text="Imprimir" 
-                EnableTheming="True" onclick="btnPrint_Click"/>
+        <div id="navbotones">
+                <asp:Button ID="btnBuscar" runat="server" CssClass="boton" Text="Buscar" 
+                    onclick="btnBuscar_Click" CausesValidation="False" />
+                <asp:Button ID="btnEditar" runat="server" CssClass="boton" Text="Editar" 
+                    onclick="btnEditar_Click"/>
+                <asp:Button ID="btnEliminar" runat="server" CssClass="boton" Text="Eliminar" 
+                    onclick="btnEliminar_Click"/>
+                <asp:ConfirmButtonExtender ID="cfmExtEliminar" runat="server" TargetControlID="btnEliminar"
+                    ConfirmText="Desea Eliminar al paciente"></asp:ConfirmButtonExtender>
+                <asp:Button ID="btnImprimir" runat="server" CssClass="boton" Text="imprimir" 
+                    onclick="btnImprimir_Click" />
+                <asp:Button ID="btnCleanPage" runat="server" CssClass="boton" Text="limpiar" 
+                    onclick="btnCleanPage_Click" CausesValidation="False" />
         </div>
-        </fieldset>
     </div>
 </asp:Content>
-

@@ -192,6 +192,50 @@ namespace BL
             return false;
         }
 
+        public bool editarPaciente()
+        {
+            try
+            {
+                DataAccess.paciente pac = entities.pacientes.FirstOrDefault(
+                    a => a.expediente == Expediente && a.centro_actual == CentroActual);
+
+                pac.cedula = Cedula;
+                pac.direccion = Direccion;
+                pac.estado_civil = Estado;
+                pac.fecha_ingreso = FechaIngreso;
+                pac.fecha_nac = FechaNac;
+
+                pac.lugar_nac = LugarNac;
+                pac.nombres = Nombres;
+                pac.primer_apellido = PrimerApellido;
+                pac.segundo_apellido = SegundoApellido;
+                pac.sexo = Sexo;
+                entities.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool eliminarPaciente()
+        {
+            try
+            {
+                DataAccess.paciente pac = entities.pacientes.FirstOrDefault(
+                    a => a.expediente == Expediente && a.centro_actual == CentroActual);
+                entities.DeleteObject(pac);
+                entities.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public bool guardarPaciente()
         {
             if (isTheInfoComplete())
