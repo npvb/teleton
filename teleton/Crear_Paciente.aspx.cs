@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL;
 
 public partial class Crear_Paciente : System.Web.UI.Page
 {
@@ -46,8 +47,7 @@ public partial class Crear_Paciente : System.Web.UI.Page
             {
                 try
                 {
-                    //TODO: hacer que la variable de session Centro_id almacene el codigo del centro no el nombre
-                    int ca = 1;//= int.Parse(Session["Centro_id"]);
+                    int ca = (int)long.Parse(Session["Centro_idNum"].ToString());
 
                     int yy = int.Parse(txtFechaNacimiento.Text.Substring(0, 4));
                     int mm = int.Parse(txtFechaNacimiento.Text.Substring(5, 2));
@@ -91,8 +91,9 @@ public partial class Crear_Paciente : System.Web.UI.Page
     }
     protected void btnPrint_Click(object sender, EventArgs e)
     {
-        int exp = int.Parse(Session["expediente"].ToString());
-        String pageArgs = String.Format("HojaPaciente.aspx?Expediente={0}", exp);
+        long exp = long.Parse(Session["expediente"].ToString());
+        int ca = (int)long.Parse(Session["Centro_idNum"].ToString());
+        String pageArgs = String.Format("HojaPaciente.aspx?Expediente={0}&CentroActual={1}", exp,ca);
         LiteralControl lctl = new LiteralControl("<script type=\"text/javascript\"> function init(){" + String.Format("window.open('{0}', 'Información del Paciente', 'width=1000, height=600');", pageArgs) + "} window.onload = init(); </script>");
         Page.Header.Controls.Add(lctl);
     }

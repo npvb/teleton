@@ -4,11 +4,10 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-
     <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
-    </asp:Content>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    
     <div id="content">
         <div id = "titulo">
             <h1>Registro de Pacientes</h1> 
@@ -100,9 +99,9 @@
                             ControlToValidate="txtFechaIngreso"></asp:RequiredFieldValidator>
                     </li>
                 </ul>                
-            </fieldset>
-                    
+            </fieldset>                    
         </div>
+        <fieldset>
         <div id="navBotones">
             <asp:Button ID="btIngresar" CssClass="boton" runat="server" Text="Ingresar Paciente" 
                         onclick="btIngresar_Click" />
@@ -111,8 +110,7 @@
             <asp:Button ID="btnPrint" CssClass="boton" runat="server" Text="Imprimir" 
                 EnableTheming="True" onclick="btnPrint_Click"/>
         </div>
+        </fieldset>
     </div>
-
-
 </asp:Content>
 

@@ -43,7 +43,9 @@ public partial class Login : System.Web.UI.Page
             {
                 if (sec.login(this.LoginUser.UserName, this.LoginUser.Password))
                 {
+                    sec = new BL.Security();
                     Session["Centro_id"] = CenterList.SelectedItem.Text;
+                    Session["Centro_idNum"] = sec.getCentroId(Session["Centro_id"].ToString()).ToString();
                     Session["Permisos_usuario"] = sec.getPermisosUsuario(this.LoginUser.UserName);                    
                     //FormsAuthentication.RedirectFromLoginPage(this.LoginUser.UserName, this.LoginUser.RememberMeSet);
                     //FormsAuthentication.SetAuthCookie(this.LoginUser.UserName, this.LoginUser.RememberMeSet);
