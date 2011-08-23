@@ -33,6 +33,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("teletonModel", "permisos_x_roles", "permisos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.permiso), "roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.role))]
 [assembly: EdmRelationshipAttribute("teletonModel", "usuarios_x_rol", "roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.role), "usuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.usuario))]
 [assembly: EdmRelationshipAttribute("teletonModel", "diagnostico_FK", "diagnostico", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DataAccess.diagnostico), "paciente", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.paciente), true)]
+[assembly: EdmRelationshipAttribute("teletonModel", "roles_fk1", "centro", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DataAccess.centro), "role", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.role), true)]
 
 #endregion
 
@@ -1122,6 +1123,31 @@ namespace DataAccess
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("teletonModel", "roles_fk1", "role")]
+        public EntityCollection<role> roles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<role>("teletonModel.roles_fk1", "role");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<role>("teletonModel.roles_fk1", "role", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -3379,6 +3405,30 @@ namespace DataAccess
         private global::System.Int64 _id;
         partial void OnidChanging(global::System.Int64 value);
         partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> centro
+        {
+            get
+            {
+                return _centro;
+            }
+            set
+            {
+                OncentroChanging(value);
+                ReportPropertyChanging("centro");
+                _centro = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("centro");
+                OncentroChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _centro;
+        partial void OncentroChanging(Nullable<global::System.Int64> value);
+        partial void OncentroChanged();
 
         #endregion
     
@@ -3424,6 +3474,44 @@ namespace DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<usuario>("teletonModel.usuarios_x_rol", "usuarios", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("teletonModel", "roles_fk1", "centro")]
+        public centro centro1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<centro>("teletonModel.roles_fk1", "centro").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<centro>("teletonModel.roles_fk1", "centro").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<centro> centro1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<centro>("teletonModel.roles_fk1", "centro");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<centro>("teletonModel.roles_fk1", "centro", value);
                 }
             }
         }

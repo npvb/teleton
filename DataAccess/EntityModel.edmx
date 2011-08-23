@@ -61,6 +61,10 @@
             <End Role="usuarios" EntitySet="usuarios" />
             <End Role="evoluciones" EntitySet="evoluciones" />
           </AssociationSet>
+          <AssociationSet Name="paciente_fk" Association="teletonModel.Store.paciente_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="citas_doctor" EntitySet="citas_doctor" />
+          </AssociationSet>
           <AssociationSet Name="pacientes_fk" Association="teletonModel.Store.pacientes_fk">
             <End Role="estado_civil" EntitySet="estado_civil" />
             <End Role="pacientes" EntitySet="pacientes" />
@@ -69,55 +73,55 @@
             <End Role="pacientes" EntitySet="pacientes" />
             <End Role="evoluciones" EntitySet="evoluciones" />
           </AssociationSet>
-          <AssociationSet Name="paciente_fk" Association="teletonModel.Store.paciente_fk">
-            <End Role="pacientes" EntitySet="pacientes" />
-            <End Role="citas_doctor" EntitySet="citas_doctor" />
-          </AssociationSet>
           <AssociationSet Name="permisos_fk" Association="teletonModel.Store.permisos_fk">
             <End Role="permisos" EntitySet="permisos" />
-            <End Role="permisos_x_roles" EntitySet="permisos_x_roles" />
-          </AssociationSet>
-          <AssociationSet Name="roles_fk" Association="teletonModel.Store.roles_fk">
-            <End Role="roles" EntitySet="roles" />
             <End Role="permisos_x_roles" EntitySet="permisos_x_roles" />
           </AssociationSet>
           <AssociationSet Name="rol_fk" Association="teletonModel.Store.rol_fk">
             <End Role="roles" EntitySet="roles" />
             <End Role="usuarios_x_rol" EntitySet="usuarios_x_rol" />
           </AssociationSet>
-          <AssociationSet Name="usuarios_fk" Association="teletonModel.Store.usuarios_fk">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="usuarios_x_rol" EntitySet="usuarios_x_rol" />
+          <AssociationSet Name="roles_fk" Association="teletonModel.Store.roles_fk">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="permisos_x_roles" EntitySet="permisos_x_roles" />
+          </AssociationSet>
+          <AssociationSet Name="roles_fk1" Association="teletonModel.Store.roles_fk1">
+            <End Role="centros" EntitySet="centros" />
+            <End Role="roles" EntitySet="roles" />
           </AssociationSet>
           <AssociationSet Name="usuario_fk" Association="teletonModel.Store.usuario_fk">
             <End Role="usuarios" EntitySet="usuarios" />
             <End Role="citas_terapia" EntitySet="citas_terapia" />
+          </AssociationSet>
+          <AssociationSet Name="usuarios_fk" Association="teletonModel.Store.usuarios_fk">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="usuarios_x_rol" EntitySet="usuarios_x_rol" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="actividades_enfermeria">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="actividad" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="actividad" Type="varchar" Nullable="false" MaxLength="45" />
         </EntityType>
         <EntityType Name="atenciones_enfermeria">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="actividad" Type="uint" Nullable="false" />
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="enfermera" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
           <Property Name="expediente" Type="uint" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
-          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="actividad" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="cargos">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="cargo" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cargo" Type="varchar" Nullable="false" MaxLength="45" />
         </EntityType>
         <EntityType Name="centros">
           <Key>
@@ -133,54 +137,54 @@
             <PropertyRef Name="fecha_hora" />
           </Key>
           <Property Name="doctor_username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
           <Property Name="expediente" Type="uint" Nullable="false" />
           <Property Name="fecha_hora" Type="datetime" Nullable="false" />
-          <Property Name="prefijo" Type="usmallint" Nullable="false" />
           <Property Name="tipo" Type="varchar" Nullable="false" MaxLength="15" />
         </EntityType>
         <EntityType Name="citas_terapia">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="atendido" Type="bool" Nullable="false" />
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="user" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="prefijo" Type="usmallint" Nullable="false" />
           <Property Name="expediente" Type="uint" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
-          <Property Name="hora_final" Type="time" Nullable="false" />
           <Property Name="hora_inicio" Type="time" Nullable="false" />
-          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="prefijo" Type="usmallint" Nullable="false" />
-          <Property Name="user" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="hora_final" Type="time" Nullable="false" />
+          <Property Name="atendido" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="diagnosticos">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="diagnostico" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="diagnostico" Type="varchar" Nullable="false" MaxLength="45" />
         </EntityType>
         <EntityType Name="empleados">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="nombres" Type="varchar" Nullable="false" MaxLength="25" />
           <Property Name="primer_apellido" Type="varchar" Nullable="false" MaxLength="15" />
-          <Property Name="puesto" Type="uint" Nullable="false" />
           <Property Name="segundo_apellido" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="nombres" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="puesto" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="escolaridad">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="Grado" Type="varchar" MaxLength="40" />
           <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Grado" Type="varchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="estado_alta">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="estado" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="estado" Type="varchar" Nullable="false" MaxLength="45" />
         </EntityType>
         <EntityType Name="estado_civil">
           <Key>
@@ -192,12 +196,12 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="evaluador" Type="varchar" Nullable="false" MaxLength="45" />
-          <Property Name="expediente" Type="uint" Nullable="false" />
-          <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="id" Type="ubigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="notas" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="expediente" Type="uint" Nullable="false" />
+          <Property Name="evaluador" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="notas" Type="varchar" Nullable="false" MaxLength="255" />
         </EntityType>
         <EntityType Name="ocupaciones">
           <Key>
@@ -211,29 +215,29 @@
             <PropertyRef Name="expediente" />
             <PropertyRef Name="prefijo" />
           </Key>
-          <Property Name="cedula" Type="varchar" Nullable="false" MaxLength="45" />
-          <Property Name="centro_actual" Type="usmallint" Nullable="false" />
-          <Property Name="diagnostico" Type="uint" />
-          <Property Name="direccion" Type="varchar" MaxLength="255" />
-          <Property Name="estado_civil" Type="varchar" MaxLength="15" />
           <Property Name="expediente" Type="uint" Nullable="false" />
-          <Property Name="fecha_ingreso" Type="date" Nullable="false" />
-          <Property Name="fecha_nac" Type="date" Nullable="false" />
-          <Property Name="lugar_nac" Type="varchar" MaxLength="45" />
-          <Property Name="nombres" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="numero_doc_alt" Type="varchar" MaxLength="45" />
           <Property Name="prefijo" Type="usmallint" Nullable="false" />
+          <Property Name="centro_actual" Type="usmallint" Nullable="false" />
+          <Property Name="fecha_ingreso" Type="date" Nullable="false" />
           <Property Name="primer_apellido" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="segundo_apellido" Type="varchar" Nullable="false" MaxLength="15" />
-          <Property Name="sexo" Type="bool" Nullable="false" />
+          <Property Name="nombres" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="cedula" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="tipo_doc_alterno" Type="varchar" MaxLength="25" />
+          <Property Name="numero_doc_alt" Type="varchar" MaxLength="45" />
+          <Property Name="estado_civil" Type="varchar" MaxLength="15" />
+          <Property Name="sexo" Type="bool" Nullable="false" />
+          <Property Name="fecha_nac" Type="date" Nullable="false" />
+          <Property Name="lugar_nac" Type="varchar" MaxLength="45" />
+          <Property Name="direccion" Type="varchar" MaxLength="255" />
+          <Property Name="diagnostico" Type="uint" />
         </EntityType>
         <EntityType Name="permisos">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="95" />
           <Property Name="id" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="95" />
         </EntityType>
         <EntityType Name="permisos_x_roles">
           <Key>
@@ -247,24 +251,25 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="centro" Type="uint" />
         </EntityType>
         <EntityType Name="usuarios">
           <Key>
             <PropertyRef Name="username" />
           </Key>
-          <Property Name="empleado" Type="uint" Nullable="false" />
-          <Property Name="password" Type="char" Nullable="false" MaxLength="40" />
           <Property Name="username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="password" Type="char" Nullable="false" MaxLength="40" />
+          <Property Name="empleado" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="usuarios_x_rol">
           <Key>
-            <PropertyRef Name="id_rol" />
             <PropertyRef Name="username" />
+            <PropertyRef Name="id_rol" />
           </Key>
-          <Property Name="id_rol" Type="uint" Nullable="false" />
           <Property Name="username" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="id_rol" Type="uint" Nullable="false" />
         </EntityType>
         <Association Name="actividades_fk">
           <End Role="actividades_enfermeria" Type="teletonModel.Store.actividades_enfermeria" Multiplicity="1" />
@@ -382,6 +387,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="paciente_fk">
+          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1" />
+          <End Role="citas_doctor" Type="teletonModel.Store.citas_doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Principal>
+            <Dependent Role="citas_doctor">
+              <PropertyRef Name="expediente" />
+              <PropertyRef Name="prefijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="pacientes_fk">
           <End Role="estado_civil" Type="teletonModel.Store.estado_civil" Multiplicity="0..1" />
           <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="*" />
@@ -408,20 +427,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="paciente_fk">
-          <End Role="pacientes" Type="teletonModel.Store.pacientes" Multiplicity="1" />
-          <End Role="citas_doctor" Type="teletonModel.Store.citas_doctor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pacientes">
-              <PropertyRef Name="expediente" />
-              <PropertyRef Name="prefijo" />
-            </Principal>
-            <Dependent Role="citas_doctor">
-              <PropertyRef Name="expediente" />
-              <PropertyRef Name="prefijo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="permisos_fk">
           <End Role="permisos" Type="teletonModel.Store.permisos" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -433,20 +438,6 @@
             </Principal>
             <Dependent Role="permisos_x_roles">
               <PropertyRef Name="permiso_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="roles_fk">
-          <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="permisos_x_roles" Type="teletonModel.Store.permisos_x_roles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="roles">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="permisos_x_roles">
-              <PropertyRef Name="rol_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -464,17 +455,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="usuarios_fk">
-          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1">
+        <Association Name="roles_fk">
+          <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="usuarios_x_rol" Type="teletonModel.Store.usuarios_x_rol" Multiplicity="*" />
+          <End Role="permisos_x_roles" Type="teletonModel.Store.permisos_x_roles" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="username" />
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="usuarios_x_rol">
-              <PropertyRef Name="username" />
+            <Dependent Role="permisos_x_roles">
+              <PropertyRef Name="rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="roles_fk1">
+          <End Role="centros" Type="teletonModel.Store.centros" Multiplicity="0..1" />
+          <End Role="roles" Type="teletonModel.Store.roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="centros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="roles">
+              <PropertyRef Name="centro" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -487,6 +490,20 @@
             </Principal>
             <Dependent Role="citas_terapia">
               <PropertyRef Name="user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuarios_fk">
+          <End Role="usuarios" Type="teletonModel.Store.usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuarios_x_rol" Type="teletonModel.Store.usuarios_x_rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="usuarios_x_rol">
+              <PropertyRef Name="username" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -572,6 +589,10 @@
             <End Role="diagnostico" EntitySet="diagnosticos" />
             <End Role="paciente" EntitySet="pacientes" />
           </AssociationSet>
+          <AssociationSet Name="roles_fk1" Association="teletonModel.roles_fk1">
+            <End Role="centro" EntitySet="centros" />
+            <End Role="role" EntitySet="roles" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="actividades_enfermeria">
           <Key>
@@ -610,6 +631,7 @@
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="lugar" Type="String" Nullable="false" />
           <Property Name="siguiente_expediente" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="roles" Relationship="teletonModel.roles_fk1" FromRole="centro" ToRole="role" />
         </EntityType>
         <EntityType Name="citas_doctor">
           <Key>
@@ -736,6 +758,8 @@
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="permisos" Relationship="teletonModel.permisos_x_roles" FromRole="roles" ToRole="permisos" />
           <NavigationProperty Name="usuarios" Relationship="teletonModel.usuarios_x_rol" FromRole="roles" ToRole="usuarios" />
+          <Property Type="Int64" Name="centro" />
+          <NavigationProperty Name="centro1" Relationship="teletonModel.roles_fk1" FromRole="role" ToRole="centro" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -931,6 +955,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="roles_fk1">
+          <End Type="teletonModel.centro" Role="centro" Multiplicity="0..1" />
+          <End Type="teletonModel.role" Role="role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="centro">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="role">
+              <PropertyRef Name="centro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1028,7 +1064,8 @@
             <ScalarProperty Name="id" ColumnName="id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="roles"><EntityTypeMapping TypeName="teletonModel.role"><MappingFragment StoreEntitySet="roles">
-            <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+            <ScalarProperty Name="centro" ColumnName="centro" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
             <ScalarProperty Name="id" ColumnName="id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="usuarios"><EntityTypeMapping TypeName="teletonModel.usuario"><MappingFragment StoreEntitySet="usuarios">
@@ -1172,19 +1209,24 @@
           <ConnectorPoint PointX="7.5" PointY="11.305846639573804" />
         </AssociationConnector>
         <AssociationConnector Association="teletonModel.permisos_x_roles" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="4.9228417968750016" />
-          <ConnectorPoint PointX="3" PointY="4.9228417968750016" />
+          <ConnectorPoint PointX="2.25" PointY="4.8389794921875" />
+          <ConnectorPoint PointX="3" PointY="4.8389794921875" />
         </AssociationConnector>
         <AssociationConnector Association="teletonModel.usuarios_x_rol" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.7879850260416674" />
-          <ConnectorPoint PointX="4.875" PointY="6.1629850260416674" />
-          <ConnectorPoint PointX="4.875" PointY="7.1849703307291737" />
-          <ConnectorPoint PointX="5.25" PointY="7.1849703307291737" />
+          <ConnectorPoint PointX="4.5" PointY="5.9210009765625" />
+          <ConnectorPoint PointX="4.875" PointY="6.2960009765625" />
+          <ConnectorPoint PointX="4.875" PointY="6.125" />
+          <ConnectorPoint PointX="5.25" PointY="6.5" />
         </AssociationConnector>
         <EntityTypeShape EntityType="teletonModel.diagnostico" Width="1.5" PointX="0.75" PointY="9.875" Height="1.4279589843750031" />
         <AssociationConnector Association="teletonModel.diagnostico_FK" >
           <ConnectorPoint PointX="2.25" PointY="10.901479492187502" />
           <ConnectorPoint PointX="5.25" PointY="10.901479492187502" />
+        </AssociationConnector>
+        <AssociationConnector Association="teletonModel.roles_fk1" >
+          <ConnectorPoint PointX="2.25" PointY="2.2092089843750005" />
+          <ConnectorPoint PointX="4.40625" PointY="2.2092089843750005" />
+          <ConnectorPoint PointX="4.40625" PointY="4" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
