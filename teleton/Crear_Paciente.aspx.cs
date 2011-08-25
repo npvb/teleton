@@ -8,15 +8,18 @@ using BL;
 
 public partial class Crear_Paciente : System.Web.UI.Page
 {
-
+    Centro center = new Centro();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Request.QueryString["sender"] == "new")
+            txtExp.Enabled = false;
+        else
+            txtExp.Enabled = true;
+        long tmp = Int64.Parse(Session["Centro_idNum"].ToString());
+        txtExp.Text = center.getNext(tmp).ToString();
         if (!this.IsPostBack)
-        {
             cleanPage();
-        }
     }
-
 
     private void cleanPage()
     {
@@ -35,7 +38,6 @@ public partial class Crear_Paciente : System.Web.UI.Page
         rdMasculino.Selected = true;
         ddEstado.SelectedIndex = 0;
         btnPrint.Enabled = false;
-
     }
 
     protected void btIngresar_Click(object sender, EventArgs e)
@@ -58,20 +60,27 @@ public partial class Crear_Paciente : System.Web.UI.Page
                     mm = int.Parse(txtFechaIngreso.Text.Substring(5, 2));
                     dd = int.Parse(txtFechaIngreso.Text.Substring(8, 2));
                     DateTime fechaIng = new DateTime(yy, mm, dd);
+                    long exped = 0;
+                    if (txtExp.Enabled)
+                    {
+                        exped = Int64.Parse(txtExp.Text);
+                    }
 
                     BL.Paciente pac = new BL.Paciente();
-                    pac.asignarDatos(ca, txtNombres.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
+                    pac.asignarDatos(ca, exped, txtNombres.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
                                               fechaNac, rdMasculino.Selected, fechaIng,
                                               txtCedula.Text, txtDireccion.Text, txtLugarNacimiento.Text,
                                               ddEstado.SelectedItem.Text);
-                    if (!pac.exist())
+                    if (!pac.exist(Int32.Parse(Session["Centro_idNum"].ToString()), exped))
                     {
                         pac.guardarPaciente();
                         Session["expediente"] = pac.Expediente;
                         //TODO: revisar esto de los mensajes
                         //Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('La data del paciente ha sido guardada exitosamente con expediente:"+ _paciente.Expediente+ " ')", true);
-                        Response.Write("<script>alert('La data del paciente ha sido guardada exitosamente con expediente: " + pac.Expediente + "')</script>");
+                        Response.Write("<script>alert('La data del paciente ha sido guardada exitosamente con expediente: " + txtExp.Text + "')</script>");
                         btnPrint.Enabled = true;
+                        long tmp = Int64.Parse(Session["Centro_idNum"].ToString());
+                        txtExp.Text = center.getNext(tmp).ToString();
                     }
                     else
                     {

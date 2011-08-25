@@ -115,7 +115,7 @@ public partial class Buscar_Expediente : System.Web.UI.Page
                 dd = int.Parse(txtFechaIngreso.Text.Substring(8, 2));
                 DateTime fechaIng = new DateTime(yy, mm, dd);
 
-                pac.asignarDatos(pac.CentroActual, txtNombres.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
+                pac.asignarDatos(pac.CentroActual, Int64.Parse(txtExpediente.Text), txtNombres.Text, txtPrimerApellido.Text, txtSegundoApellido.Text,
                                           fechaNac, rdMasculino.Selected, fechaIng,
                                           txtCedula.Text, txtDireccion.Text, txtLugarNacimiento.Text,
                                           ddEstado.SelectedItem.Text);

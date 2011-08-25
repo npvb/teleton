@@ -31,7 +31,9 @@
                     <Items>
                         <asp:MenuItem Text="Expedientes" Value="Administrar Paciente">
                             <asp:MenuItem Text="Crear Expediente" Value="New Item" 
-                                NavigateUrl="~/Crear_Paciente.aspx"></asp:MenuItem>
+                                NavigateUrl="~/Crear_Paciente.aspx?sender=new"></asp:MenuItem>
+                            <asp:MenuItem Text="Crear Expediente Histórico" Value="New Item" 
+                                NavigateUrl="~/Crear_Paciente.aspx?sender=old"></asp:MenuItem>
                             <asp:MenuItem Text="Consultar Expediente" Value="Consultar Expediente"
                                 NavigateUrl="~/Buscar_Expediente.aspx"></asp:MenuItem>
                         </asp:MenuItem>

@@ -97,15 +97,7 @@ namespace BL
 
         public long Expediente
         {
-            get {
-                DataAccess.paciente pac = entities.pacientes.FirstOrDefault(
-                    P => P.cedula == Cedula && P.centro_actual == CentroActual);
-                if (pac != null)
-                {
-                    _expediente = pac.expediente;
-                }
-                return _expediente; 
-            }
+            get {return _expediente;}
         }
         #endregion
 
@@ -126,11 +118,12 @@ namespace BL
         }
         #endregion
 
-        public void asignarDatos(int centroActual, string nombres, string primerApellido, string segundoApellido,
+        public void asignarDatos(int centroActual, long expediente, string nombres, string primerApellido, string segundoApellido,
                                     DateTime fechaNac, bool sexo, DateTime fechaIngreso, string cedula,
                                     string direccion, string lugarNac, string estado)
         {
             CentroActual = centroActual;
+            _expediente = expediente;
             Nombres = nombres;
             PrimerApellido = primerApellido;
             SegundoApellido = segundoApellido;
@@ -159,10 +152,10 @@ namespace BL
                 return true;
         }
 
-        public bool exist(int centroActual, long expediente)
+        public bool exist(int prefijo, long expediente)
         {
             DataAccess.paciente pac = entities.pacientes.FirstOrDefault(
-                        P => P.centro_actual == centroActual && P.expediente == expediente);
+                        P => P.prefijo == prefijo && P.expediente == expediente);
             if (pac != null)
                 return true;
             else
@@ -256,8 +249,8 @@ namespace BL
                     pac.sexo = Sexo;
 
                     pac.centro_actual = CentroActual;
-                    pac.prefijo = 1;
-                    pac.expediente = 0;
+                    pac.prefijo = CentroActual;
+                    pac.expediente = Expediente;
 
                     pac.tipo_doc_alterno = "N/A";
                     pac.numero_doc_alt = "N/A";
