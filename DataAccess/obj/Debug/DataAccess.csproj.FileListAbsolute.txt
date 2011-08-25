@@ -62,3 +62,10 @@ C:\Users\Fco Meraz\Documents\Visual Studio 2010\Projects\teleton\DataAccess\obj\
 C:\Users\Fco Meraz\Documents\Visual Studio 2010\Projects\teleton\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\Fco Meraz\Documents\Visual Studio 2010\Projects\teleton\DataAccess\obj\Debug\DataAccess.pdb
 C:\Users\Fco. Meraz\Documents\Visual Studio 2010\Projects\teleton\DataAccess\bin\Debug\MySql.Data.dll
+C:\Documents and Settings\Diego\My Documents\teleton2\teleton\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Documents and Settings\Diego\My Documents\teleton2\teleton\DataAccess\bin\Debug\DataAccess.dll
+C:\Documents and Settings\Diego\My Documents\teleton2\teleton\DataAccess\bin\Debug\DataAccess.pdb
+C:\Documents and Settings\Diego\My Documents\teleton2\teleton\DataAccess\bin\Debug\MySql.Data.dll
+C:\Documents and Settings\Diego\My Documents\teleton2\teleton\DataAccess\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Diego\My Documents\teleton2\teleton\DataAccess\obj\Debug\DataAccess.dll
+C:\Documents and Settings\Diego\My Documents\teleton2\teleton\DataAccess\obj\Debug\DataAccess.pdb

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Diagnosticos.aspx.cs" Inherits="Diagnosticos" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
@@ -19,6 +20,12 @@
 
            
 
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                ControlToValidate="diagnostico_txt" ErrorMessage="Ingrese la patologia" 
+                ForeColor="Red"></asp:RequiredFieldValidator>
+
+           
+
             <asp:Button ID="Button1" CssClass= "boton" runat="server" Text="Guardar" 
                 onclick="Button1_Click" />
 
@@ -28,14 +35,29 @@
                 AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="EntityDataSource1" 
                 Width="322px">
                 <Columns>                   
-                    <asp:CommandField ButtonType="Image" 
-                        CancelImageUrl="~/images/button_cancel-32.png" CancelText="" 
-                        DeleteImageUrl="~/images/calendar_icon.jpg" DeleteText="" 
-                        EditImageUrl="~/images/Edit-32.png" EditText="" ShowEditButton="True" 
-                        UpdateImageUrl="~/images/Refresh-32.png" UpdateText="" />
-                    <asp:CommandField ButtonType="Image" DeleteImageUrl="~/images/delete-32.png" 
-                        DeleteText="" EditImageUrl="~/images/Edit-32.png" EditText="" 
-                        ShowDeleteButton="True" />
+                    <asp:TemplateField ShowHeader="False">
+                        <EditItemTemplate>
+                            <asp:ImageButton ID="Refresh" runat="server" CausesValidation="False" 
+                                CommandName="Update" ImageUrl="~/images/Refresh-32.png" Text="" />
+                            <asp:ImageButton ID="Cancel" runat="server" CausesValidation="False" 
+                                CommandName="Cancel" ImageUrl="~/images/button_cancel-32.png" Text="" />
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:ImageButton ID="Edit" runat="server" CausesValidation="False" 
+                                CommandName="Edit" ImageUrl="~/images/Edit-32.png" Text="" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:ImageButton ID="Delete" runat="server" CausesValidation="False" 
+                                CommandName="Delete" ImageUrl="~/images/delete-32.png" Text="" />
+                            
+                            <asp:ConfirmButtonExtender ID="WinError" 
+                            runat="server" TargetControlID="Delete"
+                            ConfirmText="Esta seguro que desea eliminar el registro" ></asp:ConfirmButtonExtender>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                                     
                     <asp:BoundField DataField="id" HeaderText="Id" ReadOnly="True" 
                         SortExpression="id" />
                     <asp:BoundField DataField="diagnostico1" HeaderText="Nom. Patologia" 
