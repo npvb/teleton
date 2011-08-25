@@ -12,7 +12,7 @@ namespace BL
         DataAccess.teletonEntities entidad;
         private string userName;
         private string password;
-        private long idUser;
+        private long idEmp;        
         #endregion
 
         public Login(string userName, string password)
@@ -29,7 +29,7 @@ namespace BL
             }
         }
 
-        public bool validateUser()
+        public bool validateUser(string centroActual)
         {
             try
             {
@@ -41,8 +41,27 @@ namespace BL
                    
                 if (usr.Length != 0)
                 {
-                    this.idUser = usr[0].empleado;
-                    return true;
+                    bool centroEncontrado = false;
+                    
+                    foreach (role r in usr[0].roles)
+                    {
+                        centro ctr = r.centro1;
+
+                        if (centroActual == ctr.lugar)
+                        {
+                            centroEncontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (centroEncontrado)
+                    {
+
+                        this.idEmp = usr[0].empleado;
+                        return true;
+                    }
+                    else
+                        return false;
                 } else
                     return false;
             }
@@ -52,16 +71,16 @@ namespace BL
             }
         }
 
-        public long getIdUser()
+        public long getidEmp()
         {
             try
             {       
-                return this.idUser;
+                return this.idEmp;
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + "  --Login.cs / getIdUser()");
+                throw new Exception(ex.ToString() + "  --Login.cs / getidEmp()");
             }
-        }
+        }        
     }
 }

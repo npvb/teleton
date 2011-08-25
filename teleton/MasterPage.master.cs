@@ -15,10 +15,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         usr.Text = (string)Session["nombre_usuario"];
     }
+
     protected void labelLogout_Click(object sender, EventArgs e)
-    {        
+    {
         Session["loggedin"] = false;
-        Session["nombre_usuario"] = "";
+        Session.Abandon();
+        //Session["nombre_usuario"] = "";
         Response.Redirect("Login.aspx");        
     }    
 }

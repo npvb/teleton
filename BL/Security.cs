@@ -13,7 +13,7 @@ namespace BL
     {
         #region variables
         DataAccess.teletonEntities entidad;
-        private long idUser;
+        private long idEmp;
         #endregion
 
         #region gets y sets
@@ -141,6 +141,7 @@ namespace BL
                 var rolQuery = from rol in entidad.roles
                                where rol.id == identity
                                select rol;
+
                 DataAccess.role rolTMP = rolQuery.First();
                 rolTMP.descripcion = description;
 
@@ -158,6 +159,7 @@ namespace BL
                     var permisoQuery = from per in entidad.permisos
                                        where per.id == perm
                                        select per;
+
                     rolTMP.permisos.Remove(permisoQuery.First());
                 }
                 entidad.SaveChanges();
@@ -170,19 +172,22 @@ namespace BL
 
         #region login
 
-        public bool login(string user, string password)
+        public bool login(string user, string password, string centroActual)
         {
             try
             {
                 Login l = new Login(user, password);
-                bool tmp = l.validateUser();
+                bool tmp = l.validateUser(centroActual);
+
                 if (tmp)
                 {
-                    idUser = l.getIdUser();
+                    idEmp = l.getidEmp();
                     return true;
                 }
                 else
+                {
                     return false;
+                }
             }
             catch (Exception ex)
             {
@@ -194,7 +199,7 @@ namespace BL
         {
             try
             {
-                List<String> centros; //= new List<string>();
+                List<String> centros; 
 
                 var allcentros = from c in entidad.centros
                                  select c.lugar;
@@ -239,14 +244,15 @@ namespace BL
 
         }
 
-        public long getIdUser()
+        public long getidEmp()
         {
             try
             {
-                return idUser;
-            }catch (Exception ex)
+                return idEmp;
+            }
+            catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + "  --Security.cs / getIdUser()");
+                throw new Exception(ex.ToString() + "  --Security.cs / getidEmp()");
             }
         }
 
@@ -273,6 +279,6 @@ namespace BL
             {
                 throw new Exception(ex.ToString() + "  --Security.cs / getRolesUsuarios()");
             }
-        }
+        }       
     }
 }

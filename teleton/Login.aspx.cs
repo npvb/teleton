@@ -17,11 +17,11 @@ public partial class Login : System.Web.UI.Page
     {
         try
         {
-            //if (!Page.IsPostBack)
-            //{
+            if (!this.IsPostBack)
+            {
                 CenterList.DataSource = sec.getCentros();
                 CenterList.DataBind();
-            //}
+            }
         }
         catch (Exception ex)
         {
@@ -37,14 +37,18 @@ public partial class Login : System.Web.UI.Page
             
             if (this.IsValid)
             {
-                if (sec.login(UserName.Text, Password.Text))
+                if (sec.login(UserName.Text, Password.Text, CenterList.Text))
                 {
-                    sec = new BL.Security();
+                    Session["id_empleado"] = sec.getidEmp();
+
+
                     Session["Centro_id"] = CenterList.SelectedItem.Text;
                     Session["Centro_idNum"] = sec.getCentroId(Session["Centro_id"].ToString()).ToString();
-                    Session["Permisos_usuario"] = sec.getPermisosUsuario(UserName.Text);                   
+                    
+                    Session["Permisos_usuario"] = sec.getPermisosUsuario(UserName.Text);
+
                     Session["loggedin"] = true;
-                    Session["nombre_usuario"] = UserName.Text;
+                    Session["nombre_usuario"] = UserName.Text;                    
                     
                     Response.Redirect("Default.aspx");                    
                 }
@@ -59,6 +63,7 @@ public partial class Login : System.Web.UI.Page
             Response.Write("<script>alert('" + ex.ToString() + "')</script>");
         }
     }
+    
     protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
     {
         if (Password.Text.Length > 6)
@@ -69,5 +74,5 @@ public partial class Login : System.Web.UI.Page
         {
             args.IsValid = false;
         }
-    }
+    }       
 }

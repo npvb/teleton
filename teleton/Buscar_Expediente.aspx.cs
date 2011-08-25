@@ -22,7 +22,6 @@ public partial class Buscar_Expediente : System.Web.UI.Page
             cboCentro.DataBind();
             cleanPage();
         }
-
     }
 
     private void cleanPage()

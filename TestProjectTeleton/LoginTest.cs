@@ -77,7 +77,7 @@ namespace TestProjectTeleton
             Login target = new Login(userName, password); // TODO: Initialize to an appropriate value
             bool expected = true; // TODO: Initialize to an appropriate value
             bool actual;
-            actual = target.validateUser();
+            actual = target.validateUser("Tegucigalpa");
             Assert.AreEqual(expected, actual);
             
         }
