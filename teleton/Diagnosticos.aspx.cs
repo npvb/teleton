@@ -34,6 +34,7 @@ public partial class Diagnosticos : System.Web.UI.Page
             Response.Write("<script>alert('Diagnosticos.aspx.cs/CargarDiagnosticos: " + er.ToString() + "')</script>");
         }
     }
+    
     protected void Button1_Click(object sender, EventArgs e)
     {
        try

@@ -41,7 +41,7 @@
                             <div>
                                 <asp:Label ID="CentroLabel" runat="server" CssClass="l">Centro:</asp:Label>
                                 <asp:DropDownList ID="CenterList" runat="server" 
-                                        ClientIDMode="AutoID" CssClass="dropDownL"></asp:DropDownList>
+                                 CssClass="dropDownL"></asp:DropDownList>
                             </div>
                             <div class="bottom">
                                 <div class="remember">

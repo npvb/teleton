@@ -80,6 +80,17 @@ tbody tr:hover
     border-bottom: 15px solid #bb0000;
 }
 
+.boton
+{
+	border: thin solid #000000; 
+	padding: 2px; 
+	margin: 2px; 
+	background-color: #C11B17;
+	font-family: Verdana; 
+	color: #FFFFFF;
+    height: 30px;
+}
+
 #navcenter
 {       
     padding: 20px 0 20px 0;

@@ -13,4 +13,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         if ((bool)Session["loggedin"] == false)
             Response.Redirect("Login.aspx");
     }
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
 }

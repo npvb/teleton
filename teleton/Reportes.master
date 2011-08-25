@@ -9,33 +9,26 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div id = "container">
-        <form id="Form1" runat="server">
-            <div id="content">
-
-                 <div class="loginDisplay">
-                 <p id="top"> Proyecto Teleton 2011 </p>
-                </div>
-		        <div id="logo"> 
-                    <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="False" 
+    <form id="Form1" runat="server">
+        <div id="content">
+            <div class="loginDisplay">
+                <p id="top"> Proyecto Teleton 2011 </p>
+                <div id="logo"> 
+                <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="False" 
                         Height="120px" ImageUrl="~/images/teletonLogoSolid3.png" 
-                        PostBackUrl="~/Default.aspx" Width="90px" /> 
-			        <a href="~/Default.aspx"></a> 
-		        </div>
-
-
+                        PostBackUrl="~/Default.aspx" Width="90px" onclick="ImageButton1_Click" /> 
+			    <a href="~/Default.aspx"></a> 
+		    </div>
+            </div>		    
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div id="footer">
+            <div id= "footerContent">
+                <p id = "bottom">&copy; Copyright 2011 Proyecto Teleton&minus; Derechos Reservados <a href="http://www.unitec.edu/" title="Unitec">Unitec</a></p>
             </div>
-              <div class="main">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-              </div>
-              </form> 
-          <!--<div style="clear: both;">&nbsp;</div>-->
-                 <div id="footer">
-                    <div id= "footerContent">
-                    <p>&copy; Copyright 2011 Proyecto Teleton&minus; Derechos Reservados <a href="http://www.unitec.edu/" title="Unitec">Unitec</a></p>    
-                    </div>
-                  </div> 
-        <!--</form>-->
-    </div>
+        </div> 
+    </form>
 </body>
 </html>
