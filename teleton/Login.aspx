@@ -37,6 +37,11 @@
                                 <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
                                      CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required." 
                                      ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                            &nbsp;&nbsp;&nbsp;
+                                <asp:CustomValidator ID="CustomValidator1" runat="server" 
+                                    ControlToValidate="Password" 
+                                    ErrorMessage="Password debe ser mayor  a 6 caracteres " ForeColor="Red" 
+                                    onservervalidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
                             </div>
                             <div>
                                 <asp:Label ID="CentroLabel" runat="server" CssClass="l">Centro:</asp:Label>

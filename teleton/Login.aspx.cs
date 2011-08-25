@@ -59,4 +59,15 @@ public partial class Login : System.Web.UI.Page
             Response.Write("<script>alert('" + ex.ToString() + "')</script>");
         }
     }
+    protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        if (Password.Text.Length > 6)
+        {
+            args.IsValid = true;
+        }
+        else
+        {
+            args.IsValid = false;
+        }
+    }
 }
