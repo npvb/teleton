@@ -11,12 +11,17 @@
     width: 70%;
     margin: auto;    
 }
-
+.h3
+{   color: Red;
+    text-align:left;
+    font-size: medium;    
+    }
+    
 #navcenter
 {       
     padding: 20px 0 20px 0;
     text-align:left;
-    width: 70%;
+    width: 75%;
     margin: auto;
 }
          
@@ -24,8 +29,9 @@
 {
     padding: 20px 0 20px 0;
     text-align:left;
-    width: 70%;
+    width: 68%;
     margin: auto;
+    height: 401px;
 }
 
 #navBotones
@@ -261,9 +267,9 @@ fieldset
     margin: 10px 0 10px 0;
 }
 
-#calendar
+.calendar
 {
-    width:20px;
+     width:24px;
     height:20px;
     background-image: url('../images/calendar_icon.jpg');
 } 
@@ -302,4 +308,22 @@ text-align:center;
     width: 20%;
     float: none;
     text-align: right;    
+}
+
+/*-------------SEGUIMIENTO DE PACIENTES*/
+
+.cmbpatologias
+{
+    Height: 17px; 
+    Width: 113px;
+ }
+    
+    .botonsegpacientes
+{
+	border: thin solid #000000; 
+	padding: 2px; 
+	margin: 2px; 
+	background: url('../images/Search.png')no-repeat;
+	Height: 34px;
+    width:40px;
 }

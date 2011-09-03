@@ -69,6 +69,8 @@
                         <asp:MenuItem Text="Patologias" Value="Patologias">
                             <asp:MenuItem Text="Mant. Patologias" Value="Mant. Patologias" 
                                     NavigateUrl="~/Diagnosticos.aspx"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Seguimiento_Pacientes.aspx" Text="New Item" 
+                                Value="New Item"></asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
                 </asp:Menu>		   
