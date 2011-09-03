@@ -37,18 +37,19 @@ namespace BL
               List<string> Diag = new List<string>();
                 foreach (diagnostico nombre in query)
                     Diag.Add(nombre.diagnostico1);
+            
                 return Diag;
         }
 
-        public List<String> RetrievePrueba() //Retorna Una Lista de Patologias
+        public IQueryable RetrievePrueba() //Retorna un dataset de evoluciones
         {
-            
-            List<string> Diag = new List<string>();
-                Diag.Add("03/09/2011");
-                Diag.Add("0801");
-                Diag.Add("Naville");
-                Diag.Add("nada");
-            return Diag;
+            DateTime d = DateTime.Parse(fecha);
+           
+            var query = from p in entities.evoluciones
+                        where p.fecha.Year== d.Year && p.fecha.Month == d.Month && p.fecha.Day == d.Day
+                        select new { p.fecha, p.expediente, p.evaluador, p.notas };
+
+            return query;
         }
         
         #endregion

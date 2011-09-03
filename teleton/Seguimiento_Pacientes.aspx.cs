@@ -16,7 +16,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
             {
               LBLDATE.Text=segPacientes.GetFecha();
               CargarPatologias();
-              CargarPrueba();
+            //  CargarPrueba();
 
             }
         }

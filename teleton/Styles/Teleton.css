@@ -67,8 +67,7 @@
 	background-color: #C11B17;
 	font-family: Verdana; 
 	color: #FFFFFF;
-    height: 30px;
-}
+    }
 
 
 fieldset
@@ -275,6 +274,10 @@ fieldset
 } 
 
 /*--------------- Diagnosticos---------------*/
+#separar
+{
+    margin: 2%;
+}
 .Grid, th
 {
     
@@ -327,3 +330,10 @@ text-align:center;
 	Height: 34px;
     width:40px;
 }
+
+.botonbusquedarapida
+{
+    Height: 23px;
+    Width:25px;
+    border: thin grooved #000000;
+ }
