@@ -16,7 +16,7 @@ namespace BL
         string fecha;
         #endregion
 
-         #region Constructor
+        #region Constructor
         public SeguimientoPacientes() {
             entities = new teletonEntities();
             fecha = DateTime.Now.Year.ToString();
@@ -49,6 +49,57 @@ namespace BL
                 Diag.Add("Naville");
                 Diag.Add("nada");
             return Diag;
+        }
+
+        public IQueryable BusquedaRapida(string nombres, string apellido, string segundoapellido, string cedula)
+        {
+            try
+            {
+                var query = (from p in entities.pacientes
+                            where p.nombres.Contains(nombres)
+                            select new { 
+                                Nombre = p.nombres, 
+                                PrimerApellido = p.primer_apellido, 
+                                SegundoApellido = p.segundo_apellido, 
+                                Cedula = p.cedula,
+                                Expediente = p.expediente
+                            }).Union
+                            (from p1 in entities.pacientes
+                            where p1.primer_apellido == apellido
+                            select new { 
+                                Nombre = p1.nombres, 
+                                PrimerApellido = p1.primer_apellido, 
+                                SegundoApellido = p1.segundo_apellido,
+                                Cedula = p1.cedula,
+                                Expediente = p1.expediente
+                            }).Union
+                            (from p2 in entities.pacientes
+                            where p2.segundo_apellido == segundoapellido
+                            select new
+                            {
+                                Nombre = p2.nombres,
+                                PrimerApellido = p2.primer_apellido,
+                                SegundoApellido = p2.segundo_apellido,
+                                Cedula = p2.cedula,
+                                Expediente = p2.expediente
+                            }).Union
+                            (from p3 in entities.pacientes
+                            where p3.cedula == cedula
+                            select new
+                            {
+                                Nombre = p3.nombres,
+                                PrimerApellido = p3.primer_apellido,
+                                SegundoApellido = p3.segundo_apellido,
+                                Cedula = p3.cedula,
+                                Expediente = p3.expediente
+                            });
+
+                return query;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --SeguimientoPacientes.cs / BusquedaRapida()");
+            }
         }
         
         #endregion

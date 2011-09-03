@@ -30,8 +30,7 @@
     padding: 20px 0 20px 0;
     text-align:left;
     width: 68%;
-    margin: auto;
-    height: 401px;
+    margin: auto;    
 }
 
 #navBotones
@@ -326,4 +325,22 @@ text-align:center;
 	background: url('../images/Search.png')no-repeat;
 	Height: 34px;
     width:40px;
+}
+
+/*---------------Busqueda Rapida seguimiento pacientes*/
+
+
+.txtbx_QuickSearch
+{
+    width:70%;
+}
+
+.resetFloats
+{
+    clear:both;
+}
+
+.fsQuickSearch
+{
+    border: none;
 }
