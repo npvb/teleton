@@ -27,7 +27,7 @@
             <asp:TextBox ID="txtnumexp" runat="server" CssClass="txtbx_labelD"></asp:TextBox>
 
             <asp:ImageButton ID="busqueda" CssClass="botonbusquedarapida" ImageUrl="~/images/Search.png" 
-                runat="server" />
+                runat="server" CausesValidation="False" />
 
             &nbsp;<asp:Label ID="LblPat" CssClass="labelD" runat="server" Text="Patologia:"></asp:Label>
             <asp:DropDownList ID="cmb_patologias" CssClass="cmbpatologias" runat="server">
@@ -47,7 +47,7 @@
        <legend>Listado de Pacientes</legend>
           <asp:Label ID="lbldateinit" CssClass="labelD" runat="server" Text="Fecha Inicial:"></asp:Label>
              <asp:TextBox ID="txtdateinit" runat="server" CssClass="txtbx_labelD"></asp:TextBox>
-                 <img alt="Icon" src="images/calendar_icon.jpg" class="calendar" id="imgdateinit" onclick="return imgdateinit_onclick()" />
+                 <img alt="Icon" src="images/calendar_icon.jpg" class="calendar" id="imgdateinit" />
                         <asp:CalendarExtender ID="FechaIngresoExtender" runat="server" 
                             TargetControlID="txtdateinit" Format="yyyy-MM-dd" PopupButtonID="imgdateinit">
                         </asp:CalendarExtender>
@@ -58,14 +58,18 @@
                                     <asp:CalendarExtender ID="CalendarExtender1" runat="server" 
                                         TargetControlID="txtdatefini" Format="yyyy-MM-dd" PopupButtonID="imgdatefini">
                                     </asp:CalendarExtender>        
-                            <asp:ImageButton ID="Refrescar" CssClass="botonbusquedarapida" ImageUrl="~/images/Refresh-32.png" runat="server" />
+                            <asp:ImageButton ID="Refrescar" 
+             CssClass="botonbusquedarapida" ImageUrl="~/images/Refresh-32.png" runat="server" CausesValidation="False" onclick="Refrescar_Click1"  />
+          
+         <asp:Label ID="Label1" runat="server" 
+             Text="**Fecha Inicial Mayor que la Fecha Final" Visible="False" ForeColor="Red"></asp:Label>
           
     <div id="separar">
       <asp:GridView ID="GridViewSegPac" CssClass="Grid" runat="server" 
-             AutoGenerateColumns="False" DataSourceID="ObjectDataSource2">
+             AutoGenerateColumns="False" >
              <Columns>
             
-              <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" />
+               <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" />
                 <asp:BoundField DataField="expediente" HeaderText="Expediente" SortExpression="expediente" />
                 <asp:BoundField DataField="evaluador" HeaderText="Evaluador" SortExpression="evaluador" />
                 <asp:BoundField DataField="notas" HeaderText="Observacion" SortExpression="observacion" />
@@ -74,9 +78,7 @@
              </Columns>                   
       </asp:GridView>
 
-         <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
-             SelectMethod="RetrievePrueba" TypeName="BL.SeguimientoPacientes">
-         </asp:ObjectDataSource>
+         
       </div>
       
         

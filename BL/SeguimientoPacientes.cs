@@ -41,7 +41,7 @@ namespace BL
                 return Diag;
         }
 
-        public IQueryable RetrievePrueba() //Retorna un dataset de evoluciones
+        public IQueryable RetrievePacientesDiario() //Retorna un dataset de evoluciones
         {
             DateTime d = DateTime.Parse(fecha);
            
@@ -51,6 +51,19 @@ namespace BL
 
             return query;
         }
+
+        public IQueryable BusquedaporRangoFecha(DateTime fechainit, DateTime fechafin) 
+        {
+          
+            var query = from p in entities.evoluciones
+                            where p.fecha.Year >= fechainit.Year && p.fecha.Month >= fechainit.Month && p.fecha.Day >= fechainit.Day &&
+                                  p.fecha.Year <= fechafin.Year && p.fecha.Month <= fechafin.Month && p.fecha.Day <= fechafin.Day
+                            select new { p.fecha, p.expediente, p.evaluador, p.notas };
+
+                return query;
+            
+        }
+        
         
         #endregion
     }
