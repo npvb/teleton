@@ -39,8 +39,7 @@
                                      ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                             &nbsp;&nbsp;&nbsp;
                                 <asp:CustomValidator ID="CustomValidator1" runat="server" 
-                                    ControlToValidate="Password" 
-                                    ErrorMessage="Password debe ser mayor  a 6 caracteres " ForeColor="Red" 
+                                    ControlToValidate="Password" ForeColor="Red" 
                                     onservervalidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
                             </div>
                             <div>

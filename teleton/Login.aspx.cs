@@ -7,6 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
+using System.Text.RegularExpressions;
 
 
 public partial class Login : System.Web.UI.Page
@@ -66,12 +67,22 @@ public partial class Login : System.Web.UI.Page
     
     protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
     {
-        if (Password.Text.Length > 6)
+        String patron = @"^[a-z,A-Z,0-9]{6}[a-z,A-Z,0-9]*$";
+        Regex regEx = new Regex(patron);
+        if (regEx.Match(Password.Text).Success)
         {
             args.IsValid = true;
         }
         else
         {
+            if (Password.Text.Length > 5)
+            {
+                CustomValidator1.ErrorMessage = " Password debe contener solamente ( a-z y 0-9 )";
+            }
+            else
+            {
+                CustomValidator1.ErrorMessage = " Password debe ser mayor a 6 digitos y debe contener solamente ( a-z y 0-9 ) ";
+            }
             args.IsValid = false;
         }
     }       
