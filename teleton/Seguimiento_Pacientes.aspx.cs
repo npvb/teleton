@@ -35,6 +35,15 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         GridViewSegPac.DataBind();
 
     }
+
+    public void LoadGrid()
+    {
+       
+        GridViewSegPac.DataSource = segPacientes.RetrievePacientesDiario();
+        GridViewSegPac.DataBind();
+       
+
+    }
     public void CargarPatologias() {
         try {
             cmb_patologias.Items.Clear();
@@ -60,6 +69,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
               }
               else
               {
+                  Label1.Visible = false;
                   GridViewSegPac.DataSource = segPacientes.BusquedaporRangoFecha(fechainit, fechafin);
                   GridViewSegPac.DataBind();
               }
@@ -72,6 +82,65 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
          }
      
    }
-   
+
+
+     protected void btnguardarseguimiento_Click(object sender, EventArgs e)
+     {
+         try
+         {
+
+             if (this.IsPostBack)
+             {
+                 if (this.IsValid)
+                 {
+
+                     string fecha1 = txtdateinit.Text;
+                     string fecha2 = txtdatefini.Text;
+
+                     if (fecha1 != segPacientes.GetFecha() || fecha2 != segPacientes.GetFecha())
+                     {
+
+                         Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('No Puede Guardar Pacientes en una Fecha Diferente a "+segPacientes.GetFecha()+"')", true);
+                     }
+                     else {
+
+                    // int centroid = (int)long.Parse(Session["Centro_idNum"].ToString());
+                     string empleado = Session["nombre_usuario"].ToString();
+                     int centroid = 1;
+                     int exped = (int)long.Parse(txtnumexp.Text);
+
+
+                     segPacientes.GuardarSeguimientoPacientes(0, centroid, exped, empleado, cmb_patologias.Text, txtobser.Text);
+                     Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Paciente Guardado Exitosamente')", true);
+                     txtnumexp.Text = "";
+                     txtobser.Text = "";
+                     LoadGrid();
+                     }
+                 }
+             }
+
+
+         }
+         catch (Exception er)
+         {
+             Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/GuardarSeguimientoPaciente: " + er.ToString() + "')</script>");
+
+         }
+     }
+    
+    
+     protected void GridViewSegPac_PageIndexChanging(object sender, GridViewPageEventArgs e)
+     {
+         try
+         {
+             GridViewSegPac.PageIndex = e.NewPageIndex;
+             LoadGrid();
+         }catch(Exception err){
+             Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/PageIndexChanging: " + err.ToString() + "')</script>");
+         
+         }
+     }
+    
+
      
 }
