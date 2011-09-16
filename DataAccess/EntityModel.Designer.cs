@@ -34,6 +34,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("teletonModel", "usuarios_x_rol", "roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.role), "usuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.usuario))]
 [assembly: EdmRelationshipAttribute("teletonModel", "diagnostico_FK", "diagnostico", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DataAccess.diagnostico), "paciente", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.paciente), true)]
 [assembly: EdmRelationshipAttribute("teletonModel", "roles_fk1", "centro", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DataAccess.centro), "role", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.role), true)]
+[assembly: EdmRelationshipAttribute("teletonModel", "diagnosticos_fk", "diagnostico", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DataAccess.diagnostico), "evolucione", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccess.evolucione), true)]
 
 #endregion
 
@@ -1809,6 +1810,28 @@ namespace DataAccess
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("teletonModel", "diagnosticos_fk", "evolucione")]
+        public EntityCollection<evolucione> evoluciones
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<evolucione>("teletonModel.diagnosticos_fk", "evolucione");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<evolucione>("teletonModel.diagnosticos_fk", "evolucione", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -2455,6 +2478,30 @@ namespace DataAccess
         private global::System.Int32 _prefijo;
         partial void OnprefijoChanging(global::System.Int32 value);
         partial void OnprefijoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> id_diagnostico
+        {
+            get
+            {
+                return _id_diagnostico;
+            }
+            set
+            {
+                Onid_diagnosticoChanging(value);
+                ReportPropertyChanging("id_diagnostico");
+                _id_diagnostico = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("id_diagnostico");
+                Onid_diagnosticoChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _id_diagnostico;
+        partial void Onid_diagnosticoChanging(Nullable<global::System.Int64> value);
+        partial void Onid_diagnosticoChanged();
 
         #endregion
     
@@ -2532,6 +2579,44 @@ namespace DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<paciente>("teletonModel.pacientes_fk1", "pacientes", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("teletonModel", "diagnosticos_fk", "diagnostico")]
+        public diagnostico diagnostico
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<diagnostico>("teletonModel.diagnosticos_fk", "diagnostico").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<diagnostico>("teletonModel.diagnosticos_fk", "diagnostico").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<diagnostico> diagnosticoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<diagnostico>("teletonModel.diagnosticos_fk", "diagnostico");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<diagnostico>("teletonModel.diagnosticos_fk", "diagnostico", value);
                 }
             }
         }

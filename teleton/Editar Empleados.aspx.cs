@@ -11,6 +11,26 @@ public partial class Editar_Empleados : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Lista de permisos que el usuario logueado tiene
+        List<String> listaPermisos = (List<String>)Session["Permisos_usuario"];
+
+        bool encontroPermiso = false;
+
+        foreach (String strPermiso in listaPermisos)
+        {
+            //Iteramos los permisos del usuario para comprobar que puede utilizar esta pagina
+            if (strPermiso.Equals("pEditarEmp"))
+            {
+                encontroPermiso = true;
+                break;
+            }
+        }
+
+        if (!encontroPermiso)
+        {
+            //Si no tiene permiso redireccionamos
+            Response.Redirect("Default.aspx");
+        }
         try{
             if (!this.IsPostBack)
             {
