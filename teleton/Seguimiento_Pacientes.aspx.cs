@@ -20,7 +20,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         foreach (String strPermiso in listaPermisos)
         {
             //Iteramos los permisos del usuario para comprobar que puede utilizar esta pagina
-            if (strPermiso.Equals("pSeguimientoPacientes"))
+            if (strPermiso.Equals("pSeguimien"))
             {
                 encontroPermiso = true;
                 break;

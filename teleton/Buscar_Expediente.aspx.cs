@@ -23,7 +23,7 @@ public partial class Buscar_Expediente : System.Web.UI.Page
         foreach (String strPermiso in listaPermisos)
         {
             //Iteramos los permisos del usuario para comprobar que puede utilizar esta pagina
-            if ( strPermiso.Equals("pBuscarExpediente") )
+            if ( strPermiso.Equals("pBuscarExp") )
             {
                 encontroPermiso = true;
                 break;

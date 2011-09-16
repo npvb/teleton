@@ -19,7 +19,7 @@ public partial class Editar_Empleados : System.Web.UI.Page
         foreach (String strPermiso in listaPermisos)
         {
             //Iteramos los permisos del usuario para comprobar que puede utilizar esta pagina
-            if (strPermiso.Equals("pEditarEmpleados"))
+            if (strPermiso.Equals("pEditarEmp"))
             {
                 encontroPermiso = true;
                 break;

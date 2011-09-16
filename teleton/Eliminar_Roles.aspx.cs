@@ -18,7 +18,7 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         foreach (String strPermiso in listaPermisos)
         {
             //Iteramos los permisos del usuario para comprobar que puede utilizar esta pagina
-            if (strPermiso.Equals("pEliminarRoles"))
+            if (strPermiso.Equals("pEliminarR"))
             {
                 encontroPermiso = true;
                 break;

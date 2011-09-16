@@ -18,7 +18,7 @@ public partial class Editar_Roles : System.Web.UI.Page
         foreach (String strPermiso in listaPermisos)
         {
             //Iteramos los permisos del usuario para comprobar que puede utilizar esta pagina
-            if (strPermiso.Equals("pEditarRoles"))
+            if (strPermiso.Equals("pEditarRol"))
             {
                 encontroPermiso = true;
                 break;

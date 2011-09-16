@@ -18,7 +18,7 @@ public partial class Crear_Roles : System.Web.UI.Page
         foreach (String strPermiso in listaPermisos)
         {
             //Iteramos los permisos del usuario para comprobar que puede utilizar esta pagina
-            if (strPermiso.Equals("pCrearRoles"))
+            if (strPermiso.Equals("pCrearRole"))
             {
                 encontroPermiso = true;
                 break;

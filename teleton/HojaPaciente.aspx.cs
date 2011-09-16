@@ -17,7 +17,7 @@ public partial class HojaPaciente : System.Web.UI.Page
         foreach (String strPermiso in listaPermisos)
         {
             //Iteramos los permisos del usuario para comprobar que puede utilizar esta pagina
-            if (strPermiso.Equals("pHojaPaciente"))
+            if (strPermiso.Equals("pHojaPacie"))
             {
                 encontroPermiso = true;
                 break;

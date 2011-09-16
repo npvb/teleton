@@ -20,7 +20,7 @@ public partial class Diagnosticos : System.Web.UI.Page
         foreach (String strPermiso in listaPermisos)
         {
             //Iteramos los permisos del usuario para comprobar que puede utilizar esta pagina
-            if (strPermiso.Equals("pDiagnosticos"))
+            if (strPermiso.Equals("pDiagnosti"))
             {
                 encontroPermiso = true;
                 break;
