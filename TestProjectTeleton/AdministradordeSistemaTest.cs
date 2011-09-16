@@ -100,7 +100,7 @@ namespace TestProjectTeleton
             bool flag = true;
             try
             {
-                target.crearRol(description, licences);
+                target.crearRol(description, licences, 1);
             }
             catch (Exception)
             {
@@ -167,7 +167,7 @@ namespace TestProjectTeleton
             bool flag = true;
             try
             {
-                target.editarRol(identity, description, grants, revokes);
+                target.editarRol(identity, description, grants, revokes, 2);
             }
             catch(Exception)
             {

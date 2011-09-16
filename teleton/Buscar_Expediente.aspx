@@ -110,7 +110,7 @@
                 </ul>
             </fieldset>
         </div>
-        <div id="navbotones">
+        <div id="navBotones">
                 <asp:Button ID="btnBuscar" runat="server" CssClass="boton" Text="Buscar" 
                     onclick="btnBuscar_Click" CausesValidation="False" />
                 <asp:Button ID="btnEditar" runat="server" CssClass="boton" Text="Editar" 

@@ -9,10 +9,12 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="Form1" runat="server">
+    <form id="Form1" runat="server">        
         <div id="content">
             <div class="loginDisplay">
-                <p id="top"> Proyecto Teleton 2011 | Bienvenido 
+                <p id="top"> Proyecto Teleton 2011 | 
+                <asp:Label ID="centro" runat="server" Text="Lcentro"></asp:Label>  
+                | Bienvenido 
                     <asp:Label ID="usr" runat="server" Text="Label"></asp:Label>
                     [<asp:LinkButton ID="labelLogout" runat="server" Text="Logout" onclick="labelLogout_Click" 
                                  CausesValidation="False"></asp:LinkButton>]                     

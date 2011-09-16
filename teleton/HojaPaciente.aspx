@@ -83,7 +83,7 @@
                 </tfoot>
             </table>
                          
-                    <div id="navcontroles">
+                    <div id="navBotones">
                         <asp:Button runat="server" Visible="true" Text="Cerrar" OnClientClick="window.close()" CssClass="boton" />
                     </div>   
         </div>

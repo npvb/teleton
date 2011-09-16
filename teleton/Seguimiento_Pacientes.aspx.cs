@@ -32,20 +32,22 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
             //Si no tiene permiso redireccionamos
             Response.Redirect("Default.aspx");
         }
-        try{
+        
+        this.busqueda.Attributes["onclick"] = "openPopUp()";
+        
+        try
+        {
             if (!this.IsPostBack)
             {
-
                 InicializarSeguimientoPacientes();
-
             }
         }
         catch (Exception er)
         {
             Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
-
         }
     }
+
     public void InicializarSeguimientoPacientes() {
         LBLDATE.Text = segPacientes.GetFecha();
         CargarPatologias();
@@ -60,16 +62,18 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
     {
        
         GridViewSegPac.DataSource = segPacientes.RetrievePacientesDiario();
-        GridViewSegPac.DataBind();
-       
-
+        GridViewSegPac.DataBind();       
     }
+
     public void CargarPatologias() {
-        try {
+       try 
+       {
             cmb_patologias.Items.Clear();
             cmb_patologias.DataSource = segPacientes.RetrievePatologias();
             cmb_patologias.DataBind();
-        }catch(Exception er){
+        }
+        catch (Exception er)
+        {
             Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
@@ -85,7 +89,6 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
               if (fechainit.Year > fechafin.Year || fechainit.Month > fechafin.Month || fechainit.Day > fechafin.Day)
               {
                   Label1.Visible = true;
-
               }
               else
               {
@@ -144,7 +147,6 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
          catch (Exception er)
          {
              Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/GuardarSeguimientoPaciente: " + er.ToString() + "')</script>");
-
          }
      }
     
@@ -159,8 +161,5 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
              Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/PageIndexChanging: " + err.ToString() + "')</script>");
          
          }
-     }
-    
-
-     
+     }   
 }

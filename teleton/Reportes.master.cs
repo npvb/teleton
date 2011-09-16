@@ -8,11 +8,17 @@ using System.Web.UI.WebControls;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected override void OnInit(EventArgs e)
     {
         if ((bool)Session["loggedin"] == false)
             Response.Redirect("Login.aspx");
     }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+     
+    }
+
     protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
     {
 

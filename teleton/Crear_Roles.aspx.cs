@@ -38,6 +38,10 @@ public partial class Crear_Roles : System.Web.UI.Page
                 BL.Permiso per = new Permiso();
                 permisos_CBList.DataSource = per.getPermisosID();
                 permisos_CBList.DataBind();
+
+                Security sec = new Security();
+                centros.DataSource = sec.getCentros();
+                centros.DataBind();
             }
         }
         catch (Exception ex)
@@ -64,7 +68,9 @@ public partial class Crear_Roles : System.Web.UI.Page
                 }
 
                 AdministradordeSistema admin = new AdministradordeSistema();//tmp-> deberia ser quien este logeado!
-                admin.crearRol(descripcion_TB.Text, persAdded);
+                Security sec = new Security();
+                long centro = sec.getCentroId(centros.Text);
+                admin.crearRol(descripcion_TB.Text, persAdded, centro);
 
                 Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Rol Guardado')", true);
                 LimpiarPage();

@@ -3,9 +3,17 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
-    <style type="text/css">
-       
-    </style>
+    <script type="text/javascript">
+        function openPopUp() {
+            var popUrl = 'Seguimiento_Paciente_Quicksearch.aspx';
+            var name = 'popUp';
+            var appearence = 'dependent=yes,menubar=no,resizable=yes,' +
+                                          'status=no,toolbar=no,titlebar=no,' +
+                                          'left=5,top=600,width=400px,height=140px';
+            var openWindow = window.open(popUrl, name, appearence);
+            openWindow.focus();
+        }
+    </script>
   
 </asp:Content>
 

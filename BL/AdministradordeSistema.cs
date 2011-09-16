@@ -48,11 +48,11 @@ namespace BL
             }
         }
 
-        public void crearRol(string description, List<string> licences)
+        public void crearRol(string description, List<string> licences, long centro)
         {
             try
             {
-                security.crear_rol(description, licences);
+                security.crear_rol(description, licences, centro);
             }
             catch (Exception e)
             {
@@ -84,11 +84,11 @@ namespace BL
             }
         }
 
-        public void editarRol(long identity, string description, List<string> grants, List<string> revokes)
+        public void editarRol(long identity, string description, List<string> grants, List<string> revokes, long nuevoCentro)
         {
             try
             {
-                security.editar_rol(identity, description, grants, revokes);
+                security.editar_rol(identity, description, grants, revokes, nuevoCentro);
             }
             catch (Exception e)
             {

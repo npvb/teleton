@@ -49,7 +49,7 @@ public partial class Login : System.Web.UI.Page
                     Session["Permisos_usuario"] = sec.getPermisosUsuario(UserName.Text);
 
                     Session["loggedin"] = true;
-                    Session["nombre_usuario"] = UserName.Text;                    
+                    Session["nombre_usuario"] = UserName.Text;
                     
                     Response.Redirect("Default.aspx");                    
                 }
