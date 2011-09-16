@@ -17,6 +17,10 @@
                                 onselectedindexchanged="descripciones_DDList_SelectedIndexChanged" Width="60%">
                                 </asp:DropDownList>
                     </li>
+                    <li class = "field">
+                        <asp:Label ID="Label4" cssclass="label" runat="server" Text="Centro"></asp:Label>
+                        <asp:DropDownList ID="centros" CssClass="tb_crearRol" runat="server"></asp:DropDownList>
+                    </li>
                 </ul>
             </fieldset>
         </div>        
@@ -25,14 +29,16 @@
                 <ul class = "list">
                     <li class = "field">
                         <div id="perActs">
-                            <asp:Label ID="Label2" runat="server" Text="Permisos Actuales:"></asp:Label>
-                            <asp:CheckBoxList ID="permisos_CBList" runat="server" TabIndex="3">
-                                </asp:CheckBoxList>
+                                <asp:Label ID="Label2" runat="server" Text="Permisos Actuales:"></asp:Label>
+                                <asp:Panel ID="Panel1" CssClass="panelRoles2" runat="server" ScrollBars="Auto">                                    
+                                    <asp:CheckBoxList ID="permisos_CBList" runat="server" TabIndex="3"></asp:CheckBoxList>
+                                </asp:Panel>
                         </div>
                         <div id="perAds">
-                            <asp:Label ID="Label3" runat="server" Text="Permisos Adicionales:"></asp:Label>
-                            <asp:CheckBoxList ID="otrosPermisos_CBList" runat="server" TabIndex="4">
-                                </asp:CheckBoxList>
+                                <asp:Label ID="Label3" runat="server" Text="Permisos Adicionales:"></asp:Label>
+                                <asp:Panel ID="Panel2" CssClass="panelRoles2" runat="server" ScrollBars="Auto">                                    
+                                    <asp:CheckBoxList ID="otrosPermisos_CBList" runat="server" TabIndex="4"></asp:CheckBoxList>
+                                </asp:Panel>
                         </div>
                     </li>
                     <li class = "field">

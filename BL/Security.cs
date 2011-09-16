@@ -54,7 +54,8 @@ namespace BL
         }
         #endregion
 
-        
+        #region permisos
+
         public void crear_permiso(string name, string description)
         {
             try
@@ -70,33 +71,7 @@ namespace BL
             {
                 throw new Exception(e.ToString() + " --Security.cs / crear_permiso()");
             }
-        }
-
-        public void crear_rol(string descripcion, List<string> licences)
-        {
-            try
-            {
-                DataAccess.role rolNuevo = new role();//creacion de rol
-                rolNuevo.descripcion = descripcion;
-                entidad.roles.AddObject(rolNuevo);//agregar el rol nuevo al contexto
-                entidad.SaveChanges();//commit1
-
-                foreach (string permisoCod in licences)
-                {
-                    var permisoQuery = from per in entidad.permisos
-                                       where per.id == permisoCod
-                                       select per;
-
-                    DataAccess.permiso permisoTMP = permisoQuery.First();
-                    rolNuevo.permisos.Add(permisoTMP);//ya que el permisos en roles es un collection, agregamos cada permiso utilizando el id que viene en la lista
-                }
-                entidad.SaveChanges();//commit2 --> 2 commits por el autoincrement del rol.id!!
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.ToString() + " --Security.cs / crear_rol()");
-            }
-        }
+        }        
 
         public void eliminar_permiso(string permisoCod)
         {
@@ -116,25 +91,38 @@ namespace BL
             }
         }
 
-        public void eliminar_rol(long identity)
+        #endregion
+
+        #region roles
+
+        public void crear_rol(string descripcion, List<string> licences, long centro)
         {
             try
             {
-                var rolQuery = from rol in entidad.roles
-                               where rol.id == identity
-                               select rol;
+                DataAccess.role rolNuevo = new role();//creacion de rol
+                rolNuevo.descripcion = descripcion;
+                rolNuevo.centro = centro;
+                entidad.roles.AddObject(rolNuevo);//agregar el rol nuevo al contexto
+                entidad.SaveChanges();//commit1
 
-                DataAccess.role rolTMP = rolQuery.First();
-                entidad.DeleteObject(rolTMP);
-                entidad.SaveChanges();
+                foreach (string permisoCod in licences)
+                {
+                    var permisoQuery = from per in entidad.permisos
+                                       where per.id == permisoCod
+                                       select per;
+
+                    DataAccess.permiso permisoTMP = permisoQuery.First();
+                    rolNuevo.permisos.Add(permisoTMP);//ya que el permisos en roles es un collection, agregamos cada permiso utilizando el id que viene en la lista
+                }
+                entidad.SaveChanges();//commit2 --> 2 commits por el autoincrement del rol.id!!
             }
             catch (Exception e)
             {
-                throw new Exception(e.ToString() + " --Security.cs / eliminar_rol()");
+                throw new Exception(e.ToString() + " --Security.cs / crear_rol()");
             }
-        }
+        }                
 
-        public void editar_rol(long identity, string description, List<string> grants, List<string> revokes)
+        public void editar_rol(long identity, string description, List<string> grants, List<string> revokes, long nuevoCentro)
         {
             try
             {
@@ -144,6 +132,7 @@ namespace BL
 
                 DataAccess.role rolTMP = rolQuery.First();
                 rolTMP.descripcion = description;
+                rolTMP.centro = nuevoCentro;                
 
                 foreach (string perm in grants)
                 {
@@ -169,6 +158,26 @@ namespace BL
                 throw new Exception(e.ToString() + " --Security.cs / editar_rol()");
             }
         }
+
+        public void eliminar_rol(long identity)
+        {
+            try
+            {
+                var rolQuery = from rol in entidad.roles
+                               where rol.id == identity
+                               select rol;
+
+                DataAccess.role rolTMP = rolQuery.First();
+                entidad.DeleteObject(rolTMP);
+                entidad.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString() + " --Security.cs / eliminar_rol()");
+            }
+        }
+
+        #endregion
 
         #region login
 
@@ -213,22 +222,31 @@ namespace BL
             }
         }
 
-        public List<string> getCentrosPermitidos(String username)
+        public List<string> getCentrosPermitidos(string username)
         {
             //TODO: hacer que esta funcion devuelva los centros permitidos para editar por el username
             try
             {
-                List<String> centros; //= new List<string>();
+                List<string> centros = new List<string>();
 
-                var allcentros = from c in entidad.centros
+                /*var allcentros = from c in entidad.centros
                                  select c.lugar;
 
                 centros = allcentros.ToList();
+                return centros;*/
+
+                var query = (from u in entidad.usuarios
+                          where u.username == username
+                          select u).First();
+
+                foreach (role rol in query.roles)
+                    centros.Add(rol.centro1.lugar);
+
                 return centros;
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString() + "  --Security.cs / getCentros()");
+                throw new Exception(ex.ToString() + "  --Security.cs / getCentrosPermitidos()");
             }
         }
 
@@ -279,6 +297,6 @@ namespace BL
             {
                 throw new Exception(ex.ToString() + "  --Security.cs / getRolesUsuarios()");
             }
-        }       
+        } 
     }
 }

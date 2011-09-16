@@ -111,7 +111,7 @@
                 </ul>                
             </fieldset>                    
         </div>
-        <fieldset>
+        
         <div id="navBotones">
             <asp:Button ID="btIngresar" CssClass="boton" runat="server" Text="Ingresar Paciente" 
                         onclick="btIngresar_Click" />
@@ -119,8 +119,7 @@
                 CausesValidation="False" onclick="btnClean_Click"/>
             <asp:Button ID="btnPrint" CssClass="boton" runat="server" Text="Imprimir" 
                 EnableTheming="True" onclick="btnPrint_Click"/>
-        </div>
-        </fieldset>
+        </div>        
     </div>
 </asp:Content>
 

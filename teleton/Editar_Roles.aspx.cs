@@ -17,6 +17,11 @@ public partial class Editar_Roles : System.Web.UI.Page
                 BL.Rol rl = new Rol();
                 descripciones_DDList.DataSource = rl.getRolesDescripcion();
                 descripciones_DDList.DataBind();
+
+                Security sec = new Security();
+                centros.DataSource = sec.getCentros();
+                centros.DataBind();
+
                 setCheckBoxes();
             }
         } 
@@ -110,7 +115,11 @@ public partial class Editar_Roles : System.Web.UI.Page
                 BL.Rol rl = new Rol();
                 long rolId = rl.getRolID(descripciones_DDList.SelectedItem.Text);
                 AdministradordeSistema admin = new AdministradordeSistema();
-                admin.editarRol(rolId, descripciones_DDList.SelectedItem.Text, grants, revokes);
+
+
+                Security sec = new Security();
+                long centro = sec.getCentroId(centros.Text);
+                admin.editarRol(rolId, descripciones_DDList.SelectedItem.Text, grants, revokes, centro);
 
                 Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Rol Editado')", true);
                 setCheckBoxes();

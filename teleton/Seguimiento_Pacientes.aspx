@@ -2,15 +2,23 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-    <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
-    <style type="text/css">
-       
-    </style>
-  
+    <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />           
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+    <script type="text/javascript">
+        function openPopUp() {
+            var popUrl = 'Seguimiento_Paciente_Quicksearch.aspx';
+            var name = 'popUp';
+            var appearence = 'dependent=yes,menubar=no,resizable=yes,' +
+                                          'status=no,toolbar=no,titlebar=no,' +
+                                          'left=5,top=600,width=400px,height=140px';
+            var openWindow = window.open(popUrl, name, appearence);
+            openWindow.focus();
+        }
+    </script>
+
     <div id="content3">
         <div id = "titulo">
             <h1>Seguimiento de Pacientes</h1> 
@@ -27,7 +35,7 @@
             <asp:TextBox ID="txtnumexp" runat="server" CssClass="txtbx_labelD"></asp:TextBox>
 
             <asp:ImageButton ID="busqueda" CssClass="botonbusquedarapida" ImageUrl="~/images/Search.png" 
-                runat="server" />
+                runat="server" CausesValidation="False" />
 
             &nbsp;<asp:Label ID="LblPat" CssClass="labelD" runat="server" Text="Patologia:"></asp:Label>
             <asp:DropDownList ID="cmb_patologias" CssClass="cmbpatologias" runat="server">
@@ -62,7 +70,7 @@
           
     <div id="separar">
       <asp:GridView ID="GridViewSegPac" CssClass="Grid" runat="server" 
-             AutoGenerateColumns="False" DataSourceID="ObjectDataSource2">
+             AutoGenerateColumns="False">
              <Columns>
             
               <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" />
@@ -74,9 +82,9 @@
              </Columns>                   
       </asp:GridView>
 
-         <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
+         <!--<asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
              SelectMethod="RetrievePrueba" TypeName="BL.SeguimientoPacientes">
-         </asp:ObjectDataSource>
+         </asp:ObjectDataSource>-->
       </div>
       
         
@@ -86,8 +94,5 @@
       </div>
      </div>
         
-
-  
-
 </asp:Content>
 

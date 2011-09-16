@@ -8,7 +8,7 @@
     color: Gray;
     text-align:center;
     font-size: medium;
-    width: 70%;
+    width: 75%;
     margin: auto;    
 }
 .h3
@@ -29,15 +29,15 @@
 {
     padding: 20px 0 20px 0;
     text-align:left;
-    width: 68%;
+    width: 75%;
     margin: auto;    
 }
 
 #navBotones
 {
     padding: 20px 0 20px 0;
-    text-align:left;
-    width: 70%;
+    text-align:center;
+    width: 75%;
     margin: 0px auto auto auto;
 }
 
@@ -66,7 +66,7 @@
 	background-color: #C11B17;
 	font-family: Verdana; 
 	color: #FFFFFF;
-    }
+}
 
 
 fieldset
@@ -118,6 +118,7 @@ fieldset
 {
     width: 40%;
 }
+
 /* Eliminar_Permisos
 ----------------------------------------------------------*/
 #ctrlCentrado
@@ -127,40 +128,44 @@ fieldset
     margin: auto;
 }
 
-
+/* Crear_Roles
+----------------------------------------------------------*/
 .tb_crearRol
 {
     width: 60%;
 }
 
-/*Editar ROLES
+.panelRoles
+{
+    height: 200px;
+    width:50%;
+    margin: auto;
+}
+
+.panelRoles2
+{
+    height: 200px;
+    width: 80%;
+    margin: auto;
+}
+
+/*Editar_Roles
 ---------------------------------------------------------*/
 #perActs
 {
     width:49%; 
     float:left
-    
 }
 
 #perAds
 {
-       width:49%;
-       float:left
+    width:49%;
+    float:left
 }
   
 #resetFloats
 {
     clear:both;      
-}
-  
-  /*Editar Permisos
----------------------------------------------------------*/
-
-#control1
-{
-    text-align:left;
-    width: 50%;
-    margin: auto
 }
 
 /*Empleados
@@ -343,7 +348,7 @@ text-align:center;
 
 .txtbx_QuickSearch
 {
-    width:70%;
+    width:60%;
 }
 
 .resetFloats
@@ -351,8 +356,7 @@ text-align:center;
     clear:both;
 }
 
-.fsQuickSearch
+.customValidator
 {
-    border: none;
+    text-align:center;
 }
-

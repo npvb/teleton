@@ -52,48 +52,48 @@ namespace BL
             return query;
         }
 
-        public IQueryable BusquedaRapida(string nombres, string apellido, string segundoapellido, string cedula)
+        public IQueryable BusquedaRapida(string nombres, string apellido, string segundoapellido, string cedula, long centroActual)
         {
             try
             {
                 var query = (from p in entities.pacientes
-                            where p.nombres.Contains(nombres)
-                            select new { 
+                            where p.nombres.Contains(nombres) //&& p.centro_actual == centroActual
+                            select new {
                                 Nombre = p.nombres, 
                                 PrimerApellido = p.primer_apellido, 
                                 SegundoApellido = p.segundo_apellido, 
                                 Cedula = p.cedula,
                                 Expediente = p.expediente
-                            }).Union
+                            }).Union 
                             (from p1 in entities.pacientes
-                            where p1.primer_apellido == apellido
-                            select new { 
-                                Nombre = p1.nombres, 
-                                PrimerApellido = p1.primer_apellido, 
-                                SegundoApellido = p1.segundo_apellido,
-                                Cedula = p1.cedula,
-                                Expediente = p1.expediente
-                            }).Union
-                            (from p2 in entities.pacientes
-                            where p2.segundo_apellido == segundoapellido
-                            select new
-                            {
-                                Nombre = p2.nombres,
-                                PrimerApellido = p2.primer_apellido,
-                                SegundoApellido = p2.segundo_apellido,
-                                Cedula = p2.cedula,
-                                Expediente = p2.expediente
-                            }).Union
-                            (from p3 in entities.pacientes
-                            where p3.cedula == cedula
-                            select new
-                            {
-                                Nombre = p3.nombres,
-                                PrimerApellido = p3.primer_apellido,
-                                SegundoApellido = p3.segundo_apellido,
-                                Cedula = p3.cedula,
-                                Expediente = p3.expediente
-                            });
+                             where p1.primer_apellido==apellido //&& p1.centro_actual == centroActual
+                             select new { 
+                                 Nombre = p1.nombres, 
+                                 PrimerApellido = p1.primer_apellido, 
+                                 SegundoApellido = p1.segundo_apellido,
+                                 Cedula = p1.cedula,
+                                 Expediente = p1.expediente
+                             }).Union
+                             (from p2 in entities.pacientes
+                              where p2.segundo_apellido == segundoapellido// && p2.centro_actual == centroActual
+                              select new
+                              {
+                                  Nombre = p2.nombres,
+                                  PrimerApellido = p2.primer_apellido,
+                                  SegundoApellido = p2.segundo_apellido,
+                                  Cedula = p2.cedula,
+                                  Expediente = p2.expediente
+                              }).Union
+                              (from p3 in entities.pacientes
+                               where p3.cedula == cedula //&& p3.centro_actual == centroActual
+                               select new
+                               {
+                                   Nombre = p3.nombres,
+                                   PrimerApellido = p3.primer_apellido,
+                                   SegundoApellido = p3.segundo_apellido,
+                                   Cedula = p3.cedula,
+                                   Expediente = p3.expediente
+                               });
 
                 return query;
             }
