@@ -59,6 +59,8 @@
                         <asp:MenuItem Text="Usuarios" Value="Usuarios">
                             <asp:MenuItem Text="Ingreso de Usuarios" Value="New Item" 
                                     NavigateUrl="~/Crear_Usuarios.aspx"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/EditarUsuarios.aspx" Text="Editar Usuarios" 
+                                Value="Editar Usuarios"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Empleados" Value="Empleados">
                             <asp:MenuItem NavigateUrl="~/Empleados.aspx" Text="Registro de Empleados" 

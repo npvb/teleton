@@ -168,6 +168,25 @@ fieldset
     clear:both;      
 }
 
+/*Usuarios------------------------------------------------------*/
+.listbox
+{
+   /*  Height:121px;
+     Width:127px;*/
+     Height:154px;
+     Width:155px;
+    }
+    
+    .labelUser
+    {
+    Width:108px;
+    color: Black;
+    padding: 1px;
+    float: left;
+    text-align: right; 
+        
+        }
+
 /*Empleados
 ------------------------------------------------------*/
 
@@ -184,12 +203,11 @@ fieldset
 .field .dropdownlist
 {
     width: 55%;
+    margin-bottom: 0;
 }
 
 .field .listbox
 {
-    Height: 121px;
-    Width: 127px;
 }
 
 /*
@@ -245,6 +263,7 @@ fieldset
     /*position: absolute;*/
     text-align: center;
     width:39%;
+    margin-top:5%;
     /*width: 127px;*/
     /*top: 350px;
     left: 350px;
@@ -255,7 +274,7 @@ fieldset
 
 #espaciadorBotones
 {
-    margin: 10%;
+    margin: 5%;
 }
 
 #ctrlCentrado2
