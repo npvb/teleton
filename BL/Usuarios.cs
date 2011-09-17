@@ -45,6 +45,80 @@ namespace BL
             return Roles;
         }
 
+        public string RetrieveUserName(string nombreempleado) {
+            try {
+                var query = from e in entities.empleados
+                            where e.nombres == nombreempleado
+                            select e.id;
+
+                long id = query.First();
+
+                var query1 = from u in entities.usuarios
+                             where u.empleado == id
+                             select u.username;
+
+                return query1.First().ToString();
+
+            }catch(Exception err){
+                throw new Exception(err.ToString());
+            
+            }
+            
+        }
+
+        public List<String>RetrieveRolUser(string nombreempleado){
+            try
+            {
+                List <string> RolesUsuario=new List<string>();
+                string username = RetrieveUserName(nombreempleado);
+
+                //DataAccess.usuario usr=new DataAccess.usuario;
+                var query = (from e in entities.usuarios
+                            where e.username == username
+                            select e.roles).First();
+
+                foreach (role r in query) {
+                    RolesUsuario.Add(r.descripcion);
+                    
+                }
+
+                return RolesUsuario;
+
+
+            }
+            catch (Exception err) { 
+                throw new Exception (err.ToString());
+            }
+        }
+
+        public List<String>RetrieveNewRolList(string nombreempleado){
+
+            List<string> NuevaListaRolesSistema = new List<string>();
+            List<string>RolesdelSistema = RetrieveRol();
+            List<string> RolesdelUsuario = RetrieveRolUser(nombreempleado);
+
+            string username = RetrieveUserName(nombreempleado);
+
+            for (int x = 0; x < RolesdelSistema.Count(); x++)
+            {
+                bool found = false;
+                for (int y = 0; y < RolesdelUsuario.Count();y++)
+                {
+                    if (RolesdelSistema[x] == RolesdelUsuario[y]){
+                        found = true; 
+                        break;
+                    }                    
+                }
+                if (found == false)
+                {
+                    NuevaListaRolesSistema.Add(RolesdelSistema[x]);
+                }
+
+            }
+
+            return NuevaListaRolesSistema;
+        }
+
         public void GuardarUsuario(string nombreusuario,string contrasenia,string empleado,List<string>Roles){
 
           
@@ -85,6 +159,32 @@ namespace BL
 
         }
 
+        public void EditarUsuario(string nombrempleado, List<string> RolUsuario) {
+            try
+            {
+                string usrname = RetrieveUserName(nombrempleado);
+
+                var usr = (from u in entities.usuarios
+                          where u.username == usrname
+                          select u).First();
+
+                usr.roles.Clear();
+
+                foreach (string rol in RolUsuario)
+                {
+                    var roltmp = (from r in entities.roles
+                                where r.descripcion == rol
+                                select r).First();
+                    usr.roles.Add(roltmp);
+                }
+
+                entities.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --Usuario.cs / EditarUsuario()");
+            }
+        }
 
 
 

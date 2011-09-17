@@ -17,21 +17,21 @@
                             <asp:DropDownList ID="cmb_empleados" runat="server" 
                                     TabIndex="1" CssClass="dropdownlist"></asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="cmb_empleados" 
-                                    ErrorMessage="**Debe Escoger Un Empleado"></asp:RequiredFieldValidator>
+                                    ErrorMessage="**Debe Escoger Un Empleado" ForeColor="Red"></asp:RequiredFieldValidator>
                         </li>
                         <li class="field">
                             <asp:Label ID="Label1" runat="server" CssClass="label" Text="UserName"></asp:Label>
                             <asp:TextBox ID="txt_username" runat="server" TabIndex="1" 
                                     CssClass="txtbx_Empleado"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="**Ingrese Username" 
-                                  ControlToValidate="txt_username"></asp:RequiredFieldValidator>
+                                  ControlToValidate="txt_username" ForeColor="Red"></asp:RequiredFieldValidator>
                         </li>
                         <li class="field">
                             <asp:Label ID="Label4" runat="server" CssClass="label" Text="Contraseña"></asp:Label>
                             <asp:TextBox ID="txt_password" runat="server" Enable="false" TabIndex="1" 
                                 CssClass="txtbx_Empleado" TextMode="Password" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="**Ingrese Contraseña" 
-                                ControlToValidate="txt_password"></asp:RequiredFieldValidator>
+                                ControlToValidate="txt_password" ForeColor="Red"></asp:RequiredFieldValidator>
                         </li>
                         <li class="field">
                             <asp:Label ID="Label5" runat="server" CssClass="label" Text="Contraseña"></asp:Label>
@@ -61,7 +61,7 @@
                                 <li class = "field">
                                     <div id="ctrlCentrado2">
                                         <div id="menuizq">
-                                            <asp:ListBox ID="lb_userrols" runat="server" Height="121px" Width="127px"></asp:ListBox>
+                                            <asp:ListBox ID="lb_userrols" runat="server" CssClass="listbox"></asp:ListBox>
                                         </div>
                                         <div id="menubotones">
                                             <asp:Button ID="btn_leftuserrol" runat="server" CssClass="boton" onclick="btn_leftuserrol_Click" Text="&lt;" />
@@ -69,7 +69,7 @@
                                             <asp:Button ID="btn_rightuserrol" runat="server" CssClass="boton" onclick="btn_rightuserrol_Click" Text="&gt;" />
                                         </div>
                                         <div id="menuder">
-                                            <asp:ListBox ID="lb_sourcerols" runat="server" Height="121px" Width="127px"></asp:ListBox>
+                                            <asp:ListBox ID="lb_sourcerols" runat="server" CssClass="listbox"></asp:ListBox>
                                         </div>
                                         <div id="resetFloats"></div>
                                     </div>
