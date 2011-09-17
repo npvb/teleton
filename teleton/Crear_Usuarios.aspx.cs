@@ -135,17 +135,13 @@ public partial class Crear_Usuarios : System.Web.UI.Page
                 if (lb_userrols.Items.Count > 0)
                 {
                     for (int x = 0; x < lb_userrols.Items.Count; x++)
-                    {
-
                         RolUsuario.Add(lb_userrols.Items[x].ToString());
-                    }
 
                     USER.GuardarUsuario(txt_username.Text, txt_password.Text, cmb_empleados.Text, RolUsuario);
                     Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Usuario Guardado!')", true);
                     LimpiarPagina();
                 }
-            }
-           
+            }           
         }
         catch (Exception er) {
             Response.Write("<script>alert('CrearUsuarios.aspx.cs/GuardarUsuario_Click: " + er.ToString() + "')</script>");    

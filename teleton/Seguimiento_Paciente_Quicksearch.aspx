@@ -1,9 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Reportes.master" AutoEventWireup="true" CodeFile="Seguimiento_Paciente_Quicksearch.aspx.cs" Inherits="Seguimiento_Paciente_Quicksearch" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <link href="Styles/Teleton.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">    
+<asp:Panel ID="Panel1" runat="server" DefaultButton="searchBtn" >    
 <div id = "content">
     <div id="titulo">Busqueda Rapida: Seguimiento Pacientes</div>
     <div id="navcenter">
@@ -24,11 +27,17 @@
                 </li>
                 <li class = "field">
                     <asp:Label ID="Label3" CssClass="label" runat="server" Text="Segundo Apellido"></asp:Label>
-                    <asp:TextBox ID="segundoApellido_TB" CssClass="txtbx_QuickSearch" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="segundoApellido_TB" CssClass="txtbx_QuickSearch" runat="server"></asp:TextBox>                    
                 </li>
                 <li class = "field">
                     <asp:Label ID="Label4" CssClass="label" runat="server" Text="Cedula"></asp:Label>
-                    <asp:TextBox ID="cedula_TB" CssClass="txtbx_QuickSearch" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="cedula_TB" CssClass="txtbx_QuickSearch" runat="server"></asp:TextBox>                    
+                    <asp:MaskedEditExtender ID="cedula_TB_MaskedEditExtender" runat="server" 
+                        CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="" 
+                        CultureDateFormat="" CultureDatePlaceholder="" CultureDecimalPlaceholder="" 
+                        CultureThousandsPlaceholder="" CultureTimePlaceholder="" Enabled="True" 
+                        Mask="9999-9999-99999" MaskType="Number" TargetControlID="cedula_TB">
+                    </asp:MaskedEditExtender>
                 </li>
                 <li class = "customValidator">
                     <asp:CustomValidator ID="CustomValidator1" runat="server" 
@@ -51,5 +60,6 @@
             OnClientClick="window.close()" CausesValidation="False" />
     </div>
 </div>
+</asp:Panel>
 </asp:Content>
 

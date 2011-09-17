@@ -7,6 +7,8 @@ using System.Data;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
 
+
+
 namespace BL
 {
     public class SeguimientoPacientes
@@ -27,6 +29,7 @@ namespace BL
         #endregion
 
         #region Funciones
+        
         public string GetFecha()
         {
             return fecha;
@@ -74,7 +77,7 @@ namespace BL
             try
             {
                 var query = (from p in entities.pacientes
-                             where p.nombres.Contains(nombres) //&& p.centro_actual == centroActual
+                             where (p.nombres.Contains(nombres) && nombres != "") && p.centro_actual == centroActual
                              select new
                              {
                                  Nombre = p.nombres,
@@ -83,37 +86,36 @@ namespace BL
                                  Cedula = p.cedula,
                                  Expediente = p.expediente
                              }).Union
-                            (from p1 in entities.pacientes
-                             where p1.primer_apellido == apellido //&& p1.centro_actual == centroActual
-                             select new
-                             {
-                                 Nombre = p1.nombres,
-                                 PrimerApellido = p1.primer_apellido,
-                                 SegundoApellido = p1.segundo_apellido,
-                                 Cedula = p1.cedula,
-                                 Expediente = p1.expediente
-                             }).Union
-                             (from p2 in entities.pacientes
-                              where p2.segundo_apellido == segundoapellido// && p2.centro_actual == centroActual
+                             (from p1 in entities.pacientes
+                              where (p1.primer_apellido.Contains(apellido) && apellido != "") && p1.centro_actual == centroActual
                               select new
                               {
-                                  Nombre = p2.nombres,
-                                  PrimerApellido = p2.primer_apellido,
-                                  SegundoApellido = p2.segundo_apellido,
-                                  Cedula = p2.cedula,
-                                  Expediente = p2.expediente
+                                  Nombre = p1.nombres,
+                                  PrimerApellido = p1.primer_apellido,
+                                  SegundoApellido = p1.segundo_apellido,
+                                  Cedula = p1.cedula,
+                                  Expediente = p1.expediente
                               }).Union
-                              (from p3 in entities.pacientes
-                               where p3.cedula == cedula //&& p3.centro_actual == centroActual
+                              (from p2 in entities.pacientes
+                               where (p2.segundo_apellido.Contains(segundoapellido) && segundoapellido != "") && p2.centro_actual == centroActual
                                select new
                                {
-                                   Nombre = p3.nombres,
-                                   PrimerApellido = p3.primer_apellido,
-                                   SegundoApellido = p3.segundo_apellido,
-                                   Cedula = p3.cedula,
-                                   Expediente = p3.expediente
-                               });
-
+                                   Nombre = p2.nombres,
+                                   PrimerApellido = p2.primer_apellido,
+                                   SegundoApellido = p2.segundo_apellido,
+                                   Cedula = p2.cedula,
+                                   Expediente = p2.expediente
+                               }).Union
+                               (from p3 in entities.pacientes
+                                where p3.cedula == cedula && p3.centro_actual == centroActual
+                                select new
+                                {
+                                    Nombre = p3.nombres,
+                                    PrimerApellido = p3.primer_apellido,
+                                    SegundoApellido = p3.segundo_apellido,
+                                    Cedula = p3.cedula,
+                                    Expediente = p3.expediente
+                                });
                 return query;
             }
             catch (Exception ex)
