@@ -30,7 +30,7 @@ public partial class Diagnosticos : System.Web.UI.Page
         if (!encontroPermiso)
         {
             //Si no tiene permiso redireccionamos
-            Response.Write("<script>alert('Usted no posee permisos suficientes para accesar a este recurso')</script>");
+            //Response.Write("<script>alert('Usted no posee permisos suficientes para accesar a este recurso')</script>");
             Response.Redirect("Default.aspx");
         }
         try{
