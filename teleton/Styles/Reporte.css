@@ -117,3 +117,43 @@ tbody tr:hover
     width: 70%;
     margin: auto;
 }
+
+.main
+{	
+	/* sticky footer */
+	overflow:auto;
+	padding-bottom: 30px;
+}
+
+#Form1
+{
+    min-height: 100%;
+    position: relative;
+}
+
+#footer
+{      
+    position: absolute;
+    bottom:0;
+    height:30px;    
+    width:100%;    
+    clear: both;
+    	
+	border-top: 1px solid #ddd;
+	background: url('../images/bg.gif') repeat-x;
+}
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;
+}
+
+#content 
+{    
+	width: 970px; 
+	margin: auto;
+}

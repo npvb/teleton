@@ -14,13 +14,15 @@
             <div class="loginDisplay">
                 <p id="top"> Proyecto Teleton 2011 </p>
                 <div id="logo"> 
-                <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="False" 
-                        Height="120px" ImageUrl="~/images/teletonLogoSolid3.png" 
-                        PostBackUrl="~/Default.aspx" Width="90px" onclick="ImageButton1_Click" /> 
-			    <a href="~/Default.aspx"></a> 
-		    </div>
-            </div>		    
+                    <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="False" 
+                            Height="120px" ImageUrl="~/images/teletonLogoSolid3.png" 
+                            PostBackUrl="~/Default.aspx" Width="90px" onclick="ImageButton1_Click" /> 
+			        <a href="~/Default.aspx"></a> 
+		        </div>
+            </div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         </div>
+        <div class="clear"></div>
         <div class="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>

@@ -15,8 +15,9 @@ public partial class Seguimiento_Paciente_Quicksearch : System.Web.UI.Page
     {
         try
         {
+            SetFocus(searchBtn);
             if (!IsPostBack)
-            {
+            {                
                 Security sec = new Security();
                 centrosPermitidos.DataSource = sec.getCentrosPermitidos(Session["nombre_usuario"].ToString());
                 centrosPermitidos.DataBind();
@@ -47,17 +48,23 @@ public partial class Seguimiento_Paciente_Quicksearch : System.Web.UI.Page
     {
         try
         {
-            Security sec = new Security();
-            long centroSel = sec.getCentroId(centrosPermitidos.Text);
+            this.Validate();
 
-            GridView1.DataSource = sp.BusquedaRapida(nombres_TB.Text, primerApellido_TB.Text, segundoApellido_TB.Text, cedula_TB.Text, centroSel);
-            GridView1.DataBind();
+
+            if (this.IsValid)
+            {
+                Security sec = new Security();
+                long centroSel = sec.getCentroId(centrosPermitidos.Text);
+
+                GridView1.DataSource = sp.BusquedaRapida(nombres_TB.Text, primerApellido_TB.Text, segundoApellido_TB.Text, cedula_TB.Text, centroSel);
+                GridView1.DataBind();
+            }
         }
         catch (Exception ex)
         {
             Response.Write("<script>alert('Seguimiento_Pacientes_Quicksearch.aspx.cs / acceptBtn_Click: " + ex.ToString() + "')</script>");
         }
-    }    
+    }
     
     protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
     {
