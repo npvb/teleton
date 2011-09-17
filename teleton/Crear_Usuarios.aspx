@@ -33,6 +33,20 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="**Ingrese Contraseña" 
                                 ControlToValidate="txt_password"></asp:RequiredFieldValidator>
                         </li>
+                        <li class="field">
+                            <asp:Label ID="Label5" runat="server" CssClass="label" Text="Contraseña"></asp:Label>
+                            <asp:TextBox ID="txt_password0" runat="server" Enable="false" TabIndex="1" 
+                                CssClass="txtbx_Empleado" TextMode="Password" ></asp:TextBox>
+                            <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                                ControlToCompare="txt_password" ControlToValidate="txt_password0" 
+                                ErrorMessage="Escriba nuevamente la contraseña" ForeColor="#FF3300"></asp:CompareValidator>
+                        </li>
+                        <li class="field">
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                                ControlToValidate="txt_password" 
+                                ErrorMessage="La contraseña debe ser mayor a 6 digitos y contener letras y numero (a-z y 0-9)" 
+                                ForeColor="#FF3300" ValidationExpression="^[a-z,A-Z,0-9]{6}[a-z,A-Z,0-9]*"></asp:RegularExpressionValidator>
+                        </li>
                     </ul>
                 </fieldset>
             </div>            
