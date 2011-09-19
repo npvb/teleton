@@ -308,8 +308,7 @@ fieldset
   margin: auto;
   background-color:white;
   color:black;
-  border:1px solid gray;
-    
+  border:1px solid gray;    
 }
 th
 {
@@ -343,7 +342,7 @@ text-align:center;
 
 .cmbpatologias
 {
-    Height: 17px; 
+    Height: 23px; 
     Width: 20%;
  }
     

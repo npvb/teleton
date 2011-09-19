@@ -82,16 +82,28 @@
              Text="**Fecha Inicial Mayor que la Fecha Final" Visible="False" 
              ForeColor="Red"></asp:Label>
                         <div id="separar">
-                            <asp:GridView ID="GridViewSegPac" CssClass="Grid" 
-                                emptydatatext="No Hay Pacientes Registrados el Dia de Hoy." runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" AllowPaging ="true" onpageindexchanging="GridViewSegPac_PageIndexChanging"> <pagerstyle backcolor="ControlLight"/>
+                           <asp:GridView ID="GridViewSegPac" CssClass="Grid" 
+                                emptydatatext="No Hay Pacientes Registrados el Dia de Hoy." runat="server" 
+                                AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" AllowPaging ="True" 
+                                PageSize="8" onpageindexchanging="GridViewSegPac_PageIndexChanging1">      
+                                
+                                <pagersettings mode="Numeric"
+                                    position="Bottom" 
+                                    Visible="True"
+                                               
+                                    />      
+                                
+                                <pagerstyle backcolor="ControlLight"/>
                                 <Columns>
-                                    <asp:TemplateField HeaderText="Fecha" SortExpression="fecha">
+                                    <asp:TemplateField HeaderText="Fecha" SortExpression="fecha" FooterStyle-HorizontalAlign="NotSet">
                                         <EditItemTemplate>
                                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("fecha") %>'></asp:TextBox>
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:Label ID="Label6" runat="server" Text='<%# Bind("fecha") %>'></asp:Label>
                                         </ItemTemplate>
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Expediente" SortExpression="expediente">
                                         <EditItemTemplate>
@@ -100,6 +112,26 @@
                                         <ItemTemplate>
                                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("expediente") %>'></asp:Label>
                                         </ItemTemplate>
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Nombre" SortExpression="nombres">
+                                        <EditItemTemplate>
+                                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("nombres")%>'></asp:TextBox>
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("nombres")%>'></asp:Label>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Center" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Apellido">
+                                        <EditItemTemplate>
+                                            <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("primer_apellido")%>'></asp:TextBox>
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("primer_apellido")%>'></asp:Label>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Patologia" SortExpression="id_diagnostico">
                                         <EditItemTemplate>
@@ -108,6 +140,8 @@
                                         <ItemTemplate>
                                             <asp:Label ID="Label5" runat="server" Text='<%# Bind("id_diagnostico") %>'></asp:Label>
                                         </ItemTemplate>
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Evaluador" SortExpression="evaluador">
                                         <EditItemTemplate>
@@ -116,6 +150,8 @@
                                         <ItemTemplate>
                                             <asp:Label ID="Label3" runat="server" Text='<%# Bind("evaluador") %>'></asp:Label>
                                         </ItemTemplate>
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Observacion" SortExpression="observacion">
                                         <EditItemTemplate>
@@ -124,6 +160,8 @@
                                         <ItemTemplate>
                                             <asp:Label ID="Label4" runat="server" Text='<%# Bind("notas") %>'></asp:Label>
                                         </ItemTemplate>
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>

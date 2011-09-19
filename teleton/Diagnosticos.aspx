@@ -21,47 +21,48 @@
            
 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                ControlToValidate="diagnostico_txt" ErrorMessage="Ingrese la patologia" 
+                ControlToValidate="diagnostico_txt" ErrorMessage="**Ingrese la patologia" 
                 ForeColor="Red"></asp:RequiredFieldValidator>
-
-           
-
-            <asp:Button ID="Button1" CssClass= "boton" runat="server" Text="Guardar" 
+     <asp:Button ID="Button1" CssClass= "boton" runat="server" Text="Guardar" 
                 onclick="Button1_Click" />
-
-           
-
-            <asp:GridView ID="GridView1" CssClass="Grid" runat="server" 
+         <asp:GridView ID="GridView1" CssClass="Grid" runat="server" 
                 AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="EntityDataSource1" 
-                Width="322px">
+                 AllowPaging="True" onpageindexchanging="GridView1_PageIndexChanging"> <pagerstyle backcolor="ControlLight"/>
                 <Columns>                   
                     <asp:TemplateField ShowHeader="False">
                         <EditItemTemplate>
                             <asp:ImageButton ID="Refresh" runat="server" CausesValidation="False" 
-                                CommandName="Update" ImageUrl="~/images/Refresh-32.png" Text="" />
+                                CommandName="Update" ImageUrl="~/images/update.png" Text="" />
                             <asp:ImageButton ID="Cancel" runat="server" CausesValidation="False" 
-                                CommandName="Cancel" ImageUrl="~/images/button_cancel-32.png" Text="" />
+                                CommandName="Cancel" ImageUrl="~/images/cancel_2.png" Text="Cancelar" />
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:ImageButton ID="Edit" runat="server" CausesValidation="False" 
-                                CommandName="Edit" ImageUrl="~/images/Edit-32.png" Text="" />
+                                CommandName="Edit" ImageUrl="~/images/edit.jpg" Text="" />
                         </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
                             <asp:ImageButton ID="Delete" runat="server" CausesValidation="False" 
-                                CommandName="Delete" ImageUrl="~/images/delete-32.png" Text="" />
+                                CommandName="Delete" ImageUrl="~/images/Red-Delete.png" Text="" />
                             
                             <asp:ConfirmButtonExtender ID="WinError" 
                             runat="server" TargetControlID="Delete"
                             ConfirmText="Esta seguro que desea eliminar el registro" ></asp:ConfirmButtonExtender>
                         </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
                                      
                     <asp:BoundField DataField="id" HeaderText="Id" ReadOnly="True" 
-                        SortExpression="id" />
+                        SortExpression="id" >
+                    <HeaderStyle HorizontalAlign="Center"  Width="20px" />
+                    <ItemStyle HorizontalAlign="Center" Width="20px" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="diagnostico1" HeaderText="Nom. Patologia" 
-                        SortExpression="diagnostico1" />
+                        SortExpression="diagnostico1" >
+                    <ItemStyle HorizontalAlign="Center" />
+                    </asp:BoundField>
                 </Columns>
             </asp:GridView>
 
