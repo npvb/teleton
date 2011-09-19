@@ -77,5 +77,18 @@ public partial class Diagnosticos : System.Web.UI.Page
         }
     }
 
-  
+
+    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            
+        }
+        catch (Exception err)
+        {
+            Response.Write("<script>alert('Diagnosticos.aspx.cs/PageIndexChanging: " + err.ToString() + "')</script>");
+
+        }
+    }
 }

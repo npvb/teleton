@@ -39,9 +39,6 @@
                             <asp:MenuItem Text="Consultar Expediente" Value="Consultar Expediente"
                                 NavigateUrl="~/Buscar_Expediente.aspx"></asp:MenuItem>
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Citas" Value="Administrar Expedientes">
-                            <asp:MenuItem Text="Crear Citas" Value="New Item"></asp:MenuItem>
-                        </asp:MenuItem>
                         <asp:MenuItem Text="Roles" Value="Roles">
                             <asp:MenuItem Text="Crear Roles" Value="New Item" 
                                     NavigateUrl="~/Crear_Roles.aspx"></asp:MenuItem>
@@ -73,9 +70,11 @@
                         <asp:MenuItem Text="Patologias" Value="Patologias">
                             <asp:MenuItem Text="Mant. Patologias" Value="Mant. Patologias" 
                                     NavigateUrl="~/Diagnosticos.aspx"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Seguimiento_Pacientes.aspx" Text="New Item" 
-                                Value="New Item"></asp:MenuItem>                            
                         </asp:MenuItem>                        
+                        <asp:MenuItem Text="Seg. Pacientes" Value="Seg. Pacientes">
+                            <asp:MenuItem Text="Seg. Pacientes" Value="Seg.Pacientes" 
+                                NavigateUrl="~/Seguimiento_Pacientes.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
                     </Items>
                 </asp:Menu>		   
             </div>

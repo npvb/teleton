@@ -58,13 +58,15 @@ namespace BL
             return Diag;
         }
 
-        public IQueryable RetrievePacientesDiario() //Retorna un dataset de evoluciones
+        public IQueryable RetrievePacientesDiario(int centroid) //Retorna un dataset de evoluciones
         {
             DateTime d = DateTime.Parse(fecha);
 
             var query = from p in entities.evoluciones
-                        where p.fecha.Year == d.Year && p.fecha.Month == d.Month && p.fecha.Day == d.Day
-                        select new { p.fecha, p.expediente, p.id_diagnostico, p.evaluador, p.notas };
+                        join e in entities.pacientes
+                        on p.expediente equals e.expediente
+                        where p.fecha.Year == d.Year && p.fecha.Month == d.Month && p.fecha.Day == d.Day && p.prefijo==centroid
+                        select new { p.fecha, p.expediente, p.id_diagnostico, p.evaluador, p.notas, e.nombres, e.primer_apellido };
 
             return query;
         }
@@ -122,16 +124,53 @@ namespace BL
             }
         }
 
-        public IQueryable BusquedaporRangoFecha(DateTime fechainit, DateTime fechafin)
+        public IQueryable BusquedaporRangoFecha(DateTime fechainit, DateTime fechafin,int centroid)
         {
 
             var query = from p in entities.evoluciones
+                        join e in entities.pacientes
+                        on p.expediente equals e.expediente
                         where p.fecha.Year >= fechainit.Year && p.fecha.Month >= fechainit.Month && p.fecha.Day >= fechainit.Day &&
-                              p.fecha.Year <= fechafin.Year && p.fecha.Month <= fechafin.Month && p.fecha.Day <= fechafin.Day
-                        select new { p.fecha, p.expediente, p.id_diagnostico, p.evaluador, p.notas };
+                              p.fecha.Year <= fechafin.Year && p.fecha.Month <= fechafin.Month && p.fecha.Day <= fechafin.Day && p.prefijo==centroid 
+                        select new { p.fecha, p.expediente, p.id_diagnostico, p.evaluador, p.notas,e.nombres,e.primer_apellido };
 
             return query;
 
+        }
+
+        public bool VerificarPacientes(string numexpediente) {
+            try {
+
+                bool found;
+                long numexp = Convert.ToInt64(numexpediente);
+                var query = from p in entities.pacientes
+                            where p.expediente == numexp
+                            select p.nombres;
+
+                if (!query.Any())
+                {
+                    found = false;
+                }
+                else {
+                    found = true;
+                }
+                return found;  
+               
+            }catch(Exception ex){
+                throw new Exception(ex.ToString());
+            
+            }
+        }
+
+        public int VerificarExpPorCentro(int numexp) {
+
+            long numexpe = Convert.ToInt64(numexp);
+            var query = from p in entities.pacientes
+                        where p.expediente == numexpe
+                        select p.centro_actual;
+
+            int centroactual = Convert.ToInt32(query.First().ToString());
+            return centroactual;
         }
 
         public void GuardarSeguimientoPacientes(int id, int prefix, int numexp, string doctor, string patologia, string observacion)
