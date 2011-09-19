@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
    
-<div id = "content3">
+<div id = "content">
     <div id="titulo">
         <h1>Mantenimiento de Patologias</h1>
     </div> 

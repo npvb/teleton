@@ -5,11 +5,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-        <div id = "content">
-            <div id="titulo">
-                <h1>Ingreso de Usuarios</h1>
-            </div>
-            <div id = "navcenter">
+    <div id = "content">
+        <div id="titulo">
+            <h1>Ingreso de Usuarios</h1>
+        </div>
+        <div id = "navcenter">
                 <fieldset>
                     <ul class = "list">
                         <li class="field">

@@ -211,6 +211,13 @@ fieldset
 {
 }
 
+/*Eliminar Usuarios
+--------------------------------------------------------*/
+.cmb_usuarios
+{
+    width: 60%;
+}
+
 /*
 --------------------------- MENUS DE USUARIOS
 */

@@ -187,27 +187,45 @@ namespace BL
         }
 
 
+        public List<string> RetrieveUserNames()
+        {
+            try
+            {
+                List<string> usrs = new List<string>();
 
+                var users = from u in entities.usuarios
+                            select u;
 
+                foreach (usuario u in users)
+                    usrs.Add(u.username);
 
+                return usrs;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --Usuario.cs / RetrieveUserNames()");
+            }
+        }
 
+        public void EliminarUsuario(string username)
+        {
+            try
+            {
+                var user = (from u in entities.usuarios
+                           where u.username == username
+                           select u).First();
 
-
-
-
-
-
-
-
-
-
-
-
+                entities.DeleteObject(user);
+                entities.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString() + " --Usuario.cs / EliminarUsuario()");
+            }
+        }
 
 
         #endregion
-
-
 
     }
 

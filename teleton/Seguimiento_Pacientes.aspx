@@ -19,7 +19,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-  
+    <div id = "content">
         <ContentTemplate>
             <div id="content3">
                 <div id = "titulo">
@@ -170,6 +170,6 @@
                 </div>
             </div>
         </ContentTemplate>
-    
+    </div>    
  </asp:Content>
 

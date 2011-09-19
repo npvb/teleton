@@ -30,7 +30,7 @@
                     <li class = "field">
                         <div id="perActs">
                                 <asp:Label ID="Label2" runat="server" Text="Permisos Actuales:"></asp:Label>
-                                <asp:Panel ID="Panel1" CssClass="panelRoles2" runat="server" ScrollBars="Auto">                                    
+                                <asp:Panel ID="Panel1" CssClass="panelRoles2" runat="server" ScrollBars="Auto">
                                     <asp:CheckBoxList ID="permisos_CBList" runat="server" TabIndex="3"></asp:CheckBoxList>
                                 </asp:Panel>
                         </div>
