@@ -9,7 +9,7 @@
             var name = 'popUp';
             var appearence = 'dependent=yes,menubar=no,resizable=yes,' +
                                           'status=yes,toolbar=no,titlebar=no,' +
-                                          'left=5,width=1024px,height=600px';
+                                          'left=5,width=1000px,height=600px';
             var openWindow = window.open(popUrl, name, appearence);
             openWindow.focus();
         }
@@ -33,33 +33,39 @@
                 <div id="navcenter">
                     <fieldset id="Seguimiento">
                         <legend>Ingreso de Pacientes</legend>
-                        <asp:Label ID="LblNumExp" CssClass="labelD" runat="server" 
-                Text="Nº de Expediente:"></asp:Label>
-                        <asp:TextBox ID="txtnumexp" runat="server" CssClass="txtbx_labelD"></asp:TextBox>
-                        <asp:ImageButton ID="busqueda" CssClass="botonbusquedarapida" ImageUrl="~/images/Search.png" 
-                runat="server" CausesValidation="False" />
-                        &nbsp;<asp:Label ID="LblPat" CssClass="labelD" runat="server" Text="Patologia:"></asp:Label>
-                        <asp:DropDownList ID="cmb_patologias" CssClass="cmbpatologias" runat="server">
-                        </asp:DropDownList>
-                        <asp:Label ID="lbobser" CssClass="labelD" runat="server" Text="Observacion:"></asp:Label>
-                        <asp:TextBox ID="txtobser" runat="server" CssClass="txtbx_labelD"></asp:TextBox>
-                        <asp:Button ID="btnguardarseguimiento" CssClass="boton" runat="server" 
-                Text="Guardar" onclick="btnguardarseguimiento_Click" />
-                <asp:ConfirmButtonExtender ID="GuardarConfirmation" 
-                            runat="server" TargetControlID="btnguardarseguimiento"
-                            ConfirmText="Esta Seguro Que Desea Guardar la Informacion?" >
-                        </asp:ConfirmButtonExtender>
-                       
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                ControlToValidate="txtnumexp" ErrorMessage="**Debe Ingresar Nº Exp" 
-                Font-Bold="True" ForeColor="#FF3300"></asp:RequiredFieldValidator>
-                        <br />
-                        <asp:Label ID="Label8" CssClass="labelD" runat="server" Text="Nombre Paciente: "></asp:Label>
-                        <asp:TextBox ID="txtnombrepac" runat="server" AutoPostBack="True" 
-                            CssClass="txtbx_labelD" oninit="TextBox8_Init"></asp:TextBox>
-                            <asp:Label ID="Label9" CssClass="labelD" runat="server" Text="Numero de Identidad: "></asp:Label>
-                        <asp:TextBox ID="txtnumced" runat="server" AutoPostBack="True" 
-                            CssClass="txtbx_labelD" oninit="TextBox8_Init"></asp:TextBox>
+                        <ul class = "list">
+                            <li class = "field">
+                                <asp:Label ID="LblNumExp" CssClass="labelD" runat="server" Text="Nº de Expediente:"></asp:Label>
+                                <asp:TextBox ID="txtnumexp" runat="server" CssClass="txtbx_labelD"></asp:TextBox>                               
+                                <asp:FilteredTextBoxExtender ID="txtnumexp_FilteredTextBoxExtender" 
+                                    runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtnumexp">
+                                </asp:FilteredTextBoxExtender>
+                                <asp:ImageButton ID="busqueda" CssClass="botonbusquedarapida" ImageUrl="~/images/Search.png" 
+                                        runat="server" CausesValidation="False" />
+                                &nbsp;
+                                <asp:Label ID="LblPat" CssClass="labelD" runat="server" Text="Patologia:"></asp:Label>
+                                <asp:DropDownList ID="cmb_patologias" CssClass="cmbpatologias" runat="server">
+                                        </asp:DropDownList>
+                                <asp:Label ID="lbobser" CssClass="labelD" runat="server" Text="Observacion:"></asp:Label>
+                                <asp:TextBox ID="txtobser" runat="server" CssClass="txtbx_labelD"></asp:TextBox>
+                                <asp:Button ID="btnguardarseguimiento" CssClass="boton" runat="server" 
+                                        Text="Guardar" onclick="btnguardarseguimiento_Click" />
+                                <asp:ConfirmButtonExtender ID="GuardarConfirmation" runat="server" TargetControlID="btnguardarseguimiento"
+                                        ConfirmText="Esta Seguro Que Desea Guardar la Informacion?" ></asp:ConfirmButtonExtender>
+                            </li>
+                            <li class = "field">                       
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                                        ControlToValidate="txtnumexp" ErrorMessage="**Debe Ingresar Nº Exp" 
+                                        Font-Bold="True" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                                <br />
+                                <asp:Label ID="Label8" CssClass="labelD" runat="server" Text="Nombre Paciente: "></asp:Label>
+                                <asp:TextBox ID="txtnombrepac" runat="server" AutoPostBack="True" 
+                                    CssClass="txtbx_labelD" oninit="TextBox8_Init"></asp:TextBox>
+                                <asp:Label ID="Label9" CssClass="labelD" runat="server" Text="Numero de Identidad: "></asp:Label>
+                                <asp:TextBox ID="txtnumced" runat="server" AutoPostBack="True" 
+                                    CssClass="txtbx_labelD" oninit="TextBox8_Init"></asp:TextBox>
+                            </li>
+                        </ul>
                     </fieldset>
                     <fieldset id="RegistroDiario">
                         <legend>Listado de Pacientes</legend>
