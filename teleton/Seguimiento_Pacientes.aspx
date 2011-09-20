@@ -53,6 +53,13 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="txtnumexp" ErrorMessage="**Debe Ingresar Nº Exp" 
                 Font-Bold="True" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                        <br />
+                        <asp:Label ID="Label8" CssClass="labelD" runat="server" Text="Nombre Paciente: "></asp:Label>
+                        <asp:TextBox ID="txtnombrepac" runat="server" AutoPostBack="True" 
+                            CssClass="txtbx_labelD" oninit="TextBox8_Init"></asp:TextBox>
+                            <asp:Label ID="Label9" CssClass="labelD" runat="server" Text="Numero de Identidad: "></asp:Label>
+                        <asp:TextBox ID="txtnumced" runat="server" AutoPostBack="True" 
+                            CssClass="txtbx_labelD" oninit="TextBox8_Init"></asp:TextBox>
                     </fieldset>
                     <fieldset id="RegistroDiario">
                         <legend>Listado de Pacientes</legend>
