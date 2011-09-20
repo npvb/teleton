@@ -175,6 +175,31 @@ namespace BL
             return centroactual;
         }
 
+        public string NombrePaciente(string numexp) {
+
+            long numexpe = Convert.ToInt64(numexp);
+
+            var query = (from p in entities.pacientes
+                         where p.expediente == numexpe
+                         select p.nombres).First();
+
+            return query.ToString();
+        
+        }
+
+        public string NumIdentidad(string numexp)
+        {
+
+            long numexpe = Convert.ToInt64(numexp);
+
+            var query = (from p in entities.pacientes
+                         where p.expediente == numexpe
+                         select p.cedula).First();
+
+            return query.ToString();
+
+        }
+
         public void GuardarSeguimientoPacientes(int id, int prefix, int numexp, string doctor, string patologia, string observacion)
         {
 

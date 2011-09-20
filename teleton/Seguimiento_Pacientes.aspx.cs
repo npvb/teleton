@@ -42,13 +42,53 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
             if (!this.IsPostBack)
             {
                 InicializarSeguimientoPacientes();
+
+            }
+            else
+            {
+                var ctrlName = Request.Params[Page.postEventSourceID];
+                var args = Request.Params[Page.postEventArgumentID];
+
+                HandleCustomPostbackEvent(ctrlName, args);
+
             }
         }
+
         catch (Exception er)
         {
             Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
+
+    private void HandleCustomPostbackEvent(string ctrlName, string args)
+    {
+        try
+        {
+            if (ctrlName == txtnumexp.UniqueID && args == "OnBlur")
+            {
+                if (segPacientes.VerificarPacientes(txtnumexp.Text))
+                {
+                    txtnombrepac.Text = segPacientes.NombrePaciente(txtnumexp.Text);
+                    txtnumced.Text = segPacientes.NumIdentidad(txtnumexp.Text);
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Num de Expediente no ha sido Registrado')", true);
+                    txtnumexp.Text = "";                   
+                }
+            }
+            else
+            {
+                txtnombrepac.Text = "";
+                txtnumced.Text = "";
+            }
+
+        }
+        catch (Exception er)
+        {
+            Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
+        }
+}
 
     public void InicializarSeguimientoPacientes()
     {
@@ -59,6 +99,9 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         GridViewSegPac.DataSource = segPacientes.RetrievePacientesDiario(centroid);
         GridViewSegPac.DataBind();
         centroid = (int)long.Parse(Session["Centro_idNum"].ToString());
+        txtnombrepac.Enabled = false;
+        txtnumced.Enabled = false;
+        
     }
 
     public void LoadGrid()
@@ -158,7 +201,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
                         }
                     }
                     else {
-                        Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Num de Expediente no ha sido Registrado')", true);
+                       Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Num de Expediente no ha sido Registrado')", true);
                         txtnumexp.Text = "";                    
                     }
                 }
@@ -183,4 +226,13 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
 
         }
     }
+
+
+    protected void TextBox8_Init(object sender, EventArgs e)
+    {
+        var onBlurScript = Page.ClientScript.GetPostBackEventReference(txtnumexp, "OnBlur");
+        txtnumexp.Attributes.Add("onblur", onBlurScript);
+
+    }
+    
 }
