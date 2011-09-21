@@ -32,17 +32,9 @@ public partial class Seguimiento_Paciente_Quicksearch : System.Web.UI.Page
     protected void cleanBtn_Click(object sender, EventArgs e)
     {
         nombres_TB.Text = primerApellido_TB.Text = segundoApellido_TB.Text = cedula_TB.Text = "";
-    }
-
-    protected void acceptBtn_Click(object sender, EventArgs e)
-    {
-        if (GridView1.SelectedIndex >= 0)
-        {
-            Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('" + GridView1.SelectedRow.Cells[5].Text + "')", true);            
-        }
-        else
-            Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert(' Debe Elegir un paciente de la tabla. ')", true);
-    }
+        GridView1.DataSource = null;
+        GridView1.DataBind();
+    }    
 
     protected void searchBtn_Click(object sender, EventArgs e)
     {

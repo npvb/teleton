@@ -66,6 +66,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         {
             if (ctrlName == txtnumexp.UniqueID && args == "OnBlur")
             {
+                if (txtnumexp.Text == "") return;
                 if (segPacientes.VerificarPacientes(txtnumexp.Text))
                 {
                     txtnombrepac.Text = segPacientes.NombrePaciente(txtnumexp.Text);
@@ -74,7 +75,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
                 else
                 {
                     Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Num de Expediente no ha sido Registrado')", true);
-                    txtnumexp.Text = "";                   
+                    txtnumced.Text = txtnombrepac.Text = txtnumexp.Text = "";
                 }
             }
             else
@@ -87,6 +88,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         catch (Exception er)
         {
             Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
+            //Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')", true);
         }
 }
 

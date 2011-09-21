@@ -144,10 +144,14 @@ namespace BL
             try {
 
                 bool found;
+                //long numexp = Int64.Parse(numexpediente);
                 long numexp = Convert.ToInt64(numexpediente);
-                var query = from p in entities.pacientes
+                int x = 0;
+                var query = (from p in entities.pacientes
                             where p.expediente == numexp
-                            select p.nombres;
+                            select p.nombres);
+
+                int x2 = 0;
 
                 if (!query.Any())
                 {
