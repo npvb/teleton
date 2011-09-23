@@ -30,7 +30,7 @@ public partial class Crear_Paciente : System.Web.UI.Page
         {
             //Si no tiene permiso redireccionamos
             //Response.Write("<script>alert('Usted no posee permisos suficientes para accesar a este recurso')</script>");
-            Response.Redirect("Default.aspx");
+            Response.Redirect("NoAccess.aspx");
         }
 
         if (Request.QueryString["sender"] == "new")
@@ -38,7 +38,7 @@ public partial class Crear_Paciente : System.Web.UI.Page
         else
             txtExp.Enabled = true;
         long tmp = Int64.Parse(Session["Centro_idNum"].ToString());
-        txtExp.Text = center.getNext(tmp).ToString();
+        //txtExp.Text = center.getNext(tmp).ToString();
         if (!this.IsPostBack)
             cleanPage();
     }
@@ -60,6 +60,7 @@ public partial class Crear_Paciente : System.Web.UI.Page
         rdMasculino.Selected = true;
         ddEstado.SelectedIndex = 0;
         btnPrint.Enabled = false;
+        txtExp.Text = "";
     }
 
     protected void btIngresar_Click(object sender, EventArgs e)

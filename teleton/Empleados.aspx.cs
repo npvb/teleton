@@ -39,7 +39,7 @@ public partial class Empleados : System.Web.UI.Page
         {
             //Si no tiene permiso redireccionamos
             //Response.Write("<script>alert('Usted no posee permisos suficientes para accesar a este recurso')</script>");
-            Response.Redirect("Default.aspx");
+            Response.Redirect("NoAccess.aspx");
         }
         try
         {
