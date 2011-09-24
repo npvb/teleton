@@ -112,7 +112,8 @@ public partial class Crear_Paciente : System.Web.UI.Page
                 }
                 catch (Exception err)
                 {
-                    Response.Write("<script>alert('" + err.Message + "')</script>");
+                    Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
+                    //Response.Write("<script>alert('" + err.Message + "')</script>");
                 }
             }
         }

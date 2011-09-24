@@ -53,7 +53,8 @@ public partial class Crear_Permisos : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert(" + ex.ToString() + " --Crear_Permisos.aspx.cs / SaveButton_Click()"+")</script>");          
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
+            //Response.Write("<script>alert(" + ex.ToString() + " --Crear_Permisos.aspx.cs / SaveButton_Click()"+")</script>");          
         }
     }
     protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)

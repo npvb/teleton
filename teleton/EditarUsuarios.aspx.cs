@@ -42,8 +42,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('EditarUsuarios.aspx.cs: " + er.ToString() + "')</script>");
-
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('EditarUsuarios.aspx.cs: " + er.ToString() + "')</script>");
         }
 
     }
@@ -69,8 +69,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('EditarUsuarios.aspx.cs/btn_leftuserrol_Click: " + er.ToString() + "')</script>");
-
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('EditarUsuarios.aspx.cs/btn_leftuserrol_Click: " + er.ToString() + "')</script>");
         }
     }
 
@@ -89,7 +89,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('EditarUsuarios.aspx.cs/CargarRoles: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('EditarUsuarios.aspx.cs/CargarRoles: " + er.ToString() + "')</script>");
         }
     }
 
@@ -104,7 +105,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('EditarUsuarios.aspx.cs/CargarRolesUser: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('EditarUsuarios.aspx.cs/CargarRolesUser: " + er.ToString() + "')</script>");
         }
     }
 
@@ -120,7 +122,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('EditarUsuarios.aspx.cs/CargarRolesSys: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('EditarUsuarios.aspx.cs/CargarRolesSys: " + er.ToString() + "')</script>");
         }
     }
 
@@ -161,7 +164,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('EDitarUsuarios.aspx.cs/GuardarUsuario_Click: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('EDitarUsuarios.aspx.cs/GuardarUsuario_Click: " + er.ToString() + "')</script>");
         }
     }
 
@@ -190,7 +194,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('CrearUsuarios.aspx.cs/rightuserrol_Click: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('CrearUsuarios.aspx.cs/rightuserrol_Click: " + er.ToString() + "')</script>");
         }
     }
 

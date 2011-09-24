@@ -54,7 +54,8 @@ public partial class Empleados : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('Empleados.aspx.cs: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('Empleados.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
     protected void btn_save_Click(object sender, EventArgs e)
@@ -73,7 +74,8 @@ public partial class Empleados : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('Empleados.aspx.cs/btn_save_Click: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('Empleados.aspx.cs/btn_save_Click: " + er.ToString() + "')</script>");
         }
     }
 

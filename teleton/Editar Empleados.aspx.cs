@@ -42,7 +42,8 @@ public partial class Editar_Empleados : System.Web.UI.Page
                 cmb_puesto.DataBind();
             }
             }catch(Exception er){
-            Response.Write("<script>alert('Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
+                Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+                //Response.Write("<script>alert('Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
             }
         
         }
@@ -71,7 +72,8 @@ public partial class Editar_Empleados : System.Web.UI.Page
             }
        }
         catch (Exception er) {
-           Response.Write("<script>alert('Guardar_Click/Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('Guardar_Click/Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
 

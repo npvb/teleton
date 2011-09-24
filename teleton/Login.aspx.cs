@@ -26,7 +26,8 @@ public partial class Login : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert('" + ex.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert('" + ex.ToString() + "')</script>");
         }
     }
 
@@ -61,7 +62,8 @@ public partial class Login : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert('" + ex.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert('" + ex.ToString() + "')</script>");
         }
     }
     

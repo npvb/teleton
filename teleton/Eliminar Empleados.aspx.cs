@@ -40,7 +40,8 @@ public partial class Eliminar_Empleados : System.Web.UI.Page
             }
         
         }catch(Exception er){
-            Response.Write("<script>alert('Eliminar Empleados.aspx.cs: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('Eliminar Empleados.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
 
@@ -60,7 +61,8 @@ public partial class Eliminar_Empleados : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('Eliminar_Click/Eliminar Empleados.aspx.cs: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('Eliminar_Click/Eliminar Empleados.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
 }

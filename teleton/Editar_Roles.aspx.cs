@@ -49,7 +49,8 @@ public partial class Editar_Roles : System.Web.UI.Page
         } 
         catch (Exception ex)
         {
-            Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs /  Page_Load()" + ")</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs /  Page_Load()" + ")</script>");
         }
     }
 
@@ -61,7 +62,8 @@ public partial class Editar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs /  descripciones_DDList_SelectedIndexChanged()" + ")</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs /  descripciones_DDList_SelectedIndexChanged()" + ")</script>");
         }
 
     }
@@ -101,7 +103,8 @@ public partial class Editar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs / setCheckBoxes()" + ")</script>");            
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs / setCheckBoxes()" + ")</script>");            
         }
     }
 
@@ -153,7 +156,8 @@ public partial class Editar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs / acceptButton_Click()" + ")</script>");            
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs / acceptButton_Click()" + ")</script>");            
         }
     }
 }

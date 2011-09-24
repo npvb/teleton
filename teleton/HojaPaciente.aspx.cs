@@ -70,7 +70,8 @@ public partial class HojaPaciente : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert('" + ex.Message + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert('" + ex.Message + "')</script>");
         }
     }
 }

@@ -41,7 +41,8 @@ public partial class Eliminar_Permisos : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Permisos.aspx.cs / Page_Load()" + ")</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Permisos.aspx.cs / Page_Load()" + ")</script>");
         }
     }
 
@@ -76,7 +77,8 @@ public partial class Eliminar_Permisos : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Permisos.aspx.cs / acceptButton_Click()" + ")</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Permisos.aspx.cs / acceptButton_Click()" + ")</script>");
         }
     }
 
@@ -90,7 +92,8 @@ public partial class Eliminar_Permisos : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Permisos.aspx.cs / setCheckBoxes()" + ")</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Permisos.aspx.cs / setCheckBoxes()" + ")</script>");
         }
     }
 

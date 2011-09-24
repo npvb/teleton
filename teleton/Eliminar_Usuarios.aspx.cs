@@ -44,7 +44,8 @@ public partial class Eliminar_Usuarios : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert('Page_Load / Eliminar_Usuarios.aspx.cs: " + ex.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert('Page_Load / Eliminar_Usuarios.aspx.cs: " + ex.ToString() + "')</script>");
         }
     }
 
@@ -58,7 +59,8 @@ public partial class Eliminar_Usuarios : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert('getUsuarios() / Eliminar_Usuarios.aspx.cs: " + ex.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert('getUsuarios() / Eliminar_Usuarios.aspx.cs: " + ex.ToString() + "')</script>");
         }
     }
 
@@ -72,7 +74,8 @@ public partial class Eliminar_Usuarios : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Write("<script>alert(' btn_eliminar_Click / Eliminar_Usuarios.aspx.cs: " + ex.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            //Response.Write("<script>alert(' btn_eliminar_Click / Eliminar_Usuarios.aspx.cs: " + ex.ToString() + "')</script>");
         }
     }
 }

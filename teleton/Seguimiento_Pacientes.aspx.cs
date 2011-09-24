@@ -56,7 +56,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
 
         catch (Exception er)
         {
-            Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
 
@@ -87,7 +88,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
             //Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')", true);
         }
 }
@@ -132,7 +134,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
 
@@ -158,8 +161,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/Refrescar: " + er.ToString() + "')</script>");
-
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/Refrescar: " + er.ToString() + "')</script>");
         }
 
     }
@@ -211,7 +214,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/GuardarSeguimientoPaciente: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/GuardarSeguimientoPaciente: " + er.ToString() + "')</script>");
         }
     }
     
@@ -224,8 +228,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception err)
         {
-            Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/PageIndexChanging: " + err.ToString() + "')</script>");
-
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
+            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/PageIndexChanging: " + err.ToString() + "')</script>");
         }
     }
 

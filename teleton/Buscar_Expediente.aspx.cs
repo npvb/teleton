@@ -108,8 +108,10 @@ public partial class Buscar_Expediente : System.Web.UI.Page
                 Response.Write("<script>alert('El paciente que busca no existe')</script>");
             }
         }
-        catch (Exception)
+        catch (Exception err)
         {
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
+            //Response.Write("<script>alert('" + err.Message + "')</script>");
         }
 
 
@@ -151,8 +153,10 @@ public partial class Buscar_Expediente : System.Web.UI.Page
                 }
             }
         }
-        catch (Exception)
+        catch (Exception err)
         {
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message);
+            //Response.Write("<script>alert('" + err.Message + "')</script>");
         }
 
     }
@@ -177,8 +181,10 @@ public partial class Buscar_Expediente : System.Web.UI.Page
                 }
             }
         }
-        catch (Exception)
+        catch (Exception err)
         {
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
+            //Response.Write("<script>alert('" + err.Message + "')</script>");
         }
     }
     protected void btnCleanPage_Click(object sender, EventArgs e)
@@ -200,8 +206,10 @@ public partial class Buscar_Expediente : System.Web.UI.Page
                 Page.Header.Controls.Add(lctl);
             }
         }
-        catch (Exception)
+        catch (Exception err)
         {
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
+            //Response.Write("<script>alert('" + err.Message + "')</script>");
         }
     }
 }
