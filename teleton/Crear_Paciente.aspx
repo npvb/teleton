@@ -20,6 +20,8 @@
                     <li class="field">
                         <asp:Label ID="Label11" CssClass="label" runat="server" Text="Nº de Expediente:"></asp:Label>
                         <asp:TextBox ID="txtExp" runat="server" CssClass="tb_Permiso"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
+                            ControlToValidate="txtExp" ErrorMessage="*Campo Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label2" CssClass="label" runat="server" Text="Nº de Cédula:"></asp:Label>

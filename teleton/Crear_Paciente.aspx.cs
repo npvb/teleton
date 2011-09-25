@@ -32,15 +32,15 @@ public partial class Crear_Paciente : System.Web.UI.Page
             //Response.Write("<script>alert('Usted no posee permisos suficientes para accesar a este recurso')</script>");
             Response.Redirect("NoAccess.aspx");
         }
-
-        if (Request.QueryString["sender"] == "new")
-            txtExp.Enabled = false;
-        else
-            txtExp.Enabled = true;
-        long tmp = Int64.Parse(Session["Centro_idNum"].ToString());
-        //txtExp.Text = center.getNext(tmp).ToString();
         if (!this.IsPostBack)
             cleanPage();
+
+        if (Request.QueryString["sender"] == "new")
+        {
+            txtExp.Enabled = false;
+        }
+        else
+            txtExp.Enabled = true;
     }
 
     private void cleanPage()
@@ -61,6 +61,11 @@ public partial class Crear_Paciente : System.Web.UI.Page
         ddEstado.SelectedIndex = 0;
         btnPrint.Enabled = false;
         txtExp.Text = "";
+        if (Request.QueryString["sender"] == "new")
+        {
+            long tmp = Int64.Parse(Session["Centro_idNum"].ToString());
+            txtExp.Text = center.getNext(tmp).ToString();
+        }
     }
 
     protected void btIngresar_Click(object sender, EventArgs e)
@@ -97,7 +102,7 @@ public partial class Crear_Paciente : System.Web.UI.Page
                     if (!pac.exist(Int32.Parse(Session["Centro_idNum"].ToString()), exped))
                     {
                         pac.guardarPaciente();
-                        Session["expediente"] = pac.Expediente;
+                        //Session["expediente"] = pac.Expediente;
                         //TODO: revisar esto de los mensajes
                         //Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('La data del paciente ha sido guardada exitosamente con expediente:"+ _paciente.Expediente+ " ')", true);
                         Response.Write("<script>alert('La data del paciente ha sido guardada exitosamente con expediente: " + txtExp.Text + "')</script>");
