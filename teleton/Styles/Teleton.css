@@ -324,6 +324,7 @@ border-collapse:collapse;
 color:white;
 border: 2px solid black;
 text-align:center;
+width:90px;
 
 }
     
@@ -371,6 +372,12 @@ text-align:center;
     border: thin grooved #000000;
  }
 
+.panelRolesSeg
+{
+    height: 200px;
+    width: 700px;
+    margin: auto;
+}
 /*---------------Busqueda Rapida seguimiento pacientes*/
 
 

@@ -102,6 +102,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         txtdatefini.Text = segPacientes.GetFecha();
         GridViewSegPac.DataSource = segPacientes.RetrievePacientesDiario(centroid);
         GridViewSegPac.DataBind();
+        
         centroid = (int)long.Parse(Session["Centro_idNum"].ToString());
         txtnombrepac.Enabled = false;
         txtnumced.Enabled = false;
