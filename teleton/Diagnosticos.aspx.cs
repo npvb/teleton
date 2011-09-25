@@ -38,7 +38,7 @@ public partial class Diagnosticos : System.Web.UI.Page
             //cargarDiagnostico();
         } 
         }catch(Exception er){
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'),, true);
             //Response.Write("<script>alert('Patologias.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
@@ -52,7 +52,7 @@ public partial class Diagnosticos : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" +er.Message.Replace('\n', '-').Replace('\r','-'),, true);
             //Response.Write("<script>alert('Diagnosticos.aspx.cs/CargarDiagnosticos: " + er.ToString() + "')</script>");
         }
     }
@@ -73,7 +73,7 @@ public partial class Diagnosticos : System.Web.UI.Page
         }
         catch (Exception err)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r','-'),, true);
             //Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('ERROR')", true);
         }
     }
@@ -88,7 +88,7 @@ public partial class Diagnosticos : System.Web.UI.Page
         }
         catch (Exception err)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r','-'), true);
             //Response.Write("<script>alert('Diagnosticos.aspx.cs/PageIndexChanging: " + err.ToString() + "')</script>");
         }
     }

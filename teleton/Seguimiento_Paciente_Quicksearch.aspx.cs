@@ -25,7 +25,7 @@ public partial class Seguimiento_Paciente_Quicksearch : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
             //Response.Write("<script>alert('Seguimiento_Pacientes_Quicksearch.aspx.cs / Page_Load: " + ex.ToString() + "')</script>");
         }
     }
@@ -55,7 +55,7 @@ public partial class Seguimiento_Paciente_Quicksearch : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
             //Response.Write("<script>alert('Seguimiento_Pacientes_Quicksearch.aspx.cs / acceptBtn_Click: " + ex.ToString() + "')</script>");
         }
     }

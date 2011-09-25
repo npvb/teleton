@@ -42,7 +42,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
                 CargarRoles();
             }
         }catch(Exception er){
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'),, true);
             //Response.Write("<script>alert('CrearUsuarios.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
@@ -66,7 +66,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'),, true);
             //Response.Write("<script>alert('CrearUsuarios.aspx.cs/leftuserrolclick: " + er.ToString() + "')</script>");
         }
     }
@@ -79,7 +79,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception err)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r', '-'), true);
             //Response.Write("<script>alert('CrearUsuarios.aspx.cs/CargarEmpleados: " + er.ToString() + "')</script>");
         }
     
@@ -120,7 +120,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
             //Response.Write("<script>alert('CrearUsuarios.aspx.cs/rightuserrol_Click: " + er.ToString() + "')</script>");
         }
     }
@@ -146,7 +146,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
             }           
         }
         catch (Exception er) {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
             //Response.Write("<script>alert('CrearUsuarios.aspx.cs/GuardarUsuario_Click: " + er.ToString() + "')</script>");    
         }
     }

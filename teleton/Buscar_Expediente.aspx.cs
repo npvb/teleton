@@ -155,7 +155,7 @@ public partial class Buscar_Expediente : System.Web.UI.Page
         }
         catch (Exception err)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r','-'),);
             //Response.Write("<script>alert('" + err.Message + "')</script>");
         }
 
@@ -208,7 +208,7 @@ public partial class Buscar_Expediente : System.Web.UI.Page
         }
         catch (Exception err)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r','-') , true);
             //Response.Write("<script>alert('" + err.Message + "')</script>");
         }
     }

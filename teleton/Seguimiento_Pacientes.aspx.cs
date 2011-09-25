@@ -56,7 +56,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
 
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
             //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
@@ -88,41 +88,60 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
-            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
-            //Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')", true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+            
         }
 }
 
     public void InicializarSeguimientoPacientes()
     {
-        LBLDATE.Text = segPacientes.GetFecha();
-        CargarPatologias();
-        txtdateinit.Text = segPacientes.GetFecha();
-        txtdatefini.Text = segPacientes.GetFecha();
-        GridViewSegPac.DataSource = segPacientes.RetrievePacientesDiario(centroid);
-        GridViewSegPac.DataBind();
-        
-        centroid = (int)long.Parse(Session["Centro_idNum"].ToString());
-        txtnombrepac.Enabled = false;
-        txtnumced.Enabled = false;
+        try
+        {
+            LBLDATE.Text = segPacientes.GetFecha();
+            CargarPatologias();
+            txtdateinit.Text = segPacientes.GetFecha();
+            txtdatefini.Text = segPacientes.GetFecha();
+            GridViewSegPac.DataSource = segPacientes.RetrievePacientesDiario(centroid);
+            GridViewSegPac.DataBind();
+
+            centroid = (int)long.Parse(Session["Centro_idNum"].ToString());
+            txtnombrepac.Enabled = false;
+            txtnumced.Enabled = false;
+        }
+        catch (Exception er) {
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+        }
+
         
     }
 
     public void LoadGrid()
     {
-
-        GridViewSegPac.DataSource = segPacientes.RetrievePacientesDiario(centroid);
-        GridViewSegPac.DataBind();
+        try
+        {
+            GridViewSegPac.DataSource = segPacientes.RetrievePacientesDiario(centroid);
+            GridViewSegPac.DataBind();
+        }
+        catch (Exception er)
+        {
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+        }
     }
 
     public void LoadGridFiltrado()
     {
-        DateTime inicial = Convert.ToDateTime(txtdateinit.Text);
-        DateTime final = Convert.ToDateTime(txtdatefini.Text);
+        try
+        {
+            DateTime inicial = Convert.ToDateTime(txtdateinit.Text);
+            DateTime final = Convert.ToDateTime(txtdatefini.Text);
 
-        GridViewSegPac.DataSource = segPacientes.BusquedaporRangoFecha(inicial,final,centroid);
-        GridViewSegPac.DataBind();
+            GridViewSegPac.DataSource = segPacientes.BusquedaporRangoFecha(inicial, final, centroid);
+            GridViewSegPac.DataBind();
+        }
+        catch (Exception er)
+        {
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+        }
     }
 
     public void CargarPatologias()
@@ -135,8 +154,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
-            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
         }
     }
 
@@ -162,8 +180,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
-            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/Refrescar: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
         }
 
     }
@@ -215,8 +232,7 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
-            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/GuardarSeguimientoPaciente: " + er.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
         }
     }
     
@@ -227,18 +243,24 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
             GridViewSegPac.PageIndex = e.NewPageIndex;
             LoadGridFiltrado();
         }
-        catch (Exception err)
+        catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
-            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs/PageIndexChanging: " + err.ToString() + "')</script>");
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
         }
     }
 
 
     protected void TextBox8_Init(object sender, EventArgs e)
     {
-        var onBlurScript = Page.ClientScript.GetPostBackEventReference(txtnumexp, "OnBlur");
-        txtnumexp.Attributes.Add("onblur", onBlurScript);
+        try
+        {
+            var onBlurScript = Page.ClientScript.GetPostBackEventReference(txtnumexp, "OnBlur");
+            txtnumexp.Attributes.Add("onblur", onBlurScript);
+        }
+        catch (Exception er)
+        {
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+        }
 
     }
     

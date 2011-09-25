@@ -54,7 +54,7 @@ public partial class Empleados : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
             //Response.Write("<script>alert('Empleados.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
@@ -74,7 +74,7 @@ public partial class Empleados : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
             //Response.Write("<script>alert('Empleados.aspx.cs/btn_save_Click: " + er.ToString() + "')</script>");
         }
     }

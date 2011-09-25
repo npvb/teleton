@@ -26,7 +26,7 @@ public partial class Login : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
             //Response.Write("<script>alert('" + ex.ToString() + "')</script>");
         }
     }
@@ -56,13 +56,13 @@ public partial class Login : System.Web.UI.Page
                 }
                 else
                 {                    
-                    FailureText.Text = "Error al intentar loginearse!!!";                 
+                    FailureText.Text = "Password o Usuario Incorrecto";                 
                 }
             }
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
             //Response.Write("<script>alert('" + ex.ToString() + "')</script>");
         }
     }

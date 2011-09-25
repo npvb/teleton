@@ -20,12 +20,6 @@
                     <li class="field">
                         <asp:Label ID="Label11" CssClass="label" runat="server" Text="Nº de Expediente:"></asp:Label>
                         <asp:TextBox ID="txtExp" runat="server" CssClass="tb_Permiso"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                            ControlToValidate="txtExp" ErrorMessage="*Debe Ingresar un Número     " 
-                            ForeColor="Red" ValidationExpression="\d(\d)*"></asp:RegularExpressionValidator>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
-                                ErrorMessage="*Campo Requerido" ForeColor="Red" 
-                                ControlToValidate="txtExp" ></asp:RequiredFieldValidator>
                     </li>
                     <li class="field">
                         <asp:Label ID="Label2" CssClass="label" runat="server" Text="Nº de Cédula:"></asp:Label>
