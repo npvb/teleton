@@ -127,7 +127,7 @@ public partial class Crear_Paciente : System.Web.UI.Page
         long exp = long.Parse(Session["expediente"].ToString());
         int ca = (int)long.Parse(Session["Centro_idNum"].ToString());
         String pageArgs = String.Format("HojaPaciente.aspx?Expediente={0}&CentroActual={1}", exp,ca);
-        LiteralControl lctl = new LiteralControl("<script type=\"text/javascript\"> function init(){" + String.Format("window.open('{0}', 'Información del Paciente', 'width=1000, height=600');", pageArgs) + "} window.onload = init(); </script>");
+        LiteralControl lctl = new LiteralControl("<script type=\"text/javascript\"> function init(){" + String.Format("window.open('{0}', 'Información del Paciente', 'width=1000, height=600, scrollbars=yes');", pageArgs) + "} window.onload = init(); </script>");
         Page.Header.Controls.Add(lctl);
     }
 }

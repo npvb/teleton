@@ -77,7 +77,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
             cmb_empleados.DataSource = USER.RetrieveEmployees();
             cmb_empleados.DataBind();
         }
-        catch (Exception er)
+        catch (Exception err)
         {
             Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
             //Response.Write("<script>alert('CrearUsuarios.aspx.cs/CargarEmpleados: " + er.ToString() + "')</script>");

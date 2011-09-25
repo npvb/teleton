@@ -51,7 +51,7 @@ public partial class Crear_Permisos : System.Web.UI.Page
                 LimpiarPage();
             }
         }
-        catch (Exception ex)
+        catch (Exception err)
         {
             Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message, true);
             //Response.Write("<script>alert(" + ex.ToString() + " --Crear_Permisos.aspx.cs / SaveButton_Click()"+")</script>");          

@@ -234,13 +234,18 @@ namespace BL
 
                 centros = allcentros.ToList();
                 return centros;*/
-
+                
                 var query = (from u in entidad.usuarios
                           where u.username == username
                           select u).First();
 
+                
+
                 foreach (role rol in query.roles)
-                    centros.Add(rol.centro1.lugar);
+                {
+                    if(!centros.Contains(rol.centro1.lugar))
+                        centros.Add(rol.centro1.lugar);
+                }
 
                 return centros;
             }

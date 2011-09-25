@@ -202,7 +202,7 @@ public partial class Buscar_Expediente : System.Web.UI.Page
             if (pac.leerPaciente(CId, exp))
             {
                 String pageArgs = String.Format("HojaPaciente.aspx?Expediente={0}&CentroActual={1}", exp,CId);
-                LiteralControl lctl = new LiteralControl("<script type=\"text/javascript\"> function init(){" + String.Format("window.open('{0}', 'Información del Paciente', 'width=1000, height=600');", pageArgs) + "} window.onload = init(); </script>");
+                LiteralControl lctl = new LiteralControl("<script type=\"text/javascript\"> function init(){" + String.Format("window.open('{0}', 'Información del Paciente', 'width=1000, height=600, scrollbars=yes');", pageArgs) + "} window.onload = init(); </script>");
                 Page.Header.Controls.Add(lctl);
             }
         }
