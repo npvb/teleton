@@ -72,7 +72,7 @@ public partial class Editar_Empleados : System.Web.UI.Page
             }
        }
         catch (Exception er) {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'),, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
             //Response.Write("<script>alert('Guardar_Click/Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
         }
     }

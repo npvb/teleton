@@ -74,7 +74,7 @@ public partial class Eliminar_Usuarios : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r','-'),, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r','-'), true);
             //Response.Write("<script>alert(' btn_eliminar_Click / Eliminar_Usuarios.aspx.cs: " + ex.ToString() + "')</script>");
         }
     }

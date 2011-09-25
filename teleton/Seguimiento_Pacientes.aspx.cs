@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
+using System.Text;
+using System.IO;
 using BL;
 
 public partial class Seguimiento_Pacientes : System.Web.UI.Page
@@ -263,5 +266,33 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
 
     }
+
     
+    protected void btnexport_Click(object sender, EventArgs e)
+    {
+        StringBuilder sb = new StringBuilder();
+        StringWriter sw = new StringWriter(sb);
+        HtmlTextWriter htw = new HtmlTextWriter(sw);
+
+        Page page = new Page();
+        HtmlForm form = new HtmlForm();
+
+        GridViewSegPac.EnableViewState = false;
+
+        page.EnableEventValidation = false;
+        page.DesignerInitialize();
+        page.Controls.Add(form);
+        form.Controls.Add(GridViewSegPac);
+
+        page.RenderControl(htw);
+
+        Response.Clear();
+        Response.Buffer = true;
+        Response.ContentType = "text/HTML";
+        Response.AddHeader("Content-Disposition", "attachment;filename=DataSeguimientodePacientes.xls");
+        Response.Charset = "UTF-8";
+        Response.ContentEncoding = Encoding.Default;
+        Response.Write(sb.ToString());
+        Response.End();
+    }
 }

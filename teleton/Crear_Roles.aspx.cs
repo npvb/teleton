@@ -80,7 +80,7 @@ public partial class Crear_Roles : System.Web.UI.Page
         }
         catch (Exception err)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r','-'),, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r','-'), true);
             //Response.Write("<script>alert(" + ex.ToString() + " --Crear_Roles.aspx.cs /  acceptButton_Click()" + ")</script>");     
         }
     }

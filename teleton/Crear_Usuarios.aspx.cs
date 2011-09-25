@@ -42,7 +42,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
                 CargarRoles();
             }
         }catch(Exception er){
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'),, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
             //Response.Write("<script>alert('CrearUsuarios.aspx.cs: " + er.ToString() + "')</script>");
         }
     }
@@ -66,7 +66,7 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'),, true);
+            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
             //Response.Write("<script>alert('CrearUsuarios.aspx.cs/leftuserrolclick: " + er.ToString() + "')</script>");
         }
     }
