@@ -165,6 +165,43 @@ namespace BL
                }
 
            }
+
+
+           public List<String> obtenerNombresDoctores()
+           {
+               List<String> nombresDoctores;
+               //El codigo de doctor en la tabla de cargos
+               long longCodigoDoctores = 16;
+               try
+               {
+                   nombresDoctores = (from emp in entities.empleados
+                                      where emp.puesto  == longCodigoDoctores 
+                                      select (emp.nombres)).ToList<String>();
+                   return nombresDoctores;
+               }
+               catch (Exception ex)
+               {
+                   throw new Exception(ex.ToString() + "--Empleados.cs /obtenerNombresDoctores");
+               }
+           }
+
+           public List<String> obtenerNombresTerapeutas()
+           {
+               List<String> nombresTerapeutas;
+               //El codigo de doctor en la tabla de cargos
+               long longCodigoTerapeutas = 17;
+               try
+               {
+                   nombresTerapeutas = (from emp in entities.empleados
+                                      where emp.puesto == longCodigoTerapeutas
+                                      select (emp.nombres)).ToList<String>();
+                   return nombresTerapeutas;
+               }
+               catch (Exception ex)
+               {
+                   throw new Exception(ex.ToString() + "--Empleados.cs /obtenerNombresTerapeutas");
+               }
+           }
          #endregion
 
 
