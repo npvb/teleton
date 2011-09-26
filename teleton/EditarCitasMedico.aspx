@@ -10,7 +10,7 @@
         
             <div id="content3">
                 <div id = "titulo">
-                    <h1>Editar Citas Medico</h1>
+                    <h1>Calendario Citas Medico</h1>
 
                      <div id="navcenter">
                             <fieldset>  

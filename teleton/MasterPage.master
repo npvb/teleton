@@ -87,6 +87,8 @@
                             <asp:MenuItem Text="Citas Terapia" Value="Citas Terapia">
                                 <asp:MenuItem NavigateUrl="~/CrearCitasTerapia.aspx" Text="Programar Cita" 
                                     Value="Programar Cita"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/CalendarioCitas.aspx" Text="Calendario" 
+                                    Value="Calendario"></asp:MenuItem>
                             </asp:MenuItem>
                         </asp:MenuItem>
                     </Items>

@@ -116,5 +116,43 @@ namespace BL
                         select new { c.expediente, c.fecha_hora };
             return query;
         }
+
+        //Sobrecarga de Funciones para obtener la cita de terapia basados en distintos queries
+
+        public IQueryable ObtenerCitasTerapia(DateTime fecha, String nombreUsuario, int prefijo)
+        {
+            Usuarios user = new Usuarios();
+            String userName = user.RetrieveUserName(nombreUsuario);
+            try
+            {
+                var query = from citas in entities.citas_terapia
+                            where citas.fecha == fecha && citas.user == userName && citas.prefijo == prefijo
+                            select new { citas.id, citas.expediente, citas.prefijo, citas.user, citas.hora_inicio, citas.hora_final, citas.fecha, citas.atendido };
+
+                return query;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public IQueryable ObtenerCitasTerapia(DateTime fecha, String nombreUsuario, int prefijo, long expediente)
+        {
+            Usuarios user = new Usuarios();
+            String userName = user.RetrieveUserName(nombreUsuario);
+            try
+            {
+                var query = (from citas in entities.citas_terapia
+                             where citas.fecha == fecha && citas.user == userName && citas.prefijo == prefijo && citas.expediente == expediente
+                             select new { citas.id, citas.expediente, citas.prefijo, citas.user, citas.hora_inicio, citas.hora_final, citas.fecha, citas.atendido });
+
+                return query;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
