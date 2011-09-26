@@ -29,7 +29,7 @@ public partial class CrearCitasTerapia : System.Web.UI.Page
         if (!encontroPermiso)
         {
             //Si no tiene permiso redireccionamos
-            Response.Redirect("NoAccess.aspx");
+            //Response.Redirect("NoAccess.aspx");
         }
 
         try

@@ -30,7 +30,7 @@ public partial class CrearCitasMedicas : System.Web.UI.Page
         if (!encontroPermiso)
         {
             //Si no tiene permiso redireccionamos
-            Response.Redirect("NoAccess.aspx");
+            //Response.Redirect("NoAccess.aspx");
         }
 
         try
