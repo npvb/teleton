@@ -108,6 +108,13 @@ namespace BL
                 throw ex;
             }
         }
-        
+
+        public IQueryable getCitasMedicas(string username, DateTime fechai, DateTime fechaf)
+        {
+            var query = from c in entities.citas_doctor
+                        where c.fecha_hora > fechai && c.fecha_hora < fechaf && c.doctor_username == username
+                        select new { c.expediente, c.fecha_hora };
+            return query;
+        }
     }
 }
