@@ -63,8 +63,9 @@ public partial class Crear_Paciente : System.Web.UI.Page
         txtExp.Text = "";
         if (Request.QueryString["sender"] == "new")
         {
-            long tmp = Int64.Parse(Session["Centro_idNum"].ToString());
-            txtExp.Text = center.getNext(tmp).ToString();
+            //long tmp = Int64.Parse(Session["Centro_idNum"].ToString());
+            //txtExp.Text = center.getNext(tmp).ToString();
+            txtExp.Text = "0";
         }
     }
 
@@ -105,7 +106,9 @@ public partial class Crear_Paciente : System.Web.UI.Page
                         //Session["expediente"] = pac.Expediente;
                         //TODO: revisar esto de los mensajes
                         //Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('La data del paciente ha sido guardada exitosamente con expediente:"+ _paciente.Expediente+ " ')", true);
-                        Response.Write("<script>alert('La data del paciente ha sido guardada exitosamente con expediente: " + txtExp.Text + "')</script>");
+                        long temp = Int64.Parse(Session["Centro_idNum"].ToString());
+                        string strExp = center.getNext(temp).ToString();
+                        Response.Write("<script>alert('La data del paciente ha sido guardada exitosamente con expediente: " + strExp + "')</script>");
                         btnPrint.Enabled = true;
                         long tmp = Int64.Parse(Session["Centro_idNum"].ToString());
                         txtExp.Text = center.getNext(tmp).ToString();

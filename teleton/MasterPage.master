@@ -81,7 +81,8 @@
                             <asp:MenuItem Text="Citas Médicas" Value="Citas Médicas">
                                 <asp:MenuItem NavigateUrl="~/CrearCitasMedicas.aspx" Text="Programar Cita" 
                                     Value="Programar Cita"></asp:MenuItem>
-                                <asp:MenuItem Text="Editar Cita" Value="Editar Cita"></asp:MenuItem>
+                                <asp:MenuItem Text="Calendario Citas" Value="Editar Cita" 
+                                    NavigateUrl="~/EditarCitasMedico.aspx"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Citas Terapia" Value="Citas Terapia">
                                 <asp:MenuItem NavigateUrl="~/CrearCitasTerapia.aspx" Text="Programar Cita" 

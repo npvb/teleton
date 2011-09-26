@@ -39,21 +39,20 @@
    <asp:Panel ID="Panel1" CssClass="panelRolesSeg" runat="server" ScrollBars="Auto">
        <asp:GridView ID="GridViewCitas" emptydatatext="----No Hay Citas Registradas el Dia de Hoy.----" CssClass="Grid" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" AllowPaging ="True" PageSize="50">
            <Columns>
-               <asp:CommandField ShowEditButton="True" />
                <asp:TemplateField HeaderText="Num Expediente">
                    <EditItemTemplate>
-                       <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                       <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("expediente") %>'></asp:TextBox>
                    </EditItemTemplate>
                    <ItemTemplate>
-                       <asp:Label ID="Label1" runat="server"></asp:Label>
+                       <asp:Label ID="Label1" runat="server" Text='<%# Bind("expediente") %>'></asp:Label>
                    </ItemTemplate>
                </asp:TemplateField>
-               <asp:TemplateField HeaderText="Hora de Cita">
+               <asp:TemplateField HeaderText="Hora">
                    <EditItemTemplate>
-                       <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                       <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("fecha_hora") %>'></asp:TextBox>
                    </EditItemTemplate>
                    <ItemTemplate>
-                       <asp:Label ID="Label2" runat="server"></asp:Label>
+                       <asp:Label ID="Label2" runat="server" Text='<%# Bind("fecha_hora") %>'></asp:Label>
                    </ItemTemplate>
                </asp:TemplateField>
            </Columns>

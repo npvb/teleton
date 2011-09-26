@@ -12,7 +12,7 @@ public partial class EditarCitasMedico : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         List<String> listaPermisos = (List<String>)Session["Permisos_usuario"];
-        bool encontroPermiso = false;
+        bool encontroPermiso = true;//false;
         foreach (String strPermiso in listaPermisos)
         {
             if (strPermiso.Equals("pEditCitaM"))
