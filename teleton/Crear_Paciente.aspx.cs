@@ -107,13 +107,18 @@ public partial class Crear_Paciente : System.Web.UI.Page
                         long temp = Int64.Parse(Session["Centro_idNum"].ToString());
                         string strExp;
                         if (Request.QueryString["sender"] == "new")
-                            strExp = center.getNext(temp-1).ToString();
+                        {
+                            long nextP = center.getNext(temp);
+                            strExp = (nextP -1).ToString();
+
+                        }
                         else
                             strExp = txtExp.Text;
                         Response.Write("<script>alert('La data del paciente ha sido guardada exitosamente con expediente: " + strExp + "')</script>");
                         btnPrint.Enabled = true;
                         long tmp = Int64.Parse(Session["Centro_idNum"].ToString());
-                        txtExp.Text = center.getNext(tmp).ToString();
+                        Session["expediente"] = strExp;
+                        txtExp.Text = strExp;
                     }
                     else
                     {
