@@ -107,7 +107,11 @@ public partial class Crear_Paciente : System.Web.UI.Page
                         //TODO: revisar esto de los mensajes
                         //Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('La data del paciente ha sido guardada exitosamente con expediente:"+ _paciente.Expediente+ " ')", true);
                         long temp = Int64.Parse(Session["Centro_idNum"].ToString());
-                        string strExp = center.getNext(temp).ToString();
+                        string strExp;
+                        if (Request.QueryString["sender"] == "new")
+                            strExp = center.getNext(temp-1).ToString();
+                        else
+                            strExp = txtExp.Text;
                         Response.Write("<script>alert('La data del paciente ha sido guardada exitosamente con expediente: " + strExp + "')</script>");
                         btnPrint.Enabled = true;
                         long tmp = Int64.Parse(Session["Centro_idNum"].ToString());

@@ -73,7 +73,7 @@
              Text="Fecha Inicial:"></asp:Label>
                         <asp:TextBox ID="txtdateinit" runat="server" CssClass="txtbx_labelD"></asp:TextBox>
                         <asp:CalendarExtender ID="FechaIngresoExtender" runat="server" 
-                            TargetControlID="txtdateinit" Format="yyyy-MM-dd" 
+                            TargetControlID="txtdateinit" Format="m/dd/yyyy" 
              PopupButtonID="imgdateinit">
                         </asp:CalendarExtender>
                         <img alt="Icon" src="images/calendar_icon.jpg" class="calendar" 
@@ -84,7 +84,7 @@
              CssClass="txtbx_labelD"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender1" runat="server" 
                                         TargetControlID="txtdatefini" 
-             Format="yyyy-MM-dd" PopupButtonID="imgdatefini">
+             Format="m/dd/yyyy" PopupButtonID="imgdatefini">
                         </asp:CalendarExtender>
                         <img alt="Icon" src="images/calendar_icon.jpg" 
              class="calendar" id="imgdatefini" />
