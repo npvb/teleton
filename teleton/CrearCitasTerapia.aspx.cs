@@ -105,7 +105,7 @@ public partial class CrearCitasTerapia : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Session["Error_Msg"] = ex.Message;
+            Session["Error_Msg"] = "Ha ocurrido un error al intentar agregar la cita, compruebe el número de expediente";
             Response.Redirect("~/Error.aspx", true);
         }
     }
