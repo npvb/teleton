@@ -63,8 +63,6 @@ public partial class Crear_Paciente : System.Web.UI.Page
         txtExp.Text = "";
         if (Request.QueryString["sender"] == "new")
         {
-            //long tmp = Int64.Parse(Session["Centro_idNum"].ToString());
-            //txtExp.Text = center.getNext(tmp).ToString();
             txtExp.Text = "0";
         }
     }
@@ -124,8 +122,8 @@ public partial class Crear_Paciente : System.Web.UI.Page
                 }
                 catch (Exception err)
                 {
-                    Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r','-'), true);
-                    //Response.Write("<script>alert('" + err.Message + "')</script>");
+                    Session["Error_Msg"] = err.Message;
+                    Response.Redirect("~/Error.aspx", true);
                 }
             }
         }
@@ -134,6 +132,7 @@ public partial class Crear_Paciente : System.Web.UI.Page
     {
         cleanPage();
     }
+
     protected void btnPrint_Click(object sender, EventArgs e)
     {
         long exp = long.Parse(Session["expediente"].ToString());

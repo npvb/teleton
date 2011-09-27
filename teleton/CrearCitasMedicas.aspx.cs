@@ -44,7 +44,8 @@ public partial class CrearCitasMedicas : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -95,7 +96,8 @@ public partial class CrearCitasMedicas : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.InnerException.Message.Replace('\n',' '));
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
     protected void btnClean_Click(object sender, EventArgs e)

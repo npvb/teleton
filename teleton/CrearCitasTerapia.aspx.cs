@@ -43,7 +43,8 @@ public partial class CrearCitasTerapia : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message, true);
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -65,6 +66,7 @@ public partial class CrearCitasTerapia : System.Web.UI.Page
     {
         txtNumExpediente.Text = "";
         txtfecha.Text = "";
+        lblHora.Visible = false;
         timeSelectorHoraEmpieza.Hour = DateTime.Now.Hour;
         timeSelectorHoraEmpieza.Minute = DateTime.Now.Minute;
 
@@ -74,6 +76,12 @@ public partial class CrearCitasTerapia : System.Web.UI.Page
 
     protected void btIngresar_Click(object sender, EventArgs e)
     {
+        if (!validarHoras())
+        {
+            return;
+        }
+        
+
         TimeSpan horaCitaInicio = new TimeSpan(timeSelectorHoraEmpieza.Hour, timeSelectorHoraEmpieza.Minute, 0);
         TimeSpan horaCitaFinaliza = new TimeSpan(timeSelectorHoraTermina.Hour, timeSelectorHoraTermina.Minute, 0);
         DateTime fechaCita = DateTime.Parse(txtfecha.Text);
@@ -97,11 +105,27 @@ public partial class CrearCitasTerapia : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.InnerException.Message.Replace('\n', ' ') );
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
     protected void btnClean_Click(object sender, EventArgs e)
     {
         LimpiarControles();
+    }
+
+    private Boolean validarHoras()
+    {
+        if (timeSelectorHoraEmpieza.Hour > timeSelectorHoraTermina.Hour)
+        {
+            lblHora.Visible = true;
+            return false;
+        }
+        else
+        {
+            lblHora.Visible = false;
+            return true;
+
+        }
     }
 }

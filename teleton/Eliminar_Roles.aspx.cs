@@ -41,8 +41,8 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Roles.aspx.cs / Page_Load()" + ")</script>");
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
     protected void acceptButton_Click(object sender, EventArgs e)
@@ -78,8 +78,8 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Roles.aspx.cs / acceptButton_Click()" + ")</script>");
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -93,8 +93,8 @@ public partial class Eliminar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert(" + ex.ToString() + " --Eliminar Roles.aspx.cs / setCheckBoxes()" + ")</script>");
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 

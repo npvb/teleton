@@ -49,8 +49,8 @@ public partial class Editar_Roles : System.Web.UI.Page
         } 
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs /  Page_Load()" + ")</script>");
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -62,8 +62,8 @@ public partial class Editar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs /  descripciones_DDList_SelectedIndexChanged()" + ")</script>");
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
 
     }
@@ -103,8 +103,8 @@ public partial class Editar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs / setCheckBoxes()" + ")</script>");            
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);            
         }
     }
 
@@ -156,8 +156,8 @@ public partial class Editar_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert(" + ex.ToString() + " --Editar Roles.aspx.cs / acceptButton_Click()" + ")</script>");            
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);            
         }
     }
 }

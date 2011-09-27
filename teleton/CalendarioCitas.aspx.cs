@@ -43,7 +43,8 @@ public partial class EditarCitas : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n',' '), true);
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -93,7 +94,8 @@ public partial class EditarCitas : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("Error.aspx");
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
     protected void btnClean_Click(object sender, EventArgs e)

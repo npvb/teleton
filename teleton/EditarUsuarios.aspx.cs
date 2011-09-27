@@ -42,8 +42,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('EditarUsuarios.aspx.cs: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
 
     }
@@ -69,8 +69,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('EditarUsuarios.aspx.cs/btn_leftuserrol_Click: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -89,8 +89,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('EditarUsuarios.aspx.cs/CargarRoles: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -105,8 +105,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('EditarUsuarios.aspx.cs/CargarRolesUser: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -122,8 +122,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('EditarUsuarios.aspx.cs/CargarRolesSys: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -164,8 +164,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('EDitarUsuarios.aspx.cs/GuardarUsuario_Click: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -194,8 +194,8 @@ public partial class EditarUsuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('CrearUsuarios.aspx.cs/rightuserrol_Click: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 

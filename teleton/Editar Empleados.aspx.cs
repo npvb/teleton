@@ -42,8 +42,8 @@ public partial class Editar_Empleados : System.Web.UI.Page
                 cmb_puesto.DataBind();
             }
             }catch(Exception er){
-                Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-                //Response.Write("<script>alert('Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
+                Session["Error_Msg"] = er.Message;
+                Response.Redirect("~/Error.aspx", true);
             }
         
         }
@@ -72,8 +72,8 @@ public partial class Editar_Empleados : System.Web.UI.Page
             }
        }
         catch (Exception er) {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('Guardar_Click/Editar Empleados.aspx.cs: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 

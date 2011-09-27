@@ -59,8 +59,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
 
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert('SeguimientoPacientes.aspx.cs: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -91,7 +91,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
             
         }
 }
@@ -112,7 +113,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
             txtnumced.Enabled = false;
         }
         catch (Exception er) {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
 
         
@@ -127,7 +129,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -143,7 +146,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -157,7 +161,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -183,7 +188,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
 
     }
@@ -235,7 +241,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
     
@@ -248,7 +255,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -262,7 +270,8 @@ public partial class Seguimiento_Pacientes : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
 
     }

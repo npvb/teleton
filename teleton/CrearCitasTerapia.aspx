@@ -72,6 +72,10 @@
                             </tr>
                         </table>
                     </li>
+                    <li class="field">
+                        <asp:Label ID="lblHora" runat="server" ForeColor="Red" 
+                            Text="*Debe Ingresar una hora inicio menor que la hora final." Visible="False"></asp:Label>
+                    </li>
 
                  </ul>
               </fieldset>

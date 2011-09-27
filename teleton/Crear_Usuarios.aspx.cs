@@ -42,8 +42,8 @@ public partial class Crear_Usuarios : System.Web.UI.Page
                 CargarRoles();
             }
         }catch(Exception er){
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('CrearUsuarios.aspx.cs: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
     protected void btn_leftuserrol_Click(object sender, EventArgs e)
@@ -66,8 +66,8 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('CrearUsuarios.aspx.cs/leftuserrolclick: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -79,8 +79,8 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception err)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert('CrearUsuarios.aspx.cs/CargarEmpleados: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = err.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     
     }
@@ -95,8 +95,8 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message, true);
-            //Response.Write("<script>alert('CrearUsuarios.aspx.cs/CargarRoles: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -120,8 +120,8 @@ public partial class Crear_Usuarios : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert('CrearUsuarios.aspx.cs/rightuserrol_Click: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -146,8 +146,8 @@ public partial class Crear_Usuarios : System.Web.UI.Page
             }           
         }
         catch (Exception er) {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert('CrearUsuarios.aspx.cs/GuardarUsuario_Click: " + er.ToString() + "')</script>");    
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);    
         }
     }
 

@@ -40,8 +40,8 @@ public partial class Eliminar_Empleados : System.Web.UI.Page
             }
         
         }catch(Exception er){
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('Eliminar Empleados.aspx.cs: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -61,8 +61,8 @@ public partial class Eliminar_Empleados : System.Web.UI.Page
         }
         catch (Exception er)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + er.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert('Eliminar_Click/Eliminar Empleados.aspx.cs: " + er.ToString() + "')</script>");
+            Session["Error_Msg"] = er.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 }

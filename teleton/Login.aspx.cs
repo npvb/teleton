@@ -26,8 +26,8 @@ public partial class Login : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert('" + ex.ToString() + "')</script>");
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -62,8 +62,8 @@ public partial class Login : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            //Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert('" + ex.ToString() + "')</script>");
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
     

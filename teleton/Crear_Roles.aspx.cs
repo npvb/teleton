@@ -47,8 +47,8 @@ public partial class Crear_Roles : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + ex.Message.Replace('\n', '-').Replace('\r', '-'), true);
-            //Response.Write("<script>alert(" + ex.ToString() + " --Crear_Roles.aspx.cs /  Page_Load()" + ")</script>");
+            Session["Error_Msg"] = ex.Message;
+            Response.Redirect("~/Error.aspx", true);
         }
     }
 
@@ -80,8 +80,8 @@ public partial class Crear_Roles : System.Web.UI.Page
         }
         catch (Exception err)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert(" + ex.ToString() + " --Crear_Roles.aspx.cs /  acceptButton_Click()" + ")</script>");     
+            Session["Error_Msg"] = err.Message;
+            Response.Redirect("~/Error.aspx", true);     
         }
     }
 

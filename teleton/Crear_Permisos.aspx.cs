@@ -53,8 +53,8 @@ public partial class Crear_Permisos : System.Web.UI.Page
         }
         catch (Exception err)
         {
-            Response.Redirect("~/Error.aspx?ErrMsg=" + err.Message.Replace('\n', '-').Replace('\r','-'), true);
-            //Response.Write("<script>alert(" + ex.ToString() + " --Crear_Permisos.aspx.cs / SaveButton_Click()"+")</script>");          
+            Session["Error_Msg"] = err.Message;
+            Response.Redirect("~/Error.aspx", true);        
         }
     }
     protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
